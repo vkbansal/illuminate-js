@@ -1,0 +1,19 @@
+{
+  "name": "illuminate-js",
+  "version": "0.0.0",
+  "description": "Syntax Highlighting for NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vkbansal/illuminate-js.git"
+  },
+  "author": "Vivek Kumar Bansal <contact@vkbansal.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vkbansal/illuminate-js/issues"
+  },
+  "homepage": "https://github.com/vkbansal/illuminate-js#readme"
+}
