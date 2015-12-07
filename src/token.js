@@ -16,7 +16,7 @@ class Token {
         }
 
         if (Array.isArray(o)) {
-            o.map((element) => Token.stringify(element, language, o)).join("");
+            return o.map((element) => Token.stringify(element, language, o)).join("");
         }
 
         let env = {
@@ -36,7 +36,7 @@ class Token {
         if (o.alias) {
             let aliases = Array.isArray(o.alias) ? o.alias : [o.alias];
 
-            env.classes.push(aliases);
+            env.classes.push(...aliases);
         }
 
         run("wrap", env);
@@ -46,10 +46,6 @@ class Token {
             (prev, val, key) => `${prev}${key}="${val || ""}" `,
             ""
         );
-
-        // for (let name in env.attributes) {
-        //     if (!env.attributes.hasOwnProperty)
-        // }
 
         return `<${env.tag} class="${env.classes.join(" ")}" ${attributes}>${env.content}</${env.tag}>`;
     }
