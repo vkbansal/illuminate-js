@@ -26,6 +26,7 @@
     "chai": "^3.4.1",
     "eslint": "^1.10.3",
     "eslint-config-vkbansal": "^0.1.0",
+    "istanbul": "^0.4.1",
     "mocha": "^2.3.4"
   },
   "dependencies": {

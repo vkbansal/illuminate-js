@@ -1,8 +1,0 @@
-{
-    "extends": ["vkbansal", "vkbansal/babel"],
-    "rules": {
-        "one-var": 0,
-        "max-statements": 0,
-        "no-labels": 0
-    }
-}
