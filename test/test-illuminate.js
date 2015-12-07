@@ -1,4 +1,3 @@
-/* eslint-disable */
 "use strict";
 
 let illuminate = require("../lib"),
@@ -13,5 +12,5 @@ describe("illuminate", function() {
         it("should return false when language not found", function() {
             expect(illuminate.getLanguage("foo")).to.be.false;
         });
-    })
+    });
 });
