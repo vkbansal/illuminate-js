@@ -1,6 +1,6 @@
 {
   "name": "illuminate-js",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Syntax Highlighting for NodeJS",
   "main": "index.js",
   "scripts": {
