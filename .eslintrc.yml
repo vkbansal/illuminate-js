@@ -4,3 +4,4 @@
         one-var: 0
         max-statements: 0
         no-labels: 0
+        camelcase: 0
