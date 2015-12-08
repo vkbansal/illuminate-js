@@ -4,15 +4,15 @@ import * as languages from "./languages";
 import * as utils from "./utils";
 import Token from "./token";
 
-function tokenize(text, grammar) {
-    let strarr = [text],
-        rest = grammar.rest;
+function tokenize(text, gmr) {
+    let start_array = [text],
+        grammar = gmr;
 
-    if (rest) {
-        for (let token in rest) {
-            grammar[token] = rest[token];
+    if (grammar.rest) {
+        for (let token in grammar.rest) {
+            if (!grammar.rest.hasOwnProperty(token)) continue;
+            grammar[token] = grammar.rest[token];
         }
-
         delete grammar.rest;
     }
 
@@ -33,18 +33,18 @@ function tokenize(text, grammar) {
 
             pattern = pattern.pattern || pattern;
 
-            for (let i = 0; i < strarr.length; i++) { // Don’t cache length as it changes during the loop
+            for (let i = 0; i < start_array.length; i++) { // Don’t cache length as it changes during the loop
 
-                let str = strarr[i];
+                let node = start_array[i];
 
                 // Something went terribly wrong, ABORT, ABORT!
-                if (strarr.length > text.length) break tokenloop;
+                if (start_array.length > text.length) break tokenloop;
 
-                if (str instanceof Token) continue;
+                if (node instanceof Token) continue;
 
                 pattern.lastIndex = 0;
 
-                let match = pattern.exec(str);
+                let match = pattern.exec(node);
 
                 if (!match) continue;
 
@@ -52,13 +52,14 @@ function tokenize(text, grammar) {
                     lookbehindLength = match[1].length;
                 }
 
+
+                let string_from = match.index - 1 + lookbehindLength;
+
                 match = match[0].slice(lookbehindLength);
 
-                let strFrom = match.index - 1 + lookbehindLength,
-                    len = match.length,
-                    strTo = strFrom + len,
-                    before = str.slice(0, strFrom + 1),
-                    after = str.slice(strTo + 1);
+                let string_to = string_from + match.length,
+                    before = node.slice(0, string_from + 1),
+                    after = node.slice(string_to + 1);
 
                 let args = [i, 1];
 
@@ -74,12 +75,12 @@ function tokenize(text, grammar) {
                     args.push(after);
                 }
 
-                strarr.splice(...args);
+                start_array.splice(...args);
             }
         }
     }
 
-    return strarr;
+    return start_array;
 }
 
 export function getLanguage(name) {
