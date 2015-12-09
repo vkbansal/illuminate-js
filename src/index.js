@@ -3,24 +3,22 @@
 import * as languages from "./languages";
 import * as utils from "./utils";
 import Token from "./token";
+import findIndex from "lodash/array/findIndex";
 
-function tokenize(text, gmr) {
+function tokenize(text, grammar) {
     let start_array = [text],
-        grammar = gmr;
+        grmr = grammar.slice(0),
+        restIndex = findIndex(grmr, (p) => p[0] === "rest");
 
-    if (grammar.rest) {
-        for (let token in grammar.rest) {
-            if (!grammar.rest.hasOwnProperty(token)) continue;
-            grammar[token] = grammar.rest[token];
-        }
-        delete grammar.rest;
+    if (restIndex > -1) {
+        grmr = grmr.concat(grmr[restIndex][1]);
+        grmr.splice(restIndex, 1);
     }
 
     tokenloop:
-    for (let token in grammar) {
-        if (!grammar.hasOwnProperty(token) || !grammar[token]) continue;
-
-        let patterns = grammar[token];
+    for (let z = 0; z < grmr.length; z++) {
+        let token = grmr[z][0],
+            patterns = grmr[z][1];
 
         patterns = Array.isArray(patterns) ? patterns : [patterns];
 
