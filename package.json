@@ -2,7 +2,7 @@
   "name": "illuminate-js",
   "version": "0.1.0",
   "description": "Syntax Highlighting for NodeJS",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "mocha test",
     "build": "babel src -d lib"
