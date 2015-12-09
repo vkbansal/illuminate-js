@@ -11,6 +11,44 @@ describe("utils", function() {
     });
 
     describe("lang", function() {
+        describe("extend", function() {
+            let arr = [
+                    ["one", "I"],
+                    ["two", "2"],
+                    ["three", "III"]
+                ],
+                ext = [
+                    ["two", "II"],
+                    ["four", "IV"],
+                    ["five", "V"]
+                ];
+
+
+            it("should extend", function() {
+                expect(utils.lang.extend(arr, ext)).to.eql([
+                    ["one", "I"],
+                    ["two", "II"],
+                    ["three", "III"],
+                    ["four", "IV"],
+                    ["five", "V"]
+                ]);
+            });
+
+            it("should not mutate original objects", function() {
+                expect(arr).to.eql([
+                    ["one", "I"],
+                    ["two", "2"],
+                    ["three", "III"]
+                ]);
+
+                expect(ext).to.eql([
+                    ["two", "II"],
+                    ["four", "IV"],
+                    ["five", "V"]
+                ]);
+            });
+        });
+
         describe("insertBefore", function() {
             let arr;
 

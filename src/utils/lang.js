@@ -8,6 +8,23 @@ export function findIndex(arr, id) {
     return -1;
 }
 
+export function extend(source, ext) {
+    let src = source.slice(0);
+
+    for (let i = 0; i < ext.length; i++) {
+        let index = findIndex(src, ext[i][0]);
+
+        if (index < 0) {
+            src.push(ext[i]);
+            continue;
+        }
+
+        src.splice(index, 1, ext[i]);
+    }
+
+    return src;
+}
+
 export function insertBefore(arr, key, ...insert) {
     let index = findIndex(arr, key);
 
