@@ -10,89 +10,91 @@ describe("utils", function() {
         });
     });
 
-    describe("insertBefore", function() {
-        let arr;
+    describe("lang", function() {
+        describe("insertBefore", function() {
+            let arr;
 
-        beforeEach(function() {
-            arr = [
-                ["one"],
-                ["two"],
-                ["three"]
-            ];
+            beforeEach(function() {
+                arr = [
+                    ["one"],
+                    ["two"],
+                    ["three"]
+                ];
+            });
+
+            it("should insert in between", function() {
+                utils.lang.insertBefore(arr, "two", ["test1"], ["test2"]);
+                expect(arr).to.eql([
+                    ["one"],
+                    ["test1"],
+                    ["test2"],
+                    ["two"],
+                    ["three"]
+                ]);
+            });
+
+            it("should insert in at start", function() {
+                utils.lang.insertBefore(arr, "one", ["test1"], ["test2"]);
+                expect(arr).to.eql([
+                    ["test1"],
+                    ["test2"],
+                    ["one"],
+                    ["two"],
+                    ["three"]
+                ]);
+            });
+
+            it("should do nothing for invalid key", function() {
+                utils.lang.insertBefore(arr, "foo", ["test1"], ["test2"]);
+                expect(arr).to.eql([
+                    ["one"],
+                    ["two"],
+                    ["three"]
+                ]);
+            });
         });
 
-        it("should insert in between", function() {
-            utils.insertBefore(arr, "two", ["test1"], ["test2"]);
-            expect(arr).to.eql([
-                ["one"],
-                ["test1"],
-                ["test2"],
-                ["two"],
-                ["three"]
-            ]);
-        });
+        describe("insertAfter", function() {
+            let arr;
 
-        it("should insert in at start", function() {
-            utils.insertBefore(arr, "one", ["test1"], ["test2"]);
-            expect(arr).to.eql([
-                ["test1"],
-                ["test2"],
-                ["one"],
-                ["two"],
-                ["three"]
-            ]);
-        });
+            beforeEach(function() {
+                arr = [
+                    ["one"],
+                    ["two"],
+                    ["three"]
+                ];
+            });
 
-        it("should do nothing for invalid key", function() {
-            utils.insertBefore(arr, "foo", ["test1"], ["test2"]);
-            expect(arr).to.eql([
-                ["one"],
-                ["two"],
-                ["three"]
-            ]);
-        });
-    });
+            it("should insert in between", function() {
+                utils.lang.insertAfter(arr, "two", ["test1"], ["test2"]);
+                expect(arr).to.eql([
+                    ["one"],
+                    ["two"],
+                    ["test1"],
+                    ["test2"],
+                    ["three"]
+                ]);
+            });
 
-    describe("insertAfter", function() {
-        let arr;
+            it("should insert at end", function() {
+                utils.lang.insertAfter(arr, "three", ["test1"], ["test2"]);
+                expect(arr).to.eql([
+                    ["one"],
+                    ["two"],
+                    ["three"],
+                    ["test1"],
+                    ["test2"]
+                ]);
+            });
 
-        beforeEach(function() {
-            arr = [
-                ["one"],
-                ["two"],
-                ["three"]
-            ];
-        });
-
-        it("should insert in between", function() {
-            utils.insertAfter(arr, "two", ["test1"], ["test2"]);
-            expect(arr).to.eql([
-                ["one"],
-                ["two"],
-                ["test1"],
-                ["test2"],
-                ["three"]
-            ]);
-        });
-
-        it("should insert at end", function() {
-            utils.insertAfter(arr, "three", ["test1"], ["test2"]);
-            expect(arr).to.eql([
-                ["one"],
-                ["two"],
-                ["three"],
-                ["test1"],
-                ["test2"]
-            ]);
-        });
-
-        it("should do nothing for invalid key", function() {
-            utils.insertAfter(arr, "foo", ["test1"], ["test2"]);
-            expect(arr).to.eql([
-                ["one"],
-                ["two"],
-                ["three"]
-            ]);
+            it("should do nothing for invalid key", function() {
+                utils.lang.insertAfter(arr, "foo", ["test1"], ["test2"]);
+                expect(arr).to.eql([
+                    ["one"],
+                    ["two"],
+                    ["three"]
+                ]);
+            });
         });
     });
 });

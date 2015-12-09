@@ -1,7 +1,6 @@
 "use strict";
 
 import { run } from "./hooks";
-import reduce from "lodash/collection/reduce";
 
 class Token {
     constructor(type, content, alias) {
@@ -41,11 +40,11 @@ class Token {
 
         run("wrap", env);
 
-        let attributes = reduce(
-            env.attributes,
-            (prev, val, key) => `${prev}${key}="${val || ""}" `,
-            ""
-        );
+        let attributes = Object.keys(env.attributes)
+            .reduce(
+                (prev, key) => `${prev}${key}="${env.attributes[key] || ""}" `,
+                ""
+            );
 
         return `<${env.tag} class="${env.classes.join(" ")}" ${attributes}>${env.content}</${env.tag}>`;
     }

@@ -3,12 +3,11 @@
 import * as languages from "./languages";
 import * as utils from "./utils";
 import Token from "./token";
-import findIndex from "lodash/array/findIndex";
 
 function tokenize(text, grammar) {
     let start_array = [text],
         grmr = grammar.slice(0),
-        restIndex = findIndex(grmr, (p) => p[0] === "rest");
+        restIndex = utils.lang.findIndex(grmr, "rest");
 
     if (restIndex > -1) {
         grmr = grmr.concat(grmr[restIndex][1]);
