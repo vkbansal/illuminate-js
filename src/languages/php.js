@@ -25,18 +25,18 @@ lang.insertBefore(php, "class-name", [
     {
         pattern: /(^|[^\\])#.*/,
         lookbehind: true,
-        alias: 'comment'
+        alias: "comment"
     }
 ]);
 
 lang.insertBefore(php, "keyword", [
-    'delimiter',
+    "delimiter",
     /\?>|<\?(?:php)?/ig
 ], [
-    'variable',
+    "variable",
     /\$\w+\b/i
 ], [
-    'package',
+    "package",
     {
         pattern: /(\\|namespace\s+|use\s+)[\w\\]+/,
         lookbehind: true,
@@ -50,11 +50,33 @@ lang.insertBefore(php, "keyword", [
 ]);
 
 // Must be defined after the function pattern
-lang.insertBefore(php, 'operator', [
-    'property',
+lang.insertBefore(php, "operator", [
+    "property",
     {
         pattern: /(->)[\w]+/,
         lookbehind: true
+    }
+]);
+
+lang.insertBefore(php, "variable", [
+    "this",
+    /\$this\b/
+], [
+    "global",
+    /\$(?:_(?:SERVER|GET|POST|FILES|REQUEST|SESSION|ENV|COOKIE)|GLOBALS|HTTP_RAW_POST_DATA|argc|argv|php_errormsg|http_response_header)/
+], [
+    "scope",
+    {
+        pattern: /\b[\w\\]+::/,
+        inside: [
+            [
+                "keyword",
+                /(static|self|parent)/
+            ], [
+                "punctuation",
+                /(::|\\)/
+            ]
+        ]
     }
 ]);
 
