@@ -36,9 +36,12 @@ export default [
         "function",
         {
             pattern: /[a-z0-9_]+\(/i,
-            inside: {
-                punctuation: /\(/
-            }
+            inside: [
+                [
+                    "punctuation",
+                    /\(/
+                ]
+            ]
         }
     ], [
         "number",
