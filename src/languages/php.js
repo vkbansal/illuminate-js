@@ -1,41 +1,62 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
+import clike from "./clike";
+import { lang } from "../utils";
 
-var _clike = require("./clike");
-
-var _clike2 = _interopRequireDefault(_clike);
-
-var _utils = require("../utils");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var php = _utils.lang.extend(_clike2.default, [["keyword", /\b(and|or|xor|array|as|break|case|cfunction|class|const|continue|declare|default|die|do|else|elseif|enddeclare|endfor|endforeach|endif|endswitch|endwhile|extends|for|foreach|function|include|include_once|global|if|new|return|static|switch|use|require|require_once|var|while|abstract|interface|public|implements|private|protected|parent|throw|null|echo|print|trait|namespace|final|yield|goto|instanceof|finally|try|catch)\b/i], ["constant", /\b[A-Z0-9_]{2,}\b/], ["comment", {
-    pattern: /(^|[^\\])(?:\/\*[\w\W]*?\*\/|\/\/.*)/,
-    lookbehind: true
-}]]);
+let php = lang.extend(clike, [
+    [
+        "keyword", /\b(and|or|xor|array|as|break|case|cfunction|class|const|continue|declare|default|die|do|else|elseif|enddeclare|endfor|endforeach|endif|endswitch|endwhile|extends|for|foreach|function|include|include_once|global|if|new|return|static|switch|use|require|require_once|var|while|abstract|interface|public|implements|private|protected|parent|throw|null|echo|print|trait|namespace|final|yield|goto|instanceof|finally|try|catch)\b/i
+    ], [
+        "constant",
+        /\b[A-Z0-9_]{2,}\b/
+    ], [
+        "comment",
+        {
+            pattern: /(^|[^\\])(?:\/\*[\w\W]*?\*\/|\/\/.*)/,
+            lookbehind: true
+        }
+    ]
+]);
 
 // Shell-like comments are matched after strings, because they are less
 // common than strings containing hashes...
-_utils.lang.insertBefore(php, "class-name", ["shell-comment", {
-    pattern: /(^|[^\\])#.*/,
-    lookbehind: true,
-    alias: 'comment'
-}]);
+lang.insertBefore(php, "class-name", [
+    "shell-comment",
+    {
+        pattern: /(^|[^\\])#.*/,
+        lookbehind: true,
+        alias: 'comment'
+    }
+]);
 
-_utils.lang.insertBefore(php, "keyword", ['delimiter', /\?>|<\?(?:php)?/ig], ['variable', /\$\w+\b/i], ['package', {
-    pattern: /(\\|namespace\s+|use\s+)[\w\\]+/,
-    lookbehind: true,
-    inside: [["punctuation", /\\/]]
-}]);
+lang.insertBefore(php, "keyword", [
+    'delimiter',
+    /\?>|<\?(?:php)?/ig
+], [
+    'variable',
+    /\$\w+\b/i
+], [
+    'package',
+    {
+        pattern: /(\\|namespace\s+|use\s+)[\w\\]+/,
+        lookbehind: true,
+        inside: [
+            [
+                "punctuation",
+                /\\/
+            ]
+        ]
+    }
+]);
 
 // Must be defined after the function pattern
-_utils.lang.insertBefore(php, 'operator', ['property', {
-    pattern: /(->)[\w]+/,
-    lookbehind: true
-}]);
+lang.insertBefore(php, 'operator', [
+    'property',
+    {
+        pattern: /(->)[\w]+/,
+        lookbehind: true
+    }
+]);
 
 // Add HTML support of the markup language exists
 // if (Prism.languages.markup) {
@@ -96,4 +117,4 @@ _utils.lang.insertBefore(php, 'operator', ['property', {
 //     });
 //
 //
-exports.default = php;
+export default php;
