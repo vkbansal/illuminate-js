@@ -1,13 +1,12 @@
 "use strict";
 
-export default [
+let clike = [
     [
         "comment",
         [{
             pattern: /(^|[^\\])\/\*[\w\W]*?\*\//,
             lookbehind: true
-        },
-        {
+        }, {
             pattern: /(^|[^\\:])\/\/.*/,
             lookbehind: true
         }]
@@ -56,3 +55,5 @@ export default [
         /[{}[\];(),.:]/
     ]
 ];
+
+export { clike as clike };
