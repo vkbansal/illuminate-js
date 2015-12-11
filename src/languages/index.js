@@ -1,5 +1,6 @@
 "use strict";
 
 export * from "./clike";
-export * from "./php";
 export * from "./javascript";
+export * from "./markup";
+export * from "./php";
