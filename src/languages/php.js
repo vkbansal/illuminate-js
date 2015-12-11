@@ -1,6 +1,6 @@
 "use strict";
 
-import clike from "./clike";
+import { clike } from "./clike";
 import { lang } from "../utils";
 
 let php = lang.extend(clike, [
@@ -139,4 +139,4 @@ lang.insertBefore(php, "variable", [
 //     });
 //
 //
-export default php;
+export { php as php };

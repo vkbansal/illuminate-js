@@ -1,4 +1,5 @@
 "use strict";
 
-export { default as clike } from "./clike";
-export { default as php } from "./php";
+export * from "./clike";
+export * from "./php";
+export * from "./javascript";
