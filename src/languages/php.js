@@ -3,82 +3,60 @@
 import { clike } from "./clike";
 import { lang } from "../utils";
 
-let php = lang.extend(clike, [
-    [
-        "keyword", /\b(and|or|xor|array|as|break|case|cfunction|class|const|continue|declare|default|die|do|else|elseif|enddeclare|endfor|endforeach|endif|endswitch|endwhile|extends|for|foreach|function|include|include_once|global|if|new|return|static|switch|use|require|require_once|var|while|abstract|interface|public|implements|private|protected|parent|throw|null|echo|print|trait|namespace|final|yield|goto|instanceof|finally|try|catch)\b/i
-    ], [
-        "constant",
-        /\b[A-Z0-9_]{2,}\b/
-    ], [
-        "comment",
-        {
-            pattern: /(^|[^\\])(?:\/\*[\w\W]*?\*\/|\/\/.*)/,
-            lookbehind: true
-        }
-    ]
-]);
+let php = lang.extend(clike, {
+    "keyword": /\b(and|or|xor|array|as|break|case|cfunction|class|const|continue|declare|default|die|do|else|elseif|enddeclare|endfor|endforeach|endif|endswitch|endwhile|extends|for|foreach|function|include|include_once|global|if|new|return|static|switch|use|require|require_once|var|while|abstract|interface|public|implements|private|protected|parent|throw|null|echo|print|trait|namespace|final|yield|goto|instanceof|finally|try|catch)\b/i,
+    "constant": /\b[A-Z0-9_]{2,}\b/,
+    "comment": {
+        pattern: /(^|[^\\])(?:\/\*[\w\W]*?\*\/|\/\/.*)/,
+        lookbehind: true
+    }
+});
 
 // Shell-like comments are matched after strings, because they are less
 // common than strings containing hashes...
-lang.insertBefore(php, "class-name", [
-    "shell-comment",
-    {
+lang.insertBefore(php, "class-name",{
+    "shell-comment": {
         pattern: /(^|[^\\])#.*/,
         lookbehind: true,
         alias: "comment"
-    }
-]);
+    },
+    _order: ["shell-comment"]
+});
 
-lang.insertBefore(php, "keyword", [
-    "delimiter",
-    /\?>|<\?(?:php)?/ig
-], [
-    "variable",
-    /\$\w+\b/i
-], [
-    "package",
-    {
+lang.insertBefore(php, "keyword", {
+    delimiter: /\?>|<\?(?:php)?/ig,
+    variable: /\$\w+\b/i,
+    package: {
         pattern: /(\\|namespace\s+|use\s+)[\w\\]+/,
         lookbehind: true,
-        inside: [
-            [
-                "punctuation",
-                /\\/
-            ]
-        ]
-    }
-]);
+        inside: {
+            "punctuation": /\\/
+        }
+    },
+    _order: ["delimiter", "variable", "package"]
+});
 
 // Must be defined after the function pattern
-lang.insertBefore(php, "operator", [
-    "property",
-    {
+lang.insertBefore(php, "operator", {
+    "property": {
         pattern: /(->)[\w]+/,
         lookbehind: true
-    }
-]);
+    },
+    _order: ["property"]
+});
 
-lang.insertBefore(php, "variable", [
-    "this",
-    /\$this\b/
-], [
-    "global",
-    /\$(?:_(?:SERVER|GET|POST|FILES|REQUEST|SESSION|ENV|COOKIE)|GLOBALS|HTTP_RAW_POST_DATA|argc|argv|php_errormsg|http_response_header)/
-], [
-    "scope",
-    {
+lang.insertBefore(php, "variable", {
+    "this": /\$this\b/,
+    global: /\$(?:_(?:SERVER|GET|POST|FILES|REQUEST|SESSION|ENV|COOKIE)|GLOBALS|HTTP_RAW_POST_DATA|argc|argv|php_errormsg|http_response_header)/,
+    scope: {
         pattern: /\b[\w\\]+::/,
-        inside: [
-            [
-                "keyword",
-                /(static|self|parent)/
-            ], [
-                "punctuation",
-                /(::|\\)/
-            ]
-        ]
-    }
-]);
+        inside: {
+                "keyword": /(static|self|parent)/,
+                "punctuation": /(::|\\)/
+        }
+    },
+    _order: ["this", "global", "scope"]
+});
 
 // Add HTML support of the markup language exists
 // if (Prism.languages.markup) {

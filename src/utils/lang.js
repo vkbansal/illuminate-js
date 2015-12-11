@@ -1,42 +1,36 @@
 "use strict";
 
-export function findIndex(arr, id) {
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i][0] === id) return i;
-    }
-
-    return -1;
-}
+import merge from "merge-deep";
+import deepAssign from "deep-assign";
+import isObj from "is-plain-object";
+import diff from "array-differ";
 
 export function extend(source, ext) {
-    let src = source.slice(0);
+    let { _order: srcOrder } = source,
+        { _order: extOrder, ...props } = ext,
+        extKeys = Object.keys(props);
 
-    for (let i = 0; i < ext.length; i++) {
-        let index = findIndex(src, ext[i][0]);
+    let newTokens = diff(extKeys, srcOrder);
 
-        if (index < 0) {
-            src.push(ext[i]);
-            continue;
-        }
-
-        src.splice(index, 1, ext[i]);
-    }
-
-    return src;
+    return merge(source, ext, {
+        _order: srcOrder.concat(newTokens)
+    });
 }
 
-export function insertBefore(arr, key, ...insert) {
-    let index = findIndex(arr, key);
-
-    if (index > -1) {
-        arr.splice(index, 0, ...insert);
+export function insertBefore(source, before, insert) {
+    if (!isObj(source) || !source.hasOwnProperty("_order") || !Array.isArray(source._order)) {
+        throw new Error("Source does not have required property '_order' as an array.");
     }
-}
 
-export function insertAfter(arr, key, ...insert) {
-    let index = findIndex(arr, key);
-
-    if (index > -1) {
-        arr.splice(index + 1, 0, ...insert);
+    if (!isObj(insert) || !insert.hasOwnProperty("_order") || !Array.isArray(insert._order)) {
+        throw new Error("insert does not have required property '_order' as an array");
     }
+
+    let index = source._order.indexOf(before);
+
+    source._order.splice(index, 0, ...insert._order);
+
+    delete insert._order;
+
+    return deepAssign(source, insert);
 }

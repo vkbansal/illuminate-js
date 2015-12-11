@@ -1,23 +1,27 @@
 "use strict";
 
+import assign from "object-assign";
 import * as languages from "./languages";
 import * as utils from "./utils";
 import Token from "./token";
 
 function tokenize(text, grammar) {
-    let start_array = [text],
-        grmr = grammar.slice(0),
-        restIndex = utils.lang.findIndex(grmr, "rest");
+    if (!grammar.hasOwnProperty("_order") || !Array.isArray(grammar._order)) {
+        throw new Error("A grammar must have an _order array");
+    }
 
-    if (restIndex > -1) {
-        grmr = grmr.concat(grmr[restIndex][1]);
-        grmr.splice(restIndex, 1);
+    let start_array = [text],
+        { _order: order, rest } = grammar;
+
+    if (rest) {
+        assign(grammar, rest);
+        delete grammar.rest;
     }
 
     tokenloop:
-    for (let z = 0; z < grmr.length; z++) {
-        let token = grmr[z][0],
-            patterns = grmr[z][1];
+    for (let z = 0; z < order.length; z++) {
+        let token = order[z],
+            patterns = grammar[token];
 
         patterns = Array.isArray(patterns) ? patterns : [patterns];
 
