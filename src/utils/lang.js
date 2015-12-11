@@ -1,6 +1,7 @@
 "use strict";
 
 import merge from "merge-deep";
+import cloneDeep from "clone-deep";
 import deepAssign from "deep-assign";
 import isObj from "is-plain-object";
 import diff from "array-differ";
@@ -15,6 +16,10 @@ export function extend(source, ext) {
     return merge(source, ext, {
         _order: srcOrder.concat(newTokens)
     });
+}
+
+export function clone(obj) {
+    return cloneDeep(obj);
 }
 
 export function insertBefore(source, before, insert) {
