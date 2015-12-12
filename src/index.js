@@ -1,6 +1,5 @@
 "use strict";
 
-import assign from "object-assign";
 import * as languages from "./languages";
 import * as utils from "./utils";
 import Token from "./token";
@@ -13,8 +12,8 @@ function tokenize(text, grammar) {
     let start_array = [text],
         { _order: order, rest } = grammar;
 
-    if (rest) {
-        assign(grammar, rest);
+    if (rest && languages[rest]) {
+        Object.assign(grammar, languages[rest]);
         delete grammar.rest;
     }
 
