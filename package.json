@@ -4,7 +4,7 @@
   "description": "Syntax Highlighting for NodeJS",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha test",
+    "test": "istanbul cover --dir reports/coverage node_modules/mocha/bin/_mocha test/**/*.js -- --reporter dot",
     "build": "babel src -d lib"
   },
   "repository": {
