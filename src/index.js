@@ -2,6 +2,7 @@
 
 import * as languages from "./languages";
 import * as utils from "./utils";
+import hooks from "./hooks";
 import Token from "./token";
 
 function tokenize(text, grammar) {
@@ -87,10 +88,23 @@ export function getLanguage(name) {
     return languages[name] || false;
 }
 
-export function highlight(text, name) {
-    let tokens = tokenize(text, getLanguage(name));
+export function highlight(text, language) {
+    let grammar = getLanguage(language),
+        env = {
+            grammar,
+            language,
+            code: text
+        };
 
-    return Token.stringify(utils.encode(tokens), name);
+    hooks.run("before-highlight", env);
+
+    let tokens = tokenize(text, grammar),
+        highlightedCode = Token.stringify(utils.encode(tokens), language);
+
+    env.highlightedCode = highlightedCode;
+    hooks.run("after-highlight", env);
+
+    return highlightedCode;
 }
 
 export default { getLanguage, highlight };

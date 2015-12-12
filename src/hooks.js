@@ -25,3 +25,5 @@ export function run(name, env) {
 
     callbacks.forEach((callback) => callback(env));
 }
+
+export default { add, run };
