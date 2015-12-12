@@ -2,6 +2,7 @@
 
 import { clike } from "./clike";
 import { lang } from "../utils";
+import { markup } from "./markup";
 
 let js = lang.extend(clike, {
     keyword: /\b(as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|var|void|while|with|yield)\b/,
@@ -39,16 +40,15 @@ lang.insertBefore(js, "class-name", {
     _order: ["template-string"]
 });
 
-// if (Prism.languages.markup) {
-//     Prism.languages.insertBefore("markup", "tag", {
-//         "script": {
-//             pattern: /(<script[\w\W]*?>)[\w\W]*?(?=<\/script>)/i,
-//             lookbehind: true,
-//             inside: Prism.languages.javascript,
-//             alias: "language-javascript"
-//         }
-//     });
-// }
+lang.insertBefore(markup, "tag", {
+    "script": {
+        pattern: /(<script[\w\W]*?>)[\w\W]*?(?=<\/script>)/i,
+        lookbehind: true,
+        inside: lang.clone(js),
+        alias: "language-javascript"
+    },
+    _order: ["script"]
+});
 
 export { js as js };
 export { js as javascript };
