@@ -9,8 +9,8 @@ let css = {
     atrule: {
         pattern: /@[\w-]+?.*?(;|(?=\s*\{))/i,
         inside: {
-            "rule": /@[\w-]+/
-            // See rest below
+            rule: /@[\w-]+/,
+            _order: ["rule"]
         }
     },
     url: /url\((?:(["'])(\\(?:\r\n|[\w\W])|(?!\1)[^\\\r\n])*\1|.*?)\)/i,
@@ -20,7 +20,7 @@ let css = {
             "pseudo-element": /:(?:after|before|first-letter|first-line|selection)|::[-\w]+/,
             "pseudo-class": /:[-\w]+(?:\(.*\))?/,
             "class": /\.[-:\.\w]+/,
-            "id": /#[-:\.\w]+/
+            id: /#[-:\.\w]+/
         }
     },
     string: /("|')(\\(?:\r\n|[\w\W])|(?!\1)[^\\\r\n])*\1/,
@@ -47,7 +47,7 @@ let css = {
     ]
 };
 
-css.atrule.inside.rest = lang.clone(css);
+lang.insertAfter(css.atrule.inside, "rule", lang.clone(css));
 
 lang.insertBefore(markup, "tag", {
     "style": {

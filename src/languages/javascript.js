@@ -30,7 +30,7 @@ lang.insertBefore(js, "class-name", {
                         pattern: /^\$\{|\}$/,
                         alias: "punctuation"
                     },
-                    rest: "js"
+                    _order: ["interpolation-punctuation"]
                 }
             },
             string: /[\s\S]+/,
@@ -39,6 +39,12 @@ lang.insertBefore(js, "class-name", {
     },
     _order: ["template-string"]
 });
+
+lang.insertAfter(
+    js["template-string"].inside.interpolation.inside,
+    "interpolation-punctuation",
+    lang.clone(js)
+);
 
 lang.insertBefore(markup, "tag", {
     "script": {

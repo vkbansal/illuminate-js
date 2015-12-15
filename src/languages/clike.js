@@ -1,7 +1,7 @@
 "use strict";
 
 let clike = {
-    comment:[
+    comment: [
         {
             pattern: /(^|[^\\])\/\*[\w\W]*?\*\//,
             lookbehind: true
@@ -20,10 +20,10 @@ let clike = {
         }
     },
     keyword: /\b(if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,
-    boolean: /\b(true|false)\b/,
+    "boolean": /\b(true|false)\b/,
     "function": {
         pattern: /[a-z0-9_]+\(/i,
-        inside:{
+        inside: {
             punctuation: /\(/,
             _order: ["punctuation"]
         }
