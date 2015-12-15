@@ -3,6 +3,7 @@
 export * from "./apacheconf";
 export * from "./clike";
 export * from "./css";
+export * from "./http";
 export * from "./ini";
 export * from "./javascript";
 export * from "./jsx";
