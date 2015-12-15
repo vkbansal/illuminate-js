@@ -11,12 +11,7 @@ function tokenize(text, grammar) {
     }
 
     let start_array = [text],
-        { _order: order, rest } = grammar;
-
-    if (rest && languages[rest]) {
-        Object.assign(grammar, languages[rest]);
-        delete grammar.rest;
-    }
+        { _order: order } = grammar;
 
     tokenloop:
     for (let z = 0; z < order.length; z++) {
