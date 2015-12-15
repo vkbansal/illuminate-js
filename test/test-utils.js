@@ -36,10 +36,31 @@ describe("utils", function() {
                     a: {b: 0},
                     b: {b: 1, c: 2},
                     c: 3,
-                    _order: ["a", "b","c"]
+                    _order: ["a", "b", "c"]
                 });
 
-                expect(src._order).to.eql(["a", "b","c"]);
+                expect(src._order).to.eql(["a", "b", "c"]);
+            });
+        });
+
+        describe("insertAfter", function() {
+            let src, ext;
+
+            beforeEach(function() {
+                src = {a: {b: 0}, c: 3, _order: ["a", "c"]};
+                ext = {b: {b: 1, c: 2}, _order: ["b"]};
+            });
+
+            it("should insert in between", function() {
+                utils.lang.insertAfter(src, "c", ext);
+                expect(src).to.eql({
+                    a: {b: 0},
+                    b: {b: 1, c: 2},
+                    c: 3,
+                    _order: ["a", "c", "b"]
+                });
+
+                expect(src._order).to.eql(["a", "c", "b"]);
             });
         });
     });
