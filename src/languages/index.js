@@ -1,5 +1,6 @@
 "use strict";
 
+export * from "./apacheconf";
 export * from "./clike";
 export * from "./css";
 export * from "./ini";
