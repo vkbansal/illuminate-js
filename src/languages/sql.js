@@ -16,7 +16,7 @@ let sql = {
     number: /\b-?(?:0x)?\d*\.?[\da-f]+\b/,
     operator: /[-+*\/=%^~]|&&?|\|?\||!=?|<(?:=>?|<|>)?|>[>=]?|\b(?:AND|BETWEEN|IN|LIKE|NOT|OR|IS|DIV|REGEXP|RLIKE|SOUNDS LIKE|XOR)\b/i,
     punctuation: /[;[\]()`,.]/,
-    _order: ["comment", "string", "variable", "function", "boolean", "number", "operator", "punctuation"]
+    _order: ["comment", "string", "variable", "function", "keyword", "boolean", "number", "operator", "punctuation"]
 };
 
 export { sql as sql };
