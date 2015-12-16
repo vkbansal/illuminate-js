@@ -31,6 +31,8 @@ export function insertBefore(source, before, insert) {
         throw new Error("insert does not have required property '_order' as an array");
     }
 
+    source._order = diff(source._order, Object.keys(insert));
+
     let index = source._order.indexOf(before);
 
     source._order.splice(index, 0, ...insert._order);
