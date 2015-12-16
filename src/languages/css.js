@@ -20,7 +20,8 @@ let css = {
             "pseudo-element": /:(?:after|before|first-letter|first-line|selection)|::[-\w]+/,
             "pseudo-class": /:[-\w]+(?:\(.*\))?/,
             "class": /\.[-:\.\w]+/,
-            id: /#[-:\.\w]+/
+            id: /#[-:\.\w]+/,
+            _order: ["pseudo-element", "pseudo-class", "class", "id"]
         }
     },
     string: /("|')(\\(?:\r\n|[\w\W])|(?!\1)[^\\\r\n])*\1/,

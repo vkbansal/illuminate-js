@@ -31,7 +31,7 @@ let http = {
         pattern: /^[\w-]+:(?=.)/m,
         alias: "keyword"
     },
-    _order: ["request-line", "request-status", "header-name"]
+    _order: ["request-line", "response-status", "header-name"]
 };
 
 // Create a mapping of Content-Type headers to language definitions
