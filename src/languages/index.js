@@ -11,5 +11,6 @@ export * from "./jsx";
 export * from "./less";
 export * from "./markup";
 export * from "./php";
+export * from "./sass";
 export * from "./scss";
 export * from "./yaml";
