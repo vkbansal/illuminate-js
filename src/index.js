@@ -18,7 +18,15 @@ function tokenize(text, grammar) {
         let token = order[z],
             patterns = grammar[token];
 
-        patterns = Array.isArray(patterns) ? patterns : [patterns];
+        if (Array.isArray(patterns)) {
+            if (token === "keyword" && patterns.every((a) => typeof a === "string")) {
+                patterns = `\b(${patterns.join("|")})\b`;
+                patterns = [new RegExp(patterns)];
+            }
+        } else {
+            patterns = [patterns];
+        }
+
 
         for (let j = 0; j < patterns.length; ++j) {
             let pattern = patterns[j],
