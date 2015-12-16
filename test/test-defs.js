@@ -8,10 +8,12 @@ let languages = require("../lib/languages"),
     diffArr = require("array-differ");
 
 
-function test(def, description) {
+function test(def, path) {
     let keys = Object.keys(def);
 
-    it(description, () => {
+    path = path || ["root"];
+
+    it(`${path.join(".")} must contain proper _order array`, () => {
         expect(def).to.include.keys("_order");
         expect(def._order).to.be.instanceOf(Array);
         expect(diffArr(keys, def._order)).to.eql(["_order"]);
@@ -20,16 +22,14 @@ function test(def, description) {
 
     keys.forEach(function(key) {
         if (isObj(def[key]) && def[key].inside) {
-            test(def[key].inside, `${key}.inside must contain proper _order array`);
+            test(def[key].inside, path.concat(`${key}.inside`));
         }
     });
 }
 
 function testLang(lang) {
     describe(`${lang} should have proper definition`, () => {
-        let def = languages[lang];
-
-        test(def, "root should contain proper _order array");
+        test(languages[lang]);
     });
 }
 
