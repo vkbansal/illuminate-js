@@ -23,7 +23,7 @@ let less = lang.extend(css, {
         pattern: /@[\w-]+?(?:\([^{}]+\)|[^(){};])*?(?=\s*\{)/i,
         inside: {
             punctuation: /[:()]/,
-            _order: ["inside"]
+            _order: ["punctuation"]
         }
     },
     // selectors and mixins are considered the same
@@ -32,7 +32,7 @@ let less = lang.extend(css, {
         inside: {
             // mixin parameters
             variable: /@+[\w-]+/,
-            _order: ["selector"]
+            _order: ["variable"]
         }
     },
 
@@ -42,11 +42,11 @@ let less = lang.extend(css, {
     _order: ["comment", "atrule", "selector", "property", "punctuation", "operator"]
 });
 
-// Invert function and punctuation positions
-lang.insertBefore(less, "punctuation", {
-    "function": less.function,
-    _order: ["function"]
-});
+// // Invert function and punctuation positions
+// lang.insertBefore(less, "punctuation", {
+//     "function": less.function,
+//     _order: ["function"]
+// });
 
 lang.insertBefore(less, "property", {
     variable: [

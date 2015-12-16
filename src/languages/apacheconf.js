@@ -13,7 +13,8 @@ let apacheconf = {
             "directive-block": {
                 pattern: /^<\/?\w+/,
                 inside: {
-                    punctuation: /^<\/?/
+                    punctuation: /^<\/?/,
+                    _order: ["punctuation"]
                 },
                 alias: 'tag'
             },

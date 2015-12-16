@@ -5,7 +5,9 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "istanbul cover --dir reports/coverage node_modules/mocha/bin/_mocha test/**/*.js -- --reporter dot",
-    "build": "babel src -d lib"
+    "build": "npm run compile && npm run test",
+    "compile": "node_modules/.bin/babel src -d lib",
+    "unit-test": "node_modules/.bin/mocha test/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -32,9 +34,7 @@
   "dependencies": {
     "array-differ": "^1.0.0",
     "clone-deep": "^0.2.3",
-    "deep-assign": "^2.0.0",
-    "is-plain-object": "^2.0.1",
-    "merge-deep": "^2.0.1",
-    "object-assign": "^4.0.1"
+    "extend-shallow": "^2.0.1",
+    "is-plain-object": "^2.0.1"
   }
 }

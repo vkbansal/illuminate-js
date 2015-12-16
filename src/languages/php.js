@@ -14,7 +14,7 @@ let php = lang.extend(clike, {
 
 // Shell-like comments are matched after strings, because they are less
 // common than strings containing hashes...
-lang.insertBefore(php, "class-name",{
+lang.insertBefore(php, "class-name", {
     "shell-comment": {
         pattern: /(^|[^\\])#.*/,
         lookbehind: true,
@@ -26,11 +26,12 @@ lang.insertBefore(php, "class-name",{
 lang.insertBefore(php, "keyword", {
     delimiter: /\?>|<\?(?:php)?/ig,
     variable: /\$\w+\b/i,
-    package: {
+    "package": {
         pattern: /(\\|namespace\s+|use\s+)[\w\\]+/,
         lookbehind: true,
         inside: {
-            "punctuation": /\\/
+            punctuation: /\\/,
+            _order: ["punctuation"]
         }
     },
     _order: ["delimiter", "variable", "package"]
@@ -51,8 +52,9 @@ lang.insertBefore(php, "variable", {
     scope: {
         pattern: /\b[\w\\]+::/,
         inside: {
-                "keyword": /(static|self|parent)/,
-                "punctuation": /(::|\\)/
+            keyword: /(static|self|parent)/,
+            punctuation: /(::|\\)/,
+            _order: ["keyword", "punctuation"]
         }
     },
     _order: ["this", "global", "scope"]

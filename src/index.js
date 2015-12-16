@@ -18,7 +18,15 @@ function tokenize(text, grammar) {
         let token = order[z],
             patterns = grammar[token];
 
-        patterns = Array.isArray(patterns) ? patterns : [patterns];
+        if (Array.isArray(patterns)) {
+            if (token === "keyword" && patterns.every((a) => typeof a === "string")) {
+                patterns = `\b(${patterns.join("|")})\b`;
+                patterns = [new RegExp(patterns)];
+            }
+        } else {
+            patterns = [patterns];
+        }
+
 
         for (let j = 0; j < patterns.length; ++j) {
             let pattern = patterns[j],
@@ -93,13 +101,21 @@ export function highlight(text, language) {
 
     hooks.run("before-highlight", env);
 
-    let tokens = tokenize(text, grammar),
+    let tokens = tokenize(env.code, env.grammar), // Specific for plugins
         highlightedCode = Token.stringify(utils.encode(tokens), language);
 
     env.highlightedCode = highlightedCode;
     hooks.run("after-highlight", env);
 
-    return highlightedCode;
+    return env.highlightedCode; // Specific for plugins
 }
 
-export default { getLanguage, highlight };
+export function addPlugin(plugin) {
+    if (typeof plugin !== "function") {
+        throw new Error("Given Plugin must be a function");
+    }
+
+    plugin(hooks.add);
+}
+
+export default { getLanguage, highlight, addPlugin };
