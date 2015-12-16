@@ -101,13 +101,21 @@ export function highlight(text, language) {
 
     hooks.run("before-highlight", env);
 
-    let tokens = tokenize(text, grammar),
+    let tokens = tokenize(env.code, env.grammar), // Specific for plugins
         highlightedCode = Token.stringify(utils.encode(tokens), language);
 
     env.highlightedCode = highlightedCode;
     hooks.run("after-highlight", env);
 
-    return highlightedCode;
+    return env.highlightedCode; // Specific for plugins
 }
 
-export default { getLanguage, highlight };
+export function addPlugin(plugin) {
+    if (typeof plugin !== "function") {
+        throw new Error("Given Plugin must be a function");
+    }
+
+    plugin(hooks.add);
+}
+
+export default { getLanguage, highlight, addPlugin };
