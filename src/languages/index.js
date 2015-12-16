@@ -2,6 +2,7 @@
 
 export * from "./apacheconf";
 export * from "./clike";
+export * from "./coffeescript";
 export * from "./css";
 export * from "./diff";
 export * from "./http";
