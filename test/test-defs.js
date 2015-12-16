@@ -4,7 +4,8 @@
 
 let languages = require("../lib/languages"),
     expect = require("chai").expect,
-    isObj = require("is-plain-object");
+    isObj = require("is-plain-object"),
+    diffArr = require("array-differ");
 
 
 function test(def, description) {
@@ -13,6 +14,7 @@ function test(def, description) {
     it(description, () => {
         expect(def).to.include.keys("_order");
         expect(def._order).to.be.instanceOf(Array);
+        expect(diffArr(keys, def._order)).to.eql(["_order"]);
         expect(keys.length).to.equal(def._order.length + 1);
     });
 
