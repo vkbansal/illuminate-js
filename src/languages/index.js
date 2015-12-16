@@ -8,6 +8,7 @@ export * from "./diff";
 export * from "./http";
 export * from "./ini";
 export * from "./javascript";
+export * from "./json";
 export * from "./jsx";
 export * from "./less";
 export * from "./markup";
