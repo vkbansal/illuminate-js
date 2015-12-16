@@ -1,10 +1,14 @@
 "use strict";
 
-import merge from "merge-deep";
+import extendShallow from "extend-shallow";
 import cloneDeep from "clone-deep";
-import deepAssign from "deep-assign";
 import isObj from "is-plain-object";
 import diff from "array-differ";
+
+
+export function clone(obj) {
+    return cloneDeep(obj);
+}
 
 export function extend(source, ext) {
     let { _order: srcOrder } = source,
@@ -13,13 +17,11 @@ export function extend(source, ext) {
 
     let newTokens = diff(extKeys, srcOrder);
 
-    return merge(source, ext, {
+    let def = clone(source);
+
+    return extendShallow(def, ext, {
         _order: srcOrder.concat(newTokens)
     });
-}
-
-export function clone(obj) {
-    return cloneDeep(obj);
 }
 
 export function insertBefore(source, before, insert) {
@@ -39,7 +41,7 @@ export function insertBefore(source, before, insert) {
 
     delete insert._order;
 
-    return deepAssign(source, insert);
+    return extendShallow(source, insert);
 }
 
 export function insertAfter(source, after, insert) {
@@ -57,5 +59,5 @@ export function insertAfter(source, after, insert) {
 
     delete insert._order;
 
-    return deepAssign(source, insert);
+    return extendShallow(source, insert);
 }
