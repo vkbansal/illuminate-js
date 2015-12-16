@@ -1,15 +1,15 @@
 "use strict";
 
-import { add as addHook} from "../hooks";
+import { add as addHook } from "../hooks";
 
 let markup = {
     comment: /<!--[\w\W]*?-->/,
-	prolog: /<\?[\w\W]+?\?>/,
-	doctype: /<!DOCTYPE[\w\W]+?>/,
-	cdata: /<!\[CDATA\[[\w\W]*?]]>/i,
-	tag: {
-		pattern: /<\/?(?!\d)[^\s>\/=.$<]+(?:\s+[^\s>\/=]+(?:=(?:("|')(?:\\\1|\\?(?!\1)[\w\W])*\1|[^\s'">=]+))?)*\s*\/?>/i,
-		inside: {
+    prolog: /<\?[\w\W]+?\?>/,
+    doctype: /<!DOCTYPE[\w\W]+?>/,
+    cdata: /<!\[CDATA\[[\w\W]*?]]>/i,
+    tag: {
+        pattern: /<\/?(?!\d)[^\s>\/=.$<]+(?:\s+[^\s>\/=]+(?:=(?:("|')(?:\\\1|\\?(?!\1)[\w\W])*\1|[^\s'">=]+))?)*\s*\/?>/i,
+        inside: {
             tag: {
                 pattern: /^<\/?[^\s>\/]+/i,
                 inside: {
@@ -49,9 +49,9 @@ let markup = {
 
 // Plugin to make entity title show the real entity, idea by Roman Komarov
 addHook("wrap", function(env) {
-	if (env.type === "entity") {
-		env.attributes["title"] = env.content.replace(/&amp;/, "&");
-	}
+    if (env.type === "entity") {
+        env.attributes.title = env.content.replace(/&amp;/, "&");
+    }
 });
 
 export { markup as markup };
