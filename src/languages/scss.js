@@ -3,7 +3,7 @@
 import { lang } from "../utils";
 import { css } from "./css";
 
-let sass = lang.extend(css, {
+let scss = lang.extend(css, {
     comment: {
         pattern: /(^|[^\\])(?:\/\*[\w\W]*?\*\/|\/\/.*)/,
         lookbehind: true
@@ -35,7 +35,7 @@ let sass = lang.extend(css, {
     _order: ["comment", "atrule", "url", "selector"]
 });
 
-lang.insertBefore(sass, "atrule", {
+lang.insertBefore(scss, "atrule", {
     keyword: [
         /@(?:if|else(?: if)?|for|each|while|import|extend|debug|warn|mixin|include|function|return|content)/i,
         {
@@ -46,13 +46,13 @@ lang.insertBefore(sass, "atrule", {
     _order: ["keyword"]
 });
 
-lang.insertBefore(sass, "property", {
+lang.insertBefore(scss, "property", {
     // var and interpolated vars
     variable: /\$[-_\w]+|#\{\$[-_\w]+\}/,
     _order: ["variable"]
 });
 
-lang.insertBefore(sass, "function", {
+lang.insertBefore(scss, "function", {
     placeholder: {
         pattern: /%[-_\w]+/,
         alias: "selector"
@@ -67,7 +67,6 @@ lang.insertBefore(sass, "function", {
     _order: ["placeholder", "statement", "boolean", "null", "operator"]
 });
 
-lang.insertAfter(sass.atrule.inside, "rule", lang.clone(sass));
+lang.insertAfter(scss.atrule.inside, "rule", lang.clone(scss));
 
-export { sass as sass };
-export { sass as scss };
+export { scss as scss };
