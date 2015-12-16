@@ -13,4 +13,5 @@ export * from "./markup";
 export * from "./php";
 export * from "./sass";
 export * from "./scss";
+export * from "./sql";
 export * from "./yaml";
