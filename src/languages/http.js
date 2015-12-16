@@ -2,7 +2,7 @@
 
 import { lang } from "../utils";
 import { javascript } from "./javascript";
-import { markup } from "markup";
+import { markup } from "./markup";
 
 let http = {
     "request-line": {
@@ -50,7 +50,8 @@ Object.keys(httpLanguages).forEach((contentType) => {
             pattern: new RegExp(`(content-type:\\s*"${contentType}[\\w\\W]*?)(?:\\r?\\n|\\r){2}[\\w\\W]*`, "i"),
             lookbehind: true,
             inside: httpLanguages[contentType]
-        }
+        },
+        _order: [contentType]
     };
 
     lang.insertBefore(http, "header-name", options);
