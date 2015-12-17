@@ -1,7 +1,7 @@
 "use strict";
 
 import extendShallow from "extend-shallow";
-import cloneDeep from "clone-deep";
+import cloneDeep from "lodash.clonedeep";
 import isObj from "is-plain-object";
 import diff from "array-differ";
 
