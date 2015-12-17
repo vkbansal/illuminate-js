@@ -8,13 +8,13 @@ It can also be used with [markdow-it](https://github.com/markdown-it/markdown-it
 
 ## Install
 
-```
+```bash
 npm install illuminate-js
 ```
 
 ## Usage
 
-```
+```js
 // es5
 var illuminate = require("illuminate-js");
 
@@ -33,7 +33,7 @@ illuminate.highlight(text, "langname");
 
 **Usage with `markdown-it`**
 
-```
+```js
 var illuminate = require('illuminate-js')
 
 var md = require('markdown-it')({
