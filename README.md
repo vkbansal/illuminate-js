@@ -1,9 +1,10 @@
 # Illuminate (WIP)
 
-
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][deps-image]][deps-url] [![Coverage Status][coverage-image]][coverage-url] [![Code Climate][climate-image]][climate-url]
 
 Illuminate is a syntax highlighter based on [prism.js](http://prismjs.com), rewritten in `ES6` specifically for `node.js`.
+
+It can also be used with [markdow-it](https://github.com/markdown-it/markdown-it) and [react](http://facebook.github.io/react/) !
 
 ## Install
 
@@ -11,12 +12,43 @@ Illuminate is a syntax highlighter based on [prism.js](http://prismjs.com), rewr
 npm install illuminate-js
 ```
 
-## Related Projects
- - [react-illuminate](https://github.com/vkbansal/react-illuminate) - Syntax highlighting in React.
-
 ## Usage
 
-Coming soon. If you like adventures, you can have a look at tests.
+```
+// es5
+var illuminate = require("illuminate-js");
+
+var text = "your code here";
+
+illuminate.highlight(text, "langname");
+
+
+//es6
+import { highlight } from "illuminate";
+
+let text = "your code here";
+
+illuminate.highlight(text, "langname");
+```
+
+**Usage with `markdown-it`**
+
+```
+var illuminate = require('illuminate-js')
+
+var md = require('markdown-it')({
+  highlight: function (str, lang) {
+    if (lang && illuminate.getLanguage(lang)) {
+        return illuminate.highlight(lang, str);
+    }
+
+    return '';
+  }
+});
+```
+
+## Related Projects
+ - [react-illuminate](https://github.com/vkbansal/react-illuminate) - Syntax highlighting in React.
 
 ## License
 
