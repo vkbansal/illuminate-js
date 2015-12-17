@@ -11,6 +11,9 @@ Illuminate is a syntax highlighter based on [prism.js](http://prismjs.com), rewr
 npm install illuminate-js
 ```
 
+## Related Projects
+ - [react-illuminate**](https://github.com/vkbansal/react-illuminate) - Syntax highlighting in React.
+
 ## Usage
 
 Coming soon. If you like adventures, you can have a look at tests.
