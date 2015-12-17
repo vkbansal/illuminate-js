@@ -5,7 +5,7 @@ import * as utils from "./utils";
 import hooks from "./hooks";
 import Token from "./token";
 
-function tokenize(text, grammar) {
+export function tokenize(text, grammar) {
     if (!grammar.hasOwnProperty("_order") || !Array.isArray(grammar._order)) {
         throw new Error("A grammar must have an _order array");
     }
@@ -117,5 +117,3 @@ export function addPlugin(plugin) {
 
     plugin(hooks.add);
 }
-
-export default { getLanguage, highlight, addPlugin };
