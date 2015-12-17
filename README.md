@@ -12,7 +12,7 @@ npm install illuminate-js
 ```
 
 ## Related Projects
- - [react-illuminate**](https://github.com/vkbansal/react-illuminate) - Syntax highlighting in React.
+ - [react-illuminate](https://github.com/vkbansal/react-illuminate) - Syntax highlighting in React.
 
 ## Usage
 
