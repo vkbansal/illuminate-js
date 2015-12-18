@@ -5,10 +5,10 @@
   "main": "lib/index.js",
   "scripts": {
     "coveralls": "cat ./reports/coverage/lcov.info | coveralls",
-    "test": "istanbul cover --dir reports/coverage node_modules/mocha/bin/_mocha test/**/*.js -- --reporter dot",
+    "test": "istanbul cover --dir reports/coverage node_modules/mocha/bin/_mocha test/*.js -- --reporter dot",
     "build": "npm run compile && npm run test",
     "compile": "node_modules/.bin/babel src -d lib",
-    "unit-test": "node_modules/.bin/mocha test/**/*.js",
+    "unit-test": "node_modules/.bin/mocha test/*.js",
     "prepublish": "npm run build"
   },
   "repository": {
@@ -32,7 +32,8 @@
     "eslint": "^1.10.3",
     "eslint-config-vkbansal": "^0.1.2",
     "istanbul": "^0.4.1",
-    "mocha": "^2.3.4"
+    "mocha": "^2.3.4",
+    "require-dir": "^0.3.0"
   },
   "dependencies": {
     "array-differ": "^1.0.0",

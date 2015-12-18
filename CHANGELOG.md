@@ -13,6 +13,7 @@ All the changes can be found below. Order used:
 
 ### Added
 - definitions for `ruby`.
+- tests for actual language tokens
 
 ## v0.2.0
 
