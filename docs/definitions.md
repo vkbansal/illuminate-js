@@ -15,8 +15,9 @@ The following is the list of language definitions available with illuminate alon
 - **LESS** : less
 - **PHP** : php
 - **Python**: python
-- **SASS** (older SASS syntax) : sass
-- **SCSS** (newer SCSS syntax) : scss
+- **Ruby**: ruby
+- **SASS** (older syntax for SASS) : sass
+- **SCSS** (newer syntax for SASS) : scss
 - **SQL**: sql
 - **TypeScript**: typescript
 - **YAML**: yaml, yml
