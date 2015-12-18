@@ -1,11 +1,11 @@
 "use strict";
 
-// require("babel-register");
-
 let languages = require("../lib/languages"),
     expect = require("chai").expect,
     isObj = require("is-plain-object"),
-    diffArr = require("array-differ");
+    diffArr = require("array-differ"),
+    argv = require("yargs").argv,
+    chalk = require("chalk");
 
 
 function test(def, path) {
@@ -32,8 +32,14 @@ function testLang(lang) {
         test(languages[lang]);
     });
 }
+if (argv.lang) {
+    if (languages[argv.lang]) {
+        return testLang(argv.lang);
+    }
 
-
-describe("languages must have proper definition", function() {
-    Object.keys(languages).forEach(testLang);
-});
+    console.log("  " + chalk.bgRed(`${chalk.bold.underline(argv.lang)} definition not found!`));
+} else {
+    describe("languages must have proper definition", function() {
+        Object.keys(languages).forEach(testLang);
+    });
+}

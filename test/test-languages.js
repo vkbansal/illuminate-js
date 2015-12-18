@@ -3,7 +3,9 @@
 let illuminate = require("../lib"),
     expect = require("chai").expect,
     requireDir = require("require-dir"),
-    transformer = require("./helpers/token-transformer");
+    transformer = require("./helpers/token-transformer"),
+    argv = require("yargs").argv,
+    chalk = require("chalk");
 
 let tests = requireDir("./languages", { recurse: true });
 
@@ -24,6 +26,14 @@ function testLang(lang) {
     });
 }
 
-describe("languages must parse correctly", function() {
-    Object.keys(tests).forEach(testLang);
-});
+if (argv.lang) {
+    if (tests[argv.lang]) {
+        return testLang(argv.lang);
+    }
+
+    console.log("  " + chalk.bgRed(`tests for ${chalk.bold.underline(argv.lang)} not found!`));
+} else {
+    describe("languages must parse correctly", function() {
+        Object.keys(tests).forEach(testLang);
+    });
+}
