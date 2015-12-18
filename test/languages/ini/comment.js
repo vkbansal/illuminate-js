@@ -9,4 +9,4 @@ exports.expected = [
     ["comment", "; foobar"]
 ];
 
-exports.comment = "Checks for comments";
+exports.comment = "should parse comments";
