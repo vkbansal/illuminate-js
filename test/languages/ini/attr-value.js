@@ -9,7 +9,6 @@ exports.expected = [
         ["punctuation", "="],
         "Bar Baz"
     ]],
-    "\n",
     ["constant", "foobar"],
     ["attr-value", [
         ["punctuation", "="],

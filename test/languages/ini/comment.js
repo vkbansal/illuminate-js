@@ -5,7 +5,6 @@ exports.input = `
 
 exports.expected = [
     ["comment", ";"],
-    "\n",
     ["comment", "; foobar"]
 ];
 

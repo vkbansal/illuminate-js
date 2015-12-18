@@ -5,7 +5,6 @@ exports.input = `
 
 exports.expected = [
     ["important", "[batman]"],
-    "\n",
     ["important", "[ironman]"]
 ];
 
