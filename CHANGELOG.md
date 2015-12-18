@@ -9,6 +9,11 @@ All the changes can be found below. Order used:
 - Fixed
 - Security
 
+## master
+
+### Added
+- definitions for `ruby`.
+
 ## v0.2.0
 
 ### Added

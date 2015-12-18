@@ -14,6 +14,7 @@ export * from "./less";
 export * from "./markup";
 export * from "./php";
 export * from "./python";
+export * from "./ruby";
 export * from "./sass";
 export * from "./scss";
 export * from "./sql";
