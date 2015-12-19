@@ -1,6 +1,11 @@
 # Illuminate (WIP)
 
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][deps-image]][deps-url] [![Coverage Status][coverage-image]][coverage-url] [![Code Climate][climate-image]][climate-url]
+[![NPM version][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
+[![Dependency Status][deps-image]][deps-url]
+[![Dev Dependency Status][dev-deps-image]][dev-deps-url]
+[![Coverage Status][coverage-image]][coverage-url]
+[![Code Climate][climate-image]][climate-url]
 
 Illuminate is a syntax highlighter based on [prism.js](http://prismjs.com), rewritten in `ES6` specifically for `node.js`.
 
@@ -61,7 +66,10 @@ MIT. Copyright(c) [Vivek Kumar Bansal](http://vkbansal.me/)
 [travis-image]: http://img.shields.io/travis/vkbansal/illuminate-js/master.svg?style=flat-square
 
 [deps-url]: https://david-dm.org/vkbansal/illuminate-js
-[deps-image]: https://img.shields.io/david/dev/vkbansal/illuminate-js.svg?style=flat-square
+[deps-image]: https://img.shields.io/david/vkbansal/illuminate-js.svg?style=flat-square
+
+[dev-deps-url]: https://david-dm.org/vkbansal/illuminate-js
+[dev-deps-image]: https://img.shields.io/david/dev/vkbansal/illuminate-js.svg?style=flat-square
 
 [coverage-url]: https://coveralls.io/r/vkbansal/illuminate-js?branch=master
 [coverage-image]: http://img.shields.io/coveralls/vkbansal/illuminate-js/master.svg?style=flat-square
