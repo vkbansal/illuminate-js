@@ -16,7 +16,7 @@ describe("illuminate", function() {
 
     describe("highlight", function() {
         it("should highlight given text", function() {
-            expect(illuminate.highlight("if (a > b)", "clike")).to.equal('<span class="token keyword" >if</span> <span class="token punctuation" >(</span>a <span class="token operator" >&gt;</span> b<span class="token punctuation" >)</span>');
+            expect(illuminate.highlight("if (a > b)", "clike")).to.equal('<span class="token keyword keyword-if" >if</span> <span class="token punctuation brackets-parentheses" >(</span>a <span class="token operator" >&gt;</span> b<span class="token punctuation brackets-parentheses" >)</span>');
         });
     });
 });

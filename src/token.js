@@ -28,8 +28,21 @@ class Token {
             parent
         };
 
-        if (env.type === "comment") {
-            env.attributes.spellcheck = "true";
+        switch (env.type) {
+            case "comment":
+                env.attributes.spellcheck = "true";
+                break;
+            case "keyword":
+                env.classes.push(`keyword-${env.content.toLowerCase().trim()}`);
+                break;
+            case "punctuation":
+                if (env.content.match(/\(|\)/g)) {
+                    env.classes.push(`brackets-parentheses`);
+                } else if (env.content.match(/<|>/g)) {
+                    env.classes.push(`brackets-angle`);
+                } else if (env.content.match(/\[|\]>/g)) {
+                    env.classes.push(`brackets-square`);
+                }
         }
 
         if (o.alias) {

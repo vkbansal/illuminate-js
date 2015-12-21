@@ -13,7 +13,7 @@ describe("Token", function() {
         it("should work with single token", function() {
             let token = new Token("keyword", "TESTING", "");
 
-            expect(Token.stringify(token)).to.equal("<span class=\"token keyword\" >TESTING</span>");
+            expect(Token.stringify(token)).to.equal("<span class=\"token keyword keyword-testing\" >TESTING</span>");
         });
 
         it("should work with array of tokens", function() {
@@ -23,7 +23,7 @@ describe("Token", function() {
                 new Token("keyword", "TESTING", "")
             ];
 
-            expect(Token.stringify(tokens)).to.equal("<span class=\"token keyword\" >TESTING</span><span class=\"token keyword\" >TESTING</span><span class=\"token keyword\" >TESTING</span>");
+            expect(Token.stringify(tokens)).to.equal("<span class=\"token keyword keyword-testing\" >TESTING</span><span class=\"token keyword keyword-testing\" >TESTING</span><span class=\"token keyword keyword-testing\" >TESTING</span>");
         });
 
     });
