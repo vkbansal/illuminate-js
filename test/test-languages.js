@@ -15,9 +15,15 @@ function testFeature(lang, key) {
         comment = test.comment || `should parse ${key} correctly`,
         tokens = illuminate.tokenize(input, illuminate.getLanguage(lang));
 
-    it(comment, function() {
-        expect(transformer(tokens)).to.be.eql(test.expected);
-    });
+    if (test.fails) {
+        it(comment, function() {
+            expect(transformer(tokens)).not.to.be.eql(test.expected);
+        });
+    } else {
+        it(`[failure] ${comment}`, function() {
+            expect(transformer(tokens)).to.be.eql(test.expected);
+        });
+    }
 }
 
 function testLang(lang) {
