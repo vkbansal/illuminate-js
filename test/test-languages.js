@@ -16,11 +16,11 @@ function testFeature(lang, key) {
         tokens = illuminate.tokenize(input, illuminate.getLanguage(lang));
 
     if (test.fails) {
-        it(comment, function() {
+        it(`[failure] ${comment}`, function() {
             expect(transformer(tokens)).not.to.be.eql(test.expected);
         });
     } else {
-        it(`[failure] ${comment}`, function() {
+        it(comment, function() {
             expect(transformer(tokens)).to.be.eql(test.expected);
         });
     }
