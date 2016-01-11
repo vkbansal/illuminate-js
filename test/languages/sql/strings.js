@@ -1,10 +1,10 @@
 exports.input = `
 ""
-"fo"obar"
+"fo\\"obar"
 "foo
 bar"
 ''
-'fo'obar'
+'fo\\'obar'
 'foo
 bar'
 `;
@@ -19,5 +19,3 @@ exports.expected = [
 ];
 
 exports.comment = "should parse strings";
-
-exports.fails = true;
