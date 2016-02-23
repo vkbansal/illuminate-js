@@ -9,10 +9,10 @@ All the changes can be found below. Order used:
 - Fixed
 - Security
 
-## master
+## v0.3.0
 
 ### Added
-- definitions for `ruby`.
+- definitions for `ruby`, `makefile`.
 - tests for actual language tokens.
 - keyword specific classes and brackets specific classes while highlighting.
 
