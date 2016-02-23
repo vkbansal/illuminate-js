@@ -42,6 +42,8 @@ class Token {
                     env.classes.push(`brackets-angle`);
                 } else if (env.content.match(/\[|\]>/g)) {
                     env.classes.push(`brackets-square`);
+                } else if (env.content.match(/\{|\}/g)) {
+                    env.classes.push(`brackets-braces`);
                 }
         }
 
