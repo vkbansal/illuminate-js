@@ -11,6 +11,7 @@ export * from "./javascript";
 export * from "./json";
 export * from "./jsx";
 export * from "./less";
+export * from "./makefile";
 export * from "./markup";
 export * from "./php";
 export * from "./python";
