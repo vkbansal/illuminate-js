@@ -44,7 +44,7 @@ var illuminate = require('illuminate-js')
 var md = require('markdown-it')({
   highlight: function (str, lang) {
     if (lang && illuminate.getLanguage(lang)) {
-        return illuminate.highlight(lang, str);
+        return illuminate.highlight(str, lang);
     }
 
     return '';
