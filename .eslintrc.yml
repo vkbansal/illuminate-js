@@ -1,5 +1,5 @@
 ---
-    extends: ["vkbansal", "vkbansal/babel"]
+    extends: ["vkbansal"]
     rules:
         camelcase: 0
         max-statements: 0
