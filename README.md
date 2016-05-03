@@ -7,9 +7,13 @@
 [![Coverage Status][coverage-image]][coverage-url]
 [![Code Climate][climate-image]][climate-url]
 
-Illuminate is a syntax highlighter based on [prism.js](http://prismjs.com), rewritten in `ES6` specifically for `node.js`.
+Illuminate is a syntax highlighter based on [prism.js](http://prismjs.com), written in `ES6` specifically for `node.js`.
 
 It can also be used with [markdow-it](https://github.com/markdown-it/markdown-it) and [react](http://facebook.github.io/react/) !
+
+> Disclaimer: I have no intent of competing with `prism.js`. If you use it and like it, please keep using it. This project is intended for personal use.
+
+> Note: API is very experimental. Please use at your own risk.
 
 ## Install
 
