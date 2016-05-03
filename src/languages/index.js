@@ -13,6 +13,7 @@ export * from "./jsx";
 export * from "./less";
 export * from "./makefile";
 export * from "./markup";
+export * from "./matlab";
 export * from "./php";
 export * from "./python";
 export * from "./ruby";
