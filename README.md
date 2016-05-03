@@ -9,7 +9,7 @@
 
 Illuminate is a syntax highlighter based on [prism.js](http://prismjs.com), rewritten in `ES6` specifically for `node.js`.
 
-It can also be used with [markdow-it](https://github.com/markdown-it/markdown-it) and [react](http://facebook.github.io/react/) !
+It can also be used with [markdown-it](https://github.com/markdown-it/markdown-it) and [react](http://facebook.github.io/react/) !
 
 ## Install
 
