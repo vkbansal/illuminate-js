@@ -1,6 +1,7 @@
 "use strict";
 
 let illuminate = require("../lib"),
+    tokenize = require("../lib/token/tokenize").default,
     expect = require("chai").expect,
     requireDir = require("require-dir"),
     transformer = require("./helpers/token-transformer"),
@@ -13,7 +14,7 @@ function testFeature(lang, key) {
     let test = tests[lang][key],
         input = test.input.trim(),
         comment = test.comment || `should parse ${key} correctly`,
-        tokens = illuminate.tokenize(input, illuminate.getLanguage(lang));
+        tokens = tokenize(input, illuminate.getLanguage(lang));
 
     if (test.fails) {
         it(`[failure] ${comment}`, function() {
