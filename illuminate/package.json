@@ -1,0 +1,26 @@
+{
+  "name": "illuminate-js",
+  "version": "0.3.0",
+  "description": "Syntax Highlighting for NodeJS",
+  "main": "lib/index.js",
+  "scripts": {
+    "eslint": "eslint ./src ./test",
+    "test": "../node_modules/.bin/jest",
+    "build": "npm run compile && npm run test",
+    "compile": "../node_modules/.bin/babel ./src -d ./lib",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vkbansal/illuminate-js.git"
+  },
+  "author": "Vivek Kumar Bansal <contact@vkbansal.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vkbansal/illuminate-js/issues"
+  },
+  "homepage": "https://github.com/vkbansal/illuminate-js#readme",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
