@@ -1,63 +1,46 @@
-"use strict";
+import Definition from '../Definition';
 
-let yaml = {
-    scalar: {
+export default new Definition([
+    ['scalar', {
         pattern: /([\-:]\s*(![^\s]+)?[ \t]*[|>])[ \t]*(?:((?:\r?\n|\r)[ \t]+)[^\r\n]+(?:\3[^\r\n]+)*)/,
         lookbehind: true,
-        alias: "string"
-    },
-    comment: /#.*/,
-    key: {
-        pattern: /(\s*[:\-,[{\r\n?][ \t]*(![^\s]+)?[ \t]*)[^\r\n{[\]},#]+?(?=\s*:\s)/,
+        alias: 'string'
+    }],
+    ['comment', /#.*/],
+    ['key', {
+        pattern: /(\s*(?:^|[:\-,[{\r\n?])[ \t]*(![^\s]+)?[ \t]*)[^\r\n{[\]},#\s]+?(?=\s*:\s)/,
         lookbehind: true,
-        alias: "atrule"
-    },
-    directive: {
+        alias: 'atrule'
+    }],
+    ['directive', {
         pattern: /(^[ \t]*)%.+/m,
         lookbehind: true,
-        alias: "important"
-    },
-    datetime: {
+        alias: 'important'
+    }],
+    ['datetime', {
         pattern: /([:\-,[{]\s*(![^\s]+)?[ \t]*)(\d{4}-\d\d?-\d\d?([tT]|[ \t]+)\d\d?:\d{2}:\d{2}(\.\d*)?[ \t]*(Z|[-+]\d\d?(:\d{2})?)?|\d{4}-\d{2}-\d{2}|\d\d?:\d{2}(:\d{2}(\.\d*)?)?)(?=[ \t]*($|,|]|}))/m,
         lookbehind: true,
-        alias: "number"
-    },
-    "boolean": {
+        alias: 'number'
+    }],
+    ['boolean', {
         pattern: /([:\-,[{]\s*(![^\s]+)?[ \t]*)(true|false)[ \t]*(?=$|,|]|})/im,
         lookbehind: true,
-        alias: "important"
-    },
-    "null": {
+        alias: 'important'
+    }],
+    ['null', {
         pattern: /([:\-,[{]\s*(![^\s]+)?[ \t]*)(null|~)[ \t]*(?=$|,|]|})/im,
         lookbehind: true,
-        alias: "important"
-    },
-    string: {
+        alias: 'important'
+    }],
+    ['string', {
         pattern: /([:\-,[{]\s*(![^\s]+)?[ \t]*)("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*')(?=[ \t]*($|,|]|}))/m,
         lookbehind: true
-    },
-    number: {
+    }],
+    ['number', {
         pattern: /([:\-,[{]\s*(![^\s]+)?[ \t]*)[+\-]?(0x[\da-f]+|0o[0-7]+|(\d+\.?\d*|\.?\d+)(e[\+\-]?\d+)?|\.inf|\.nan)[ \t]*(?=$|,|]|})/im,
         lookbehind: true
-    },
-    tag: /![^\s]+/,
-    important: /[&*][\w]+/,
-    punctuation: /---|[:[\]{}\-,|>?]|\.\.\./,
-    _order: [
-        "scalar",
-        "comment",
-        "key",
-        "directive",
-        "datetime",
-        "boolean",
-        "null",
-        "string",
-        "number",
-        "tag",
-        "important",
-        "punctuation"
-    ]
-};
-
-export { yaml as yaml };
-export { yaml as yml };
+    }],
+    ['tag', /![^\s]+/],
+    ['important', /[&*][\w]+/],
+    ['punctuation', /---|[:[\]{}\-,|>?]|\.\.\./]
+]);
