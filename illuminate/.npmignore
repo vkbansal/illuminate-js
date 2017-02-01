@@ -1,0 +1,4 @@
+tests/
+src/
+node_modules/
+.babelrc
