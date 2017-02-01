@@ -1,4 +1,7 @@
 node_modules/
 coverage/
+reports/
+lib/
 log.*
 *.log
+.vscode
