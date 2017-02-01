@@ -1,6 +1,4 @@
 /* eslint-disable no-use-before-define */
-import cloneDeep from 'lodash/cloneDeep';
-
 function invalidParams(def) {
     return !(def instanceof Map) && (!Array.isArray(def) || !def.length || !def.every((value) => value.length === 2))
 }
@@ -14,14 +12,14 @@ export default class Definition {
         this.__def = def instanceof Map ? def : new Map(def);
     }
 
-    clone = () => new Definition(cloneDeep(this.__def));
+    clone = () => new Definition(new Map(this.__def));
 
     extend = (def) => {
         if (invalidParams(def)) {
             throw new Error(`extend requires Map`);
         }
 
-        const extendedLang = cloneDeep(this.__def);
+        const extendedLang = new Map(this.__def);
 
         for (const [key, value] of def) {
             extendedLang.set(key, value);
