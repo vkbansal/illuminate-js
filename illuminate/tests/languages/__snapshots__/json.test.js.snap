@@ -177,8 +177,12 @@ Array [
     ":",
   ],
   Array [
-    "number",
-    "23",
+    "string",
+    "\"bar\"",
+  ],
+  Array [
+    "punctuation",
+    ",",
   ],
   Array [
     "property",
@@ -188,22 +192,9 @@ Array [
     "operator",
     ":",
   ],
-  "-",
   Array [
-    "number",
-    "456",
-  ],
-  Array [
-    "property",
+    "string",
     "\"baz\"",
-  ],
-  Array [
-    "operator",
-    ":",
-  ],
-  Array [
-    "number",
-    "123.456e-10",
   ],
   Array [
     "punctuation",

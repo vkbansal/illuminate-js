@@ -32,7 +32,7 @@ const stringValues = `
     "foo": "bar",
     "bar": "baz"
 }
-`
+`;
 
 describe('json lang test', () => {
     test('native values', () => {
@@ -48,6 +48,6 @@ describe('json lang test', () => {
     });
 
     test('string values', () => {
-        expect(tokenToJson(tokenize(numberValues, json))).toMatchSnapshot();
+        expect(tokenToJson(tokenize(stringValues, json))).toMatchSnapshot();
     });
 });
