@@ -6,6 +6,7 @@ export function encode(tokens) {
     } else if (Array.isArray(tokens)) {
         return tokens.map(encode);
     }
+
     return tokens
             .replace(/&/g, '&amp;')
             .replace(/</g, '&lt;')

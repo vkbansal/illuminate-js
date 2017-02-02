@@ -13,7 +13,7 @@ export default new Definition([
             ['directive-block', {
                 pattern: /^<\/?\w+/,
                 inside: new Definition([
-                    ['punctuation', /^<\/?/],
+                    ['punctuation', /^<\/?/]
                 ]),
                 alias: 'tag'
             }],
@@ -24,9 +24,9 @@ export default new Definition([
                     ['string', {
                         pattern: /("|').*\1/,
                         inside: new Definition([
-                            ['variable', /(\$|%)\{?(\w\.?(\+|\-|:)?)+\}?/],
+                            ['variable', /(\$|%)\{?(\w\.?(\+|\-|:)?)+\}?/]
                         ])
-                    }],
+                    }]
                 ]),
                 alias: 'attr-value'
             }],

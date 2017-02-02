@@ -4,8 +4,8 @@ export default function tokenToJson(token) {
     }
 
     if (Array.isArray(token)) {
-        return token.map(tokenToJson).filter(f => Boolean(f));
+        return token.map(tokenToJson).filter((f) => Boolean(f));
     }
 
     return [token.type, tokenToJson(token.content)];
-};
+}

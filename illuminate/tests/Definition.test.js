@@ -33,7 +33,7 @@ describe('Lang test', () => {
 
         expect(test).not.toThrow();
         expect(dump.length).toBe(3);
-        expect(dump.map((e)=> e[0])).toEqual(['foo', 'bar', 'baz']);
+        expect(dump.map((e) => e[0])).toEqual(['foo', 'bar', 'baz']);
     });
 
     test('set/get(s) the correct value', () => {

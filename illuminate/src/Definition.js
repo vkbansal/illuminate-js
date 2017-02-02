@@ -1,6 +1,6 @@
 /* eslint-disable no-use-before-define */
 function invalidParams(def) {
-    return !(def instanceof Map) && (!Array.isArray(def) || !def.length || !def.every((value) => value.length === 2))
+    return !(def instanceof Map) && (!Array.isArray(def) || !def.length || !def.every((value) => value.length === 2));
 }
 
 export default class Definition {

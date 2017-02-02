@@ -49,7 +49,7 @@ export default class Token {
                         return env.classes.push('brackets-braces');
                 }
             }
-        }
+        };
 
         if (env.type in types) types[env.type](env.content);
 
