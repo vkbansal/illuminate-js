@@ -1,7 +1,6 @@
-"use strict";
+import Definition from '../Definition';
 
-import { lang } from "../utils";
-import { css } from "./css";
+import css from './css';
 
 /* FIXME :
  :extend() is not handled specifically : its highlighting is buggy.
@@ -11,36 +10,30 @@ import { css } from "./css";
  A comment before a mixin usage prevents the latter to be properly highlighted.
  */
 
-let less = lang.extend(css, {
-    comment: [
+const less = css.extend([
+    ['comment', [
         /\/\*[\w\W]*?\*\//,
         {
             pattern: /(^|[^\\])\/\/.*/,
             lookbehind: true
         }
-    ],
-    atrule: {
+    ]],
+    ['atrule', {
         pattern: /@[\w-]+?(?:\([^{}]+\)|[^(){};])*?(?=\s*\{)/i,
-        inside: {
-            punctuation: /[:()]/,
-            _order: ["punctuation"]
-        }
-    },
+        inside: new Definition([['punctuation', /[:()]/]])
+    }],
     // selectors and mixins are considered the same
-    selector: {
+    ['selector', {
         pattern: /(?:@\{[\w-]+\}|[^{};\s@])(?:@\{[\w-]+\}|\([^{}]*\)|[^{};@])*?(?=\s*\{)/,
-        inside: {
+        inside: new Definition([
             // mixin parameters
-            variable: /@+[\w-]+/,
-            _order: ["variable"]
-        }
-    },
-
-    property: /(?:@\{[\w-]+\}|[\w-])+(?:\+_?)?(?=\s*:)/i,
-    punctuation: /[{}();:,]/,
-    operator: /[+\-*\/]/,
-    _order: ["comment", "atrule", "selector", "property", "punctuation", "operator"]
-});
+            ['variable', /@+[\w-]+/]
+        ])
+    }],
+    ['property', /(?:@\{[\w-]+\}|[\w-])+(?:\+_?)?(?=\s*:)/i],
+    ['punctuation', /[{}();:,]/],
+    ['operator', /[+\-*\/]/]
+]);
 
 // // Invert function and punctuation positions
 // lang.insertBefore(less, "punctuation", {
@@ -48,26 +41,24 @@ let less = lang.extend(css, {
 //     _order: ["function"]
 // });
 
-lang.insertBefore(less, "property", {
-    variable: [
+less.insertBefore('property', [
+    ['variable', [
         // Variable declaration (the colon must be consumed!)
         {
             pattern: /@[\w-]+\s*:/,
-            inside: {
-                punctuation: /:/,
-                _order: ["punctuation"]
-            }
+            inside: new Definition([
+                ['punctuation', /:/]
+            ])
         },
 
         // Variable usage
         /@@?[\w-]+/
-    ],
-    "mixin-usage": {
+    ]],
+    ['mixin-usage', {
         pattern: /([{;]\s*)[.#](?!\d)[\w-]+.*?(?=[(;])/,
         lookbehind: true,
-        alias: "function"
-    },
-    _order: ["variable", "mixin-usage"]
-});
+        alias: 'function'
+    }]
+]);
 
-export { less as less };
+export default less;
