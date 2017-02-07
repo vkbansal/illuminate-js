@@ -1,22 +1,44 @@
 /* eslint-disable no-use-before-define */
 function invalidParams(def) {
-    return !(def instanceof Map) && (!Array.isArray(def) || !def.length || !def.every((value) => value.length === 2));
+    return !(def instanceof Definition) && !(def instanceof Map) && (!Array.isArray(def) || !def.length || !def.every((value) => value.length === 2));
+}
+
+function clone(val, key) {
+    if (val.inside) {
+        return Object.assign({}, val, {
+            inside: val.inside.clone()
+        });
+    } else if (key === 'rest' || (val instanceof Definition)) {
+        return val.clone();
+    } else if (Array.isArray(val)) {
+        return val.map(clone);
+    }
+
+    return val;
 }
 
 export default class Definition {
     constructor(def) {
         if (invalidParams(def)) {
-            throw new Error('Invalid arguments provided to Lang constructor');
+            throw new Error('Invalid arguments provided to Definition constructor');
         }
 
         this.__def = def instanceof Map ? def : new Map(def);
     }
 
-    clone = () => new Definition(new Map(this.__def));
+    clone = () => {
+        const temp = new Map();
+
+        for (const [key, value] of this.__def) {
+            temp.set(key, clone(value));
+        }
+
+        return new Definition(temp);
+    };
 
     extend = (def) => {
         if (invalidParams(def)) {
-            throw new Error(`extend requires Map`);
+            throw new Error(`Invalid arguments provided to extend`);
         }
 
         const extendedLang = new Map(this.__def);
@@ -30,7 +52,7 @@ export default class Definition {
 
     insertBefore = (insertKey, def) => {
         if (invalidParams(def)) {
-            throw new Error(`insertBefore requires Map`);
+            throw new Error(`Invalid arguments provided to insertBefore`);
         }
 
         const temp = new Map();

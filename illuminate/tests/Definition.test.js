@@ -60,4 +60,23 @@ describe('Lang test', () => {
         testLang.setIn(['baz', 'baz', 1], 32);
         expect(testLang.getIn(['baz', 'baz', 1])).toBe(32);
     });
+
+    test('delete works', () => {
+        testLang.delete('baz');
+        expect(testLang.__def.get('baz')).toBeUndefined();
+    });
+
+    test('clone works', () => {
+        const clone = testLang.clone();
+
+        clone.setIn(['baz', 'baz', 2], 100);
+        clone.set('foo', 10);
+        testLang.set('foo', 100);
+
+        expect(testLang.getIn(['baz', 'baz', 2])).toBe(8);
+        expect(testLang.getIn(['foo'])).toBe(100);
+
+        expect(clone.getIn(['baz', 'baz', 2])).toBe(100);
+        expect(clone.getIn(['foo'])).toBe(10);
+    });
 });
