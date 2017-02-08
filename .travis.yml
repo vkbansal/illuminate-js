@@ -4,3 +4,5 @@ node_js:
   - 7
 install:
   - npm run bootstrap
+scripts:
+  - npm run test
