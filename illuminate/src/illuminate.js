@@ -2,6 +2,7 @@ import Definition from './Definition';
 import Token from './Token';
 import { add as addHook, run as runHook } from './hooks';
 import { encode } from './utils';
+import * as languages from './languages';
 
 export function tokenize(text, grammar) {
     if (!(grammar instanceof Definition)) {
@@ -91,6 +92,9 @@ export function tokenize(text, grammar) {
 }
 
 export function getLanguage(name) {
+    if (name in languages) return languages[name];
+
+    return false;
 }
 
 export function highlight(text, language) {
