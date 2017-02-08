@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "bootstrap": "npm install && cd illuminate &&  && npm link && npm install && cd ../react && npm link illuminate-js && npm install",
+    "bootstrap": "npm install && cd illuminate && npm link && npm install && cd ../react && npm link illuminate-js && npm install",
     "bootstrap:yarn": "yarn install && cd illuminate && yarn install && cd .. && cd react && yarn install",
     "test": "npm run lint && jest",
     "lint": "eslint ./illuminate/src ./react/src ./illuminate/tests ./react/tests"
