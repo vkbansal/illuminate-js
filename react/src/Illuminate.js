@@ -25,6 +25,6 @@ export default class Illuminate extends Component {
             token = tokenize(children, grammar);
         }
 
-        return <pre className={`language-${lang}`}><code><Token token={token}/></code></pre>;
+        return <pre className={`language-${lang}`}><code><Token token={token} /></code></pre>;
     }
 }
