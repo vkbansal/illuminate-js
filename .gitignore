@@ -5,3 +5,4 @@ lib/
 log.*
 *.log
 .vscode
+test.js
