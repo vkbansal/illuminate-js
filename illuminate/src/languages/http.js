@@ -6,7 +6,7 @@ import markup from './markup';
 const http = new Definition([
     ['request-line', {
         pattern: /^(POST|GET|PUT|DELETE|OPTIONS|PATCH|TRACE|CONNECT)\b\shttps?:\/\/\S+\sHTTP\/[0-9.]+/m,
-        inside:  new Definition([
+        inside: new Definition([
             // HTTP Verb
             ['property', /^(POST|GET|PUT|DELETE|OPTIONS|PATCH|TRACE|CONNECT)\b/],
             // Path or query argument
@@ -15,7 +15,7 @@ const http = new Definition([
     }],
     ['response-status', {
         pattern: /^HTTP\/1.[01] [0-9]+.*/m,
-        inside:  new Definition([
+        inside: new Definition([
             // Status, e.g. 200 OK
             ['property', {
                 pattern: /(^HTTP\/1.[01] )[0-9]+.*/i,

@@ -67,12 +67,12 @@ const inside = tagInside();
 inside.delete('style-attr');
 markup.setIn(['tag', 'inside', 'style-attr', 'inside', 'attr-name', 'inside'], inside);
 
-// Plugin to make entity title show the real entity, idea by Roman Komarov
-// addHook('wrap', (env) => {
-//     if (env.type === 'entity') {
-//         env.attributes.title = env.content.replace(/&amp;/, '&');
-//     }
-// });
+// Plugin to make entity title show the real entity
+addHook('wrap', (env) => {
+    if (env.type === 'entity') {
+        env.attributes.title = env.content.replace(/&amp;/, '&');
+    }
+});
 
 markup.name = 'markup';
 

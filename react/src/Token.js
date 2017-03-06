@@ -21,7 +21,7 @@ export default class Token extends Component {
             return (
                 <span>
                     {token.map((t, i) => (
-                        <Token token={t} key={i}/>
+                        <Token token={t} key={i} />
                     ))}
                 </span>
             );
@@ -37,7 +37,7 @@ export default class Token extends Component {
 
         return (
             <span className={classes.join(' ')}>
-                <Token token={token.content}/>
+                <Token token={token.content} />
             </span>
         );
     }

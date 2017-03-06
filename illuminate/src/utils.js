@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 import Token from './Token';
 
 export function encode(tokens) {

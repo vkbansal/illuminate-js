@@ -92,7 +92,7 @@ export function tokenize(text, grammar) {
 }
 
 export function getLanguage(name) {
-    if (name in languages) return languages[name];
+    if (name in languages) return languages[name]; // eslint-disable-line import/namespace
 
     return false;
 }

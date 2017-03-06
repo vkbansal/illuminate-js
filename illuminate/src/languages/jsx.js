@@ -16,7 +16,7 @@ jsx.getIn(['tag', 'inside']).insertBefore('attr-name', [
             ['attr-value', /\w+/]
         ])
     }]
-])
+]);
 
 const jsxExpression = jsx.clone();
 
