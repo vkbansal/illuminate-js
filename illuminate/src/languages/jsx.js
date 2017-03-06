@@ -5,7 +5,7 @@ import markup from './markup';
 
 const jsx = markup.extend(javascript.clone());
 
-jsx.setIn(['tag', 'pattern'], /<\/?[\w\.:-]+\s*(?:\s+[\w\.:-]*(?:=?(?:("|')(\\?[\w\W])*?\1|[^\s'">=]+|(\{[\w\W]*?\})))?\s*)*\/?>/i);
+jsx.setIn(['tag', 'pattern'], /<\/?[\w\.:-]+\s*(?:\s+(?:[\w\.:-]+(?:=(?:("|')(\\?[\w\W])*?\1|[^\s'">=]+|(\{[\w\W]*?\})))?|\{\.{3}\w+\})\s*)*\/?>/i);
 jsx.setIn(['tag', 'inside', 'attr-value', 'pattern'], /=[^\{](?:('|")[\w\W]*?(\1)|[^\s>]+)/i);
 
 jsx.getIn(['tag', 'inside']).insertBefore('attr-name', [
