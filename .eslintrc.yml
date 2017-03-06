@@ -1,10 +1,10 @@
 ---
-    extends: ["vkbansal"]
+    extends:
+        - vkbansal
+        - vkbansal/react
+    parser: babel-eslint
+    env:
+        jest: true
     rules:
-        camelcase: 0
-        max-statements: 0
-        no-labels: 0
+        no-useless-escape: 0
         no-param-reassign: 0
-        one-var: 0
-        no-console: 0
-        prefer-template: 0

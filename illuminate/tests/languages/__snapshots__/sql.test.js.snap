@@ -1,0 +1,107 @@
+exports[`sql lang test comments 1`] = `
+Array [
+  Array [
+    "comment",
+    "/**/",
+  ],
+  Array [
+    "comment",
+    "/* foo
+bar */",
+  ],
+  Array [
+    "comment",
+    "--",
+  ],
+  Array [
+    "comment",
+    "-- foo",
+  ],
+  Array [
+    "comment",
+    "//",
+  ],
+  Array [
+    "comment",
+    "// foo",
+  ],
+  Array [
+    "comment",
+    "#",
+  ],
+  Array [
+    "comment",
+    "# foo",
+  ],
+]
+`;
+
+exports[`sql lang test strings 1`] = `
+Array [
+  Array [
+    "string",
+    "\"\"",
+  ],
+  Array [
+    "string",
+    "\"fo\\\"obar\"",
+  ],
+  Array [
+    "string",
+    "\"foo
+bar\"",
+  ],
+  Array [
+    "string",
+    "\'\'",
+  ],
+  Array [
+    "string",
+    "\'fo\\\'obar\'",
+  ],
+  Array [
+    "string",
+    "\'foo
+bar\'",
+  ],
+]
+`;
+
+exports[`sql lang test variables 1`] = `
+Array [
+  Array [
+    "variable",
+    "@foo",
+  ],
+  Array [
+    "variable",
+    "@foo_bar_42",
+  ],
+  "@\"fo",
+  Array [
+    "string",
+    "\"o-b
+ar\"",
+  ],
+  "@\'fo",
+  Array [
+    "string",
+    "\'o-b
+ar\'",
+  ],
+  Array [
+    "variable",
+    "@\`fo\`",
+  ],
+  "o",
+  Array [
+    "number",
+    "-b",
+  ],
+  "ar",
+  Array [
+    "punctuation",
+    "\`",
+  ],
+]
+`;

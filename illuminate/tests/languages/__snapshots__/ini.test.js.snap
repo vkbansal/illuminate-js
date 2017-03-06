@@ -1,0 +1,58 @@
+exports[`ini lang test attributes 1`] = `
+Array [
+  Array [
+    "constant",
+    "foo",
+  ],
+  Array [
+    "attr-value",
+    Array [
+      Array [
+        "punctuation",
+        "=",
+      ],
+      "Bar Baz",
+    ],
+  ],
+  Array [
+    "constant",
+    "foobar",
+  ],
+  Array [
+    "attr-value",
+    Array [
+      Array [
+        "punctuation",
+        "=",
+      ],
+      "42",
+    ],
+  ],
+]
+`;
+
+exports[`ini lang test comments 1`] = `
+Array [
+  Array [
+    "comment",
+    ";",
+  ],
+  Array [
+    "comment",
+    "; foobar",
+  ],
+]
+`;
+
+exports[`ini lang test important 1`] = `
+Array [
+  Array [
+    "selector",
+    "[batman]",
+  ],
+  Array [
+    "selector",
+    "[ironman]",
+  ],
+]
+`;

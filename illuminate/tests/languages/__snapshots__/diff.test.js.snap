@@ -1,0 +1,45 @@
+exports[`diff lang test snapshot 1`] = `
+Array [
+  Array [
+    "diff",
+    "!     qt: core",
+  ],
+  Array [
+    "deleted",
+    "-    qt: core",
+  ],
+  Array [
+    "inserted",
+    "+    qt: core gui",
+  ],
+  Array [
+    "deleted",
+    "< qt: core",
+  ],
+  Array [
+    "inserted",
+    "> qt: core quick",
+  ],
+]
+`;
+
+exports[`diff lang test snapshot 2`] = `
+Array [
+  Array [
+    "coord",
+    "7c7",
+  ],
+  Array [
+    "coord",
+    "*** 4,8 ****",
+  ],
+  Array [
+    "coord",
+    "--- 4,8 ----",
+  ],
+  Array [
+    "coord",
+    "@@ -4,5 +4,5 @@",
+  ],
+]
+`;

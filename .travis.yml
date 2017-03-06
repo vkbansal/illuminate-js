@@ -1,6 +1,8 @@
 language: node_js
 node_js:
-  - 4
-  - 5
-after_success:
-  - npm run coveralls
+  - 6
+  - 7
+install:
+  - npm run bootstrap
+scripts:
+  - npm run test

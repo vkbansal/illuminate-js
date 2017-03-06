@@ -1,0 +1,204 @@
+exports[`json lang test native values 1`] = `
+Array [
+  Array [
+    "punctuation",
+    "{",
+  ],
+  Array [
+    "property",
+    "\"foo\"",
+  ],
+  Array [
+    "operator",
+    ":",
+  ],
+  Array [
+    "boolean",
+    "true",
+  ],
+  Array [
+    "property",
+    "\"bar\"",
+  ],
+  Array [
+    "operator",
+    ":",
+  ],
+  Array [
+    "boolean",
+    "false",
+  ],
+  Array [
+    "property",
+    "\"baz\"",
+  ],
+  Array [
+    "operator",
+    ":",
+  ],
+  Array [
+    "null",
+    "null",
+  ],
+  Array [
+    "punctuation",
+    "}",
+  ],
+]
+`;
+
+exports[`json lang test nested values 1`] = `
+Array [
+  Array [
+    "punctuation",
+    "{",
+  ],
+  Array [
+    "property",
+    "\"foo\"",
+  ],
+  Array [
+    "operator",
+    ":",
+  ],
+  Array [
+    "punctuation",
+    "[",
+  ],
+  Array [
+    "string",
+    "\"test\"",
+  ],
+  Array [
+    "punctuation",
+    "]",
+  ],
+  Array [
+    "punctuation",
+    ",",
+  ],
+  Array [
+    "property",
+    "\"bar\"",
+  ],
+  Array [
+    "operator",
+    ":",
+  ],
+  Array [
+    "punctuation",
+    "{",
+  ],
+  Array [
+    "property",
+    "\"baz\"",
+  ],
+  Array [
+    "operator",
+    ":",
+  ],
+  Array [
+    "null",
+    "null",
+  ],
+  Array [
+    "punctuation",
+    "}",
+  ],
+  Array [
+    "punctuation",
+    "}",
+  ],
+]
+`;
+
+exports[`json lang test number values 1`] = `
+Array [
+  Array [
+    "punctuation",
+    "{",
+  ],
+  Array [
+    "property",
+    "\"foo\"",
+  ],
+  Array [
+    "operator",
+    ":",
+  ],
+  Array [
+    "number",
+    "23",
+  ],
+  Array [
+    "property",
+    "\"bar\"",
+  ],
+  Array [
+    "operator",
+    ":",
+  ],
+  "-",
+  Array [
+    "number",
+    "456",
+  ],
+  Array [
+    "property",
+    "\"baz\"",
+  ],
+  Array [
+    "operator",
+    ":",
+  ],
+  Array [
+    "number",
+    "123.456e-10",
+  ],
+  Array [
+    "punctuation",
+    "}",
+  ],
+]
+`;
+
+exports[`json lang test string values 1`] = `
+Array [
+  Array [
+    "punctuation",
+    "{",
+  ],
+  Array [
+    "property",
+    "\"foo\"",
+  ],
+  Array [
+    "operator",
+    ":",
+  ],
+  Array [
+    "string",
+    "\"bar\"",
+  ],
+  Array [
+    "punctuation",
+    ",",
+  ],
+  Array [
+    "property",
+    "\"bar\"",
+  ],
+  Array [
+    "operator",
+    ":",
+  ],
+  Array [
+    "string",
+    "\"baz\"",
+  ],
+  Array [
+    "punctuation",
+    "}",
+  ],
+]
+`;
