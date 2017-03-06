@@ -2,6 +2,7 @@ node_modules/
 coverage/
 reports/
 lib/
+es6/
 log.*
 *.log
 .vscode
