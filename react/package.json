@@ -4,7 +4,9 @@
   "description": "Syntax Highlighting for React",
   "main": "lib/index.js",
   "scripts": {
-    "compile": "babel src -d lib",
+    "compile:es5": "BABEL_ENV=es5 ../node_modules/.bin/babel ./src -d ./lib",
+    "compile:es6": "BABEL_ENV=es6 ../node_modules/.bin/babel ./src -d ./es6",
+    "compile": "npm run compile:es5 && npm run compile:es6",
     "prepublish": "npm run compile"
   },
   "repository": {
@@ -22,5 +24,28 @@
   },
   "devDependencies": {
     "react": "^15.4.1"
+  },
+  "babel": {
+    "presets": [
+      "react"
+    ],
+    "env": {
+      "es6": {
+        "presets": [
+          "es2016"
+        ],
+        "plugins": [
+          "transform-class-properties"
+        ]
+      },
+      "es5": {
+        "presets": [
+          "es2015"
+        ],
+        "plugins": [
+          "transform-class-properties"
+        ]
+      }
+    }
   }
 }
