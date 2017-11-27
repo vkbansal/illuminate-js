@@ -20,7 +20,8 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-react": "^6.9.0",
     "eslint-plugin-standard": "^2.0.1",
-    "jest": "^18.1.0"
+    "jest": "^18.1.0",
+    "lerna": "^2.5.1"
   },
   "jest": {
     "testEnvironment": "node",
