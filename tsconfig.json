@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "alwaysStrict": true,
+        "baseUrl": "./",
+        "charset": "utf8",
+        "jsx": "react",
+        "strict": true,
+        "module": "es6",
+        "newLine": "LF",
+        "moduleResolution": "node",
+        "declaration": true,
+        "target": "es6",
+        "typeRoots": ["node_modules/@types", "node_modules"],
+        "noUnusedLocals": true,
+        "noUnusedParameters": true
+    },
+    "include": ["./packages/illuminate/src", "./packages/react/src"]
+}
