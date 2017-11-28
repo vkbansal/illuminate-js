@@ -1,6 +1,6 @@
-import json from '../../src/languages/json';
-import { tokenize } from '../../src/illuminate';
-import tokenToJson from '../helpers/tokenToJson';
+import { json as lang } from '../json';
+import { tokenize } from '../../illuminate';
+import { tokenToJson } from './__helpers';
 
 const nativeValues = `
 {
@@ -36,18 +36,18 @@ const stringValues = `
 
 describe('json lang test', () => {
     test('native values', () => {
-        expect(tokenToJson(tokenize(nativeValues, json))).toMatchSnapshot();
+        expect(tokenToJson(tokenize(nativeValues, lang))).toMatchSnapshot();
     });
 
     test('nested values', () => {
-        expect(tokenToJson(tokenize(nestedValues, json))).toMatchSnapshot();
+        expect(tokenToJson(tokenize(nestedValues, lang))).toMatchSnapshot();
     });
 
     test('number values', () => {
-        expect(tokenToJson(tokenize(numberValues, json))).toMatchSnapshot();
+        expect(tokenToJson(tokenize(numberValues, lang))).toMatchSnapshot();
     });
 
     test('string values', () => {
-        expect(tokenToJson(tokenize(stringValues, json))).toMatchSnapshot();
+        expect(tokenToJson(tokenize(stringValues, lang))).toMatchSnapshot();
     });
 });

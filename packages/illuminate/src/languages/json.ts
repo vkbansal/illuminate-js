@@ -1,7 +1,7 @@
-import Definition from '../Definition';
+import { Definition, TokenTypes } from '../illuminate';
 
-export default new Definition([
-    ['property', /"(?:\\.|[^\\"])*"(?=\s*:)/ig],
+export const json: Definition = new Map<string, TokenTypes>([
+    ['property', /"(?:\\.|[^\\"])*"(?=\s*:)/gi],
     ['string', /"(?!:)(?:\\.|[^\\"])*"(?!:)/g],
     ['number', /\b-?(0x[\dA-Fa-f]+|\d*\.?\d+([Ee][+-]?\d+)?)\b/g],
     ['punctuation', /[{}[\]);,]/g],
