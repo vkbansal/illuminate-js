@@ -1,6 +1,6 @@
-import sql from '../../src/languages/sql';
-import { tokenize } from '../../src/illuminate';
-import tokenToJson from '../helpers/tokenToJson';
+import { sql as lang } from '../sql';
+import { tokenize } from '../../illuminate';
+import { tokenToJson } from './__helpers';
 
 const strings = `
 ""
@@ -38,14 +38,14 @@ ar\`
 
 describe('sql lang test', () => {
     test('strings', () => {
-        expect(tokenToJson(tokenize(strings, sql))).toMatchSnapshot();
+        expect(tokenToJson(tokenize(strings, lang))).toMatchSnapshot();
     });
 
     test('comments', () => {
-        expect(tokenToJson(tokenize(comments, sql))).toMatchSnapshot();
+        expect(tokenToJson(tokenize(comments, lang))).toMatchSnapshot();
     });
 
     test('variables', () => {
-        expect(tokenToJson(tokenize(variables, sql))).toMatchSnapshot();
+        expect(tokenToJson(tokenize(variables, lang))).toMatchSnapshot();
     });
 });

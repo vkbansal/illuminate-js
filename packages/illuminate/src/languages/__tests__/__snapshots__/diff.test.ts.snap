@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`diff lang test snapshot 1`] = `
+Array [
+  Array [
+    "operator",
+    "!",
+  ],
+  "qt: core",
+  Array [
+    "operator",
+    "-",
+  ],
+  "qt: core",
+  Array [
+    "operator",
+    "+",
+  ],
+  "qt: core gui",
+  Array [
+    "operator",
+    "<",
+  ],
+  "qt: core",
+  Array [
+    "operator",
+    ">",
+  ],
+  "qt: core",
+  Array [
+    "keyword",
+    "quick",
+  ],
+]
+`;
+
+exports[`diff lang test snapshot 2`] = `
+Array [
+  Array [
+    "number",
+    "7c7",
+  ],
+  Array [
+    "operator",
+    "*",
+  ],
+  Array [
+    "operator",
+    "*",
+  ],
+  Array [
+    "operator",
+    "*",
+  ],
+  Array [
+    "number",
+    "4",
+  ],
+  Array [
+    "punctuation",
+    ",",
+  ],
+  Array [
+    "number",
+    "8",
+  ],
+  Array [
+    "operator",
+    "*",
+  ],
+  Array [
+    "operator",
+    "*",
+  ],
+  Array [
+    "operator",
+    "*",
+  ],
+  Array [
+    "operator",
+    "*",
+  ],
+  Array [
+    "comment",
+    "--- 4,8 ----",
+  ],
+  "@@",
+  Array [
+    "operator",
+    "-",
+  ],
+  Array [
+    "number",
+    "4",
+  ],
+  Array [
+    "punctuation",
+    ",",
+  ],
+  Array [
+    "number",
+    "5",
+  ],
+  Array [
+    "operator",
+    "+",
+  ],
+  Array [
+    "number",
+    "4",
+  ],
+  Array [
+    "punctuation",
+    ",",
+  ],
+  Array [
+    "number",
+    "5",
+  ],
+  "@@",
+]
+`;

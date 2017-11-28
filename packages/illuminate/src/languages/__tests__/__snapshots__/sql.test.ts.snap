@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`sql lang test comments 1`] = `
 Array [
   Array [
@@ -40,29 +42,29 @@ exports[`sql lang test strings 1`] = `
 Array [
   Array [
     "string",
-    "\"\"",
+    "\\"\\"",
   ],
   Array [
     "string",
-    "\"fo\\\"obar\"",
+    "\\"fo\\\\\\"obar\\"",
   ],
   Array [
     "string",
-    "\"foo
-bar\"",
+    "\\"foo
+bar\\"",
   ],
   Array [
     "string",
-    "\'\'",
+    "''",
   ],
   Array [
     "string",
-    "\'fo\\\'obar\'",
+    "'fo\\\\'obar'",
   ],
   Array [
     "string",
-    "\'foo
-bar\'",
+    "'foo
+bar'",
   ],
 ]
 `;
@@ -77,17 +79,17 @@ Array [
     "variable",
     "@foo_bar_42",
   ],
-  "@\"fo",
+  "@\\"fo",
   Array [
     "string",
-    "\"o-b
-ar\"",
+    "\\"o-b
+ar\\"",
   ],
-  "@\'fo",
+  "@'fo",
   Array [
     "string",
-    "\'o-b
-ar\'",
+    "'o-b
+ar'",
   ],
   Array [
     "variable",
