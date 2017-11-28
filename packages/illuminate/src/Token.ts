@@ -7,7 +7,7 @@ export interface TokenEnv {
     tag: string;
     classes: Array<string>;
     attributes: Record<string, string>;
-    language: string;
+    language?: string;
     parent?: SingleOrArray<string | Token>;
 }
 
@@ -57,7 +57,7 @@ export class Token {
 
     static stringify(
         token: SingleOrArray<string | Token>,
-        language: string,
+        language?: string,
         parent?: SingleOrArray<string | Token>
     ): string {
         if (typeof token === 'string') {

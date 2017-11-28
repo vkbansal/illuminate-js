@@ -24,7 +24,7 @@ export function add(
     hooks[name].add(callback);
 }
 
-export function run(name: string, env: object): void {
+export function run(name: string, env?: object): void {
     const callbacks = hooks[name];
 
     if (!callbacks || !callbacks.size) {
