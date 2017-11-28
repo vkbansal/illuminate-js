@@ -1,4 +1,4 @@
-import { add, run } from '../src/hooks';
+import { add, run } from '../hooks';
 
 const noop = () => null;
 
@@ -9,25 +9,25 @@ describe('hooks', () => {
         it('should accept nonempty string', () => {
             expect(() => add()).toThrow();
             expect(() => add('', noop)).toThrow();
-            expect(() => add({foo: 'bar'}, noop)).toThrow();
+            expect(() => add({ foo: 'bar' }, noop)).toThrow();
             expect(() => add(['bar'], noop)).toThrow();
             expect(() => add(/foo/, noop)).toThrow();
             expect(() => add(noop, noop)).toThrow();
-            expect(() => add('foo', () => i++)).not.toThrow();
+            expect(() => add('after-highlight', () => i++)).not.toThrow();
         });
 
         it('should accept only a function as callback', () => {
-            expect(() => add('foo', {})).toThrow();
-            expect(() => add('foo', [])).toThrow();
-            expect(() => add('foo', 'bar')).toThrow();
-            expect(() => add('foo', /foo/)).toThrow();
-            expect(() => add('foo', () => i++)).not.toThrow();
+            expect(() => add('after-highlight', {})).toThrow();
+            expect(() => add('after-highlight', [])).toThrow();
+            expect(() => add('after-highlight', 'bar')).toThrow();
+            expect(() => add('after-highlight', /foo/)).toThrow();
+            expect(() => add('after-highlight', () => i++)).not.toThrow();
         });
     });
 
     describe('run', () => {
         it('should run callbacks', () => {
-            run('foo');
+            run('after-highlight');
             expect(i).toBe(2);
         });
     });

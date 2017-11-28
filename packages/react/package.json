@@ -4,6 +4,8 @@
   "description": "Syntax Highlighting for React",
   "main": "lib/index.js",
   "scripts": {
+    "test": "cd ../../ && npm run test",
+    "prepublishOnly": "npm test"
   },
   "repository": {
     "type": "git",

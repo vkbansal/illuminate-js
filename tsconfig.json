@@ -12,7 +12,8 @@
         "target": "es6",
         "typeRoots": ["node_modules/@types", "node_modules"],
         "noUnusedLocals": true,
-        "noUnusedParameters": true
+        "noUnusedParameters": true,
+        "types": ["jest"]
     },
     "include": ["./packages/illuminate/src", "./packages/react/src"]
 }
