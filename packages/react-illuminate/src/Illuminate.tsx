@@ -8,7 +8,7 @@ export interface IlluminateProps {
     lang?: string;
 }
 
-export default class Illuminate extends React.Component<IlluminateProps> {
+export class Illuminate extends React.Component<IlluminateProps> {
     shouldComponentUpdate(nextProps: IlluminateProps) {
         return this.props.children !== nextProps.children || this.props.lang !== nextProps.lang;
     }

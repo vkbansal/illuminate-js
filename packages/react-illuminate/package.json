@@ -2,7 +2,8 @@
   "name": "react-illuminate",
   "version": "1.1.0",
   "description": "Syntax Highlighting for React",
-  "main": "lib/index.js",
+  "main": "./lib/Illuminate.js",
+  "typings": "./lib/Illuminate.d.ts",
   "scripts": {
     "test": "cd ../../ && npm run test",
     "build:es6": "rimraf ./esm && tsc --target es6 --module es6 --outDir ./esm",

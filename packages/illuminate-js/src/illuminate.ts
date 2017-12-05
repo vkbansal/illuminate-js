@@ -18,7 +18,7 @@ export type Definition = Map<string, TokenTypes>;
 
 export type Plugin = (a: typeof addHook) => void;
 
-const languages = new Map<string, Definition>();
+export const languages = new Map<string, Definition>();
 
 export function tokenize(text: string, grammar: Definition): Array<string | Token> {
     if (!(grammar instanceof Map)) {
@@ -158,6 +158,6 @@ export function addLanguage(name: string, def: Definition) {
     languages.set(name, def);
 }
 
-export function getLanguage(name: string) {
+export function getLanguage(name: string): Definition | undefined {
     return languages.get(name);
 }
