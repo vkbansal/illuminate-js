@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { tokenize, getLanguage, Definition } from 'illuminate-js';
+import { tokenize, getLanguage } from 'illuminate-js';
 
 import { TokenElement, Token, SingleOrArray } from './Token';
 
@@ -17,7 +17,7 @@ export default class Illuminate extends React.Component<IlluminateProps> {
         const { lang, children } = this.props;
         let token: string | SingleOrArray<string | Token> = children;
 
-        const grammar: Definition = getLanguage(lang);
+        const grammar = getLanguage(lang || '');
 
         if (!grammar) {
             return children;
