@@ -1,6 +1,6 @@
-import jsx from '../../src/languages/jsx';
-import { tokenize } from '../../src/illuminate';
-import tokenToJson from '../helpers/tokenToJson';
+import { jsx } from '../jsx';
+import { tokenize } from '../../illuminate';
+import { tokenToJson } from './__helpers';
 
 const testCode = `class MyComponent extends Component
     render() {

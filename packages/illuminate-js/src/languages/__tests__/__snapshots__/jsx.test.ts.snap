@@ -1,0 +1,251 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`jsx lang test native values 1`] = `
+Array [
+  Array [
+    "keyword",
+    "class",
+  ],
+  Array [
+    "class-name",
+    Array [
+      "MyComponent",
+    ],
+  ],
+  Array [
+    "keyword",
+    "extends",
+  ],
+  Array [
+    "class-name",
+    Array [
+      "Component",
+    ],
+  ],
+  Array [
+    "function",
+    "render",
+  ],
+  Array [
+    "punctuation",
+    "(",
+  ],
+  Array [
+    "punctuation",
+    ")",
+  ],
+  Array [
+    "punctuation",
+    "{",
+  ],
+  Array [
+    "keyword",
+    "const",
+  ],
+  Array [
+    "punctuation",
+    "{",
+  ],
+  "tabs",
+  Array [
+    "punctuation",
+    ",",
+  ],
+  Array [
+    "operator",
+    "...",
+  ],
+  "otherProps",
+  Array [
+    "punctuation",
+    "}",
+  ],
+  Array [
+    "operator",
+    "=",
+  ],
+  Array [
+    "keyword",
+    "this",
+  ],
+  Array [
+    "punctuation",
+    ".",
+  ],
+  "props",
+  Array [
+    "punctuation",
+    ";",
+  ],
+  Array [
+    "keyword",
+    "const",
+  ],
+  Array [
+    "punctuation",
+    "{",
+  ],
+  "currentTab",
+  Array [
+    "punctuation",
+    "}",
+  ],
+  Array [
+    "operator",
+    "=",
+  ],
+  Array [
+    "keyword",
+    "this",
+  ],
+  Array [
+    "punctuation",
+    ".",
+  ],
+  "state",
+  Array [
+    "punctuation",
+    ";",
+  ],
+  Array [
+    "keyword",
+    "return",
+  ],
+  Array [
+    "punctuation",
+    "(",
+  ],
+  Array [
+    "tag",
+    Array [
+      Array [
+        "tag",
+        Array [
+          Array [
+            "punctuation",
+            "<",
+          ],
+          "TabBar",
+        ],
+      ],
+      Array [
+        "spread",
+        Array [
+          Array [
+            "punctuation",
+            "{",
+          ],
+          Array [
+            "punctuation",
+            "...",
+          ],
+          Array [
+            "attr-value",
+            "otherProps",
+          ],
+          Array [
+            "punctuation",
+            "}",
+          ],
+        ],
+      ],
+      Array [
+        "attr-name",
+        Array [
+          "currentTab",
+        ],
+      ],
+      Array [
+        "script",
+        Array [
+          Array [
+            "punctuation",
+            "=",
+          ],
+          Array [
+            "punctuation",
+            "{",
+          ],
+          "currentTab",
+          Array [
+            "punctuation",
+            "}",
+          ],
+        ],
+      ],
+      Array [
+        "attr-name",
+        Array [
+          "onTabClick",
+        ],
+      ],
+      Array [
+        "script",
+        Array [
+          Array [
+            "punctuation",
+            "=",
+          ],
+          Array [
+            "punctuation",
+            "{",
+          ],
+          Array [
+            "keyword",
+            "this",
+          ],
+          Array [
+            "punctuation",
+            ".",
+          ],
+          "onTabClick",
+          Array [
+            "punctuation",
+            "}",
+          ],
+        ],
+      ],
+      Array [
+        "attr-name",
+        Array [
+          "tabs",
+        ],
+      ],
+      Array [
+        "script",
+        Array [
+          Array [
+            "punctuation",
+            "=",
+          ],
+          Array [
+            "punctuation",
+            "{",
+          ],
+          "tabs",
+          Array [
+            "punctuation",
+            "}",
+          ],
+        ],
+      ],
+      Array [
+        "punctuation",
+        "/>",
+      ],
+    ],
+  ],
+  Array [
+    "punctuation",
+    ")",
+  ],
+  Array [
+    "punctuation",
+    "}",
+  ],
+  Array [
+    "punctuation",
+    "}",
+  ],
+]
+`;
