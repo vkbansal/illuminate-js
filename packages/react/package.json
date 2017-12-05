@@ -5,6 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "cd ../../ && npm run test",
+    "build:es6": "rimraf ./esm && tsc --target es6 --module es6 --outDir ./esm",
+    "build:commonjs": "rimraf ./lib && tsc --target es6 --module commonjs --outDir ./lib",
     "prepublishOnly": "npm test"
   },
   "repository": {
@@ -18,9 +20,11 @@
   },
   "peerDependencies": {
     "react": "^15.0.0 || ^16.0.0",
-    "illuminate-js": "^1.0.0"
+    "illuminate-js": "*"
   },
   "devDependencies": {
-    "react": "^16.0.0"
+    "@types/react": "^16.0.25",
+    "react": "^16.2.0",
+    "rimraf": "^2.6.2"
   }
 }

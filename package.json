@@ -3,25 +3,22 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "bootstrap": "npm install && cd illuminate && npm link && npm install && cd ../react && npm link illuminate-js && npm install",
-    "bootstrap:yarn": "yarn install && cd illuminate && yarn install && cd .. && cd react && yarn install",
-    "test": "npm run lint && jest",
-    "lint": "eslint ./illuminate/src ./react/src ./illuminate/tests ./react/tests"
+    "bootstrap": "./scripts/bootstrap.sh",
+    "test": "jest"
   },
   "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-core": "^6.21.0",
-    "babel-eslint": "^7.1.1",
-    "babel-jest": "^18.0.0",
-    "babel-plugin-transform-class-properties": "^6.22.0",
-    "babel-preset-env": "^1.1.8",
-    "eslint": "^3.14.0",
-    "eslint-config-vkbansal": "^4.3.1",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-react": "^6.9.0",
-    "eslint-plugin-standard": "^2.0.1",
-    "jest": "^18.1.0",
-    "lerna": "^2.5.1"
+    "@types/jest": "^21.1.8",
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.0",
+    "enzyme-to-json": "^3.2.2",
+    "jest": "^21.2.1",
+    "jsdom": "^11.5.1",
+    "prettier": "^1.8.2",
+    "ts-jest": "^21.2.3",
+    "ts-loader": "^3.1.1",
+    "typescript": "^2.6.1",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4"
   },
   "jest": {
     "testEnvironment": "node",
@@ -29,5 +26,9 @@
       "<rootDir>/illuminate/tests",
       "<rootDir>/react/tests"
     ]
+  },
+  "dependencies": {
+    "deep-diff": "^0.3.8",
+    "prismjs": "^1.8.4"
   }
 }

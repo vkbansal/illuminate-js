@@ -2,9 +2,13 @@
   "name": "illuminate-js",
   "version": "0.3.0",
   "description": "Syntax Highlighting for NodeJS",
-  "main": "lib/index.js",
+  "main": "./lib/index.js",
+  "module": "./esm/index.js",
+  "typings": "./lib/index.d.ts",
   "scripts": {
     "test": "cd ../../ && npm run test",
+    "build:es6": "rimraf ./esm && tsc --target es6 --module es6 --outDir ./esm",
+    "build:commonjs": "rimraf ./lib && tsc --target es6 --module commonjs --outDir ./lib",
     "prepublishOnly": "npm test"
   },
   "repository": {
@@ -16,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/vkbansal/illuminate-js/issues"
   },
-  "homepage": "https://github.com/vkbansal/illuminate-js#readme"
+  "homepage": "https://github.com/vkbansal/illuminate-js#readme",
+  "devDependencies": {
+    "rimraf": "^2.6.2",
+    "prismjs": "git+ssh://git@github.com:PrismJS/prism.git#HEAD"
+  }
 }
