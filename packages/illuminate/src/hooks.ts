@@ -1,6 +1,8 @@
 import { HighlightEnv } from './illuminate';
 import { TokenEnv } from './Token';
 
+export { TokenEnv };
+
 const hooks: Record<string, Set<(...args: any[]) => void>> = {};
 
 export function add(

@@ -10,11 +10,15 @@ export interface TokenObject {
     alias?: string;
 }
 
-export type TokenTypes = RegExp | TokenObject | Array<RegExp | TokenObject>;
+export type Tokenz = RegExp | TokenObject | Array<RegExp | TokenObject>;
+
+export type TokenTypes = Tokenz | Map<string, Tokenz>;
 
 export type Definition = Map<string, TokenTypes>;
 
 export type Plugin = (a: typeof addHook) => void;
+
+const languages = new Map<string, Definition>();
 
 export function tokenize(text: string, grammar: Definition): Array<string | Token> {
     if (!(grammar instanceof Map)) {
@@ -39,9 +43,9 @@ export function tokenize(text: string, grammar: Definition): Array<string | Toke
 
         for (let j = 0; j < patterns.length; ++j) {
             const pattern = patterns[j];
-            let lookbehindLength = 0;
+            let lookbehindLength: number = 0;
 
-            let regex = pattern instanceof RegExp ? pattern : pattern.pattern;
+            let regex = pattern instanceof RegExp ? pattern : (pattern as TokenObject).pattern;
 
             const { inside, lookbehind, alias, greedy } = <TokenObject>pattern;
 
@@ -76,7 +80,7 @@ export function tokenize(text: string, grammar: Definition): Array<string | Toke
                     lookbehindLength = match[1].length;
                 }
 
-                const stringFrom = match.index - 1 + lookbehindLength;
+                const stringFrom: number = match.index - 1 + lookbehindLength;
 
                 match = match[0].slice(lookbehindLength);
 
@@ -113,7 +117,17 @@ export interface HighlightEnv {
     language: string;
 }
 
-export function highlight(text: string, grammar: Definition, language: string): string {
+export function highlight(text: string, language: string): string {
+    const grammar = languages.get(language);
+
+    if (!grammar) {
+        throw new Error(
+            `Your are trying to use ${
+                language
+            } language but its definition could not be found. Please make sure to use "addLanguage" to add your definition`
+        );
+    }
+
     const env: HighlightEnv = {
         grammar,
         language,
@@ -138,4 +152,12 @@ export function addPlugin(plugin: Plugin) {
     }
 
     plugin(addHook);
+}
+
+export function addLanguage(name: string, def: Definition) {
+    languages.set(name, def);
+}
+
+export function getLanguage(name: string) {
+    return languages.get(name);
 }

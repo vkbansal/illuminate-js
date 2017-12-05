@@ -5,7 +5,8 @@ import {
     Definition,
     Plugin,
     addPlugin,
-    highlight
+    highlight,
+    getLanguage
 } from './illuminate';
 
-export { TokenObject, TokenTypes, tokenize, Definition, Plugin, addPlugin, highlight };
+export { TokenObject, TokenTypes, tokenize, Definition, Plugin, addPlugin, highlight, getLanguage };

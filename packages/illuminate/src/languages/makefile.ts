@@ -4,11 +4,17 @@ export const makefile: Definition = new Map<string, TokenTypes>([
     [
         'comment',
         {
-            pattern: /(^|[^\\])#(?:\\(?:\r\n|[\s\S])|.)*/,
+            pattern: /(^|[^\\])#(?:\\(?:\r\n|[\s\S])|[^\\\r\n])*/,
             lookbehind: true
         }
     ],
-    ['string', /(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/],
+    [
+        'string',
+        {
+            pattern: /(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,
+            greedy: true
+        }
+    ],
     // Built-in target names
     ['builtin', /\.[A-Z][^:#=\s]+(?=\s*:(?!=))/],
     // Targets

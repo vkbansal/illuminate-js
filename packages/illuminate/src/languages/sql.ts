@@ -4,18 +4,19 @@ export const sql: Definition = new Map<string, TokenTypes>([
     [
         'comment',
         {
-            pattern: /(^|[^\\])(?:\/\*[\w\W]*?\*\/|(?:--|\/\/|#).*)/,
+            pattern: /(^|[^\\])(?:\/\*[\s\S]*?\*\/|(?:--|\/\/|#).*)/,
             lookbehind: true
         }
     ],
     [
         'string',
         {
-            pattern: /(^|[^@\\])("|')(?:\\?[\s\S])*?\2/,
-            lookbehind: true
+            pattern: /(^|[^@\\])("|')(?:\\[\s\S]|(?!\2)[^\\])*\2/,
+            lookbehind: true,
+            greedy: true
         }
     ],
-    ['variable', /@[\w.$]+|@("|'|`)(?:\\?[\s\S])+?\1/],
+    ['variable', /@[\w.$]+|@(["'`])(?:\\[\s\S]|(?!\1)[^\\])+\1/],
     [
         'function',
         /\b(?:COUNT|SUM|AVG|MIN|MAX|FIRST|LAST|UCASE|LCASE|MID|LEN|ROUND|NOW|FORMAT)(?=\s*\()/i
@@ -28,7 +29,7 @@ export const sql: Definition = new Map<string, TokenTypes>([
     ['number', /\b-?(?:0x)?\d*\.?[\da-f]+\b/],
     [
         'operator',
-        /[-+*\/=%^~]|&&?|\|?\||!=?|<(?:=>?|<|>)?|>[>=]?|\b(?:AND|BETWEEN|IN|LIKE|NOT|OR|IS|DIV|REGEXP|RLIKE|SOUNDS LIKE|XOR)\b/i
+        /[-+*\/=%^~]|&&?|\|\|?|!=?|<(?:=>?|<|>)?|>[>=]?|\b(?:AND|BETWEEN|IN|LIKE|NOT|OR|IS|DIV|REGEXP|RLIKE|SOUNDS LIKE|XOR)\b/i
     ],
     ['punctuation', /[;[\]()`,.]/]
 ]);

@@ -1,8 +1,8 @@
 import { Plugin, HighlightEnv } from '../illuminate';
 
 export const lineNumber: Plugin = add => {
-    add('after-highlight', (env: HighlightEnv) => {
-        const match = env.code.match(/\n(?!$)/g);
+    add('after-highlight', env => {
+        const match = (env as HighlightEnv).code.match(/\n(?!$)/g);
         const linesNum = match ? match.length + 1 : 1;
         let lines = '';
 
@@ -10,6 +10,6 @@ export const lineNumber: Plugin = add => {
             lines += `<span class="line-number"></span>`;
         }
 
-        env.highlightedCode += `<span class="line-number-rows">${lines}</span>`;
+        (env as HighlightEnv).highlightedCode += `<span class="line-number-rows">${lines}</span>`;
     });
 };
