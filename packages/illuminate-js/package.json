@@ -1,15 +1,21 @@
 {
   "name": "illuminate-js",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "Syntax Highlighting for NodeJS",
   "main": "./lib/index.js",
   "module": "./esm/index.js",
   "typings": "./lib/index.d.ts",
+  "files": [
+    "esm",
+    "lib",
+    "css"
+  ],
   "scripts": {
-    "test": "cd ../../ && npm run test",
-    "build:es6": "rimraf ./esm && tsc --target es6 --module es6 --outDir ./esm",
-    "build:commonjs": "rimraf ./lib && tsc --target es6 --module commonjs --outDir ./lib",
-    "prepublishOnly": "npm test"
+    "test": "jest",
+    "build": "npm run build:cjs && npm run build:esm",
+    "build:esm": "rimraf ./esm && tsc --target es6 --module es6 --outDir ./esm",
+    "build:cjs": "rimraf ./lib && tsc --target es6 --module commonjs --outDir ./lib",
+    "prepublishOnly": "npm test && npm run build"
   },
   "repository": {
     "type": "git",
@@ -22,7 +28,10 @@
   },
   "homepage": "https://github.com/vkbansal/illuminate-js#readme",
   "devDependencies": {
+    "@types/jest": "^21.1.8",
+    "jest": "^21.2.1",
     "rimraf": "^2.6.2",
-    "prismjs": "git+ssh://git@github.com:PrismJS/prism.git#HEAD"
+    "ts-jest": "^21.2.3",
+    "typescript": "^2.6.1"
   }
 }

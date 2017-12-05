@@ -1,6 +1,6 @@
 npm install &&
-cd packages/illuminate &&
+cd packages/illuminate-js &&
 npm link && npm install &&
-cd ../react &&
+cd ../react-illuminate &&
 npm link illuminate-js &&
 npm install

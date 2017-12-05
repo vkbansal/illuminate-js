@@ -1,5 +1,5 @@
 module.exports = {
-    //setupFiles: ['<rootDir>/packages/react/jest.setup.js'],
+    setupFiles: ['<rootDir>/jest.setup.js'],
     testMatch: ['**/?(*.)(spec|test).ts?(x)'],
     moduleFileExtensions: ['ts', 'tsx', 'js'],
     roots: ['<rootDir>/packages'],
