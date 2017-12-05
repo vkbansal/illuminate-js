@@ -13,7 +13,17 @@
         "typeRoots": ["node_modules/@types", "node_modules"],
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "types": ["jest"]
+        "types": ["jest"],
+        "paths": {
+            "illuminate-js": ["packages/illuminate-js"],
+            "illuminate-js/*": ["packages/illuminate-js/*"],
+            "react-illuminate": ["packages/react-illuminate"]
+        }
     },
-    "include": ["./packages/illuminate/src", "./packages/react/src"]
+    "include": ["./packages/illuminate-js", "./packages/react-illuminate", "./demo"],
+    "exclude": [
+        "./packages/illuminate-js/src/__tests__",
+        "./packages/illuminate-js/src/languages/__tests__",
+        "./packages/react-illuminate/src/__tests__"
+    ]
 }

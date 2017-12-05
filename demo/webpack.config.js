@@ -6,8 +6,8 @@ const PROD = process.env.NODE_ENV === 'production';
 const DEV = !PROD;
 
 module.exports = {
-    context: __dirname,
-    entry: ['./index.tsx'],
+    context: path.resolve(__dirname, '../'),
+    entry: ['./demo/index.tsx'],
     output: {
         filename: DEV ? 'bundle.js' : 'bundle.[hash].js',
         path: path.resolve(__dirname, '../public'),
@@ -16,7 +16,8 @@ module.exports = {
         sourceMapFilename: 'bundle.js.map'
     },
     resolve: {
-        modules: [path.resolve(__dirname, '../packages'), 'node_modules']
+        modules: [path.resolve(__dirname, '../packages/'), 'node_modules'],
+        extensions: ['.ts', '.tsx', '.js']
     },
     module: {
         rules: [
@@ -38,12 +39,9 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'index.html',
+            template: 'demo/index.html',
             inject: true,
             filename: 'index.html'
         })
-    ],
-    resolve: {
-        extensions: ['.ts', '.tsx', '.js']
-    }
+    ]
 };
