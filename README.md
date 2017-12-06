@@ -1,8 +1,14 @@
 # Illuminate
 
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
-[![Dependency Status][deps-image]][deps-url]
-[![Dev Dependency Status][dev-deps-image]][dev-deps-url]
+[![Build Status][http://img.shields.io/travis/vkbansal/illuminate-js/master.svg?style=flat-square]][https://travis-ci.org/vkbansal/illuminate-js]
+
+[![NPM version][http://img.shields.io/npm/v/illuminate-js.svg?style=flat-square]][https://npmjs.org/package/illuminate-js]
+[![Dependency Status][https://img.shields.io/david/vkbansal/illuminate-js.svg?style=flat-square]][https://david-dm.org/vkbansal/illuminate-js]
+[![Dev Dependency Status][ https://img.shields.io/david/dev/vkbansal/illuminate-js.svg?style=flat-square]][https://david-dm.org/vkbansal/illuminate-js?type=dev]
+
+[![NPM version][http://img.shields.io/npm/v/react-illuminate.svg?style=flat-square]][https://npmjs.org/package/illuminate-js]
+[![Dependency Status][https://img.shields.io/david/vkbansal/react-illuminate.svg?style=flat-square]][https://david-dm.org/vkbansal/illuminate-js]
+[![Dev Dependency Status][ https://img.shields.io/david/dev/vkbansal/react-illuminate.svg?style=flat-square]][https://david-dm.org/vkbansal/illuminate-js?type=dev]
 
 Illuminate, a syntax highlighter inspired from [prism.js](http://prismjs.com), written in `ES6`
 specifically to be used with node.js, [markdown-it](https://github.com/markdown-it/markdown-it) and
@@ -81,12 +87,3 @@ addLanguage('js', javascript);
 ## License
 
 MIT. Copyright(c) [Vivek Kumar Bansal](http://vkbansal.me/)
-
-[npm-url]: https://npmjs.org/package/illuminate-js
-[npm-image]: http://img.shields.io/npm/v/illuminate-js.svg?style=flat-square
-[travis-url]: https://travis-ci.org/vkbansal/illuminate-js
-[travis-image]: http://img.shields.io/travis/vkbansal/illuminate-js/master.svg?style=flat-square
-[deps-url]: https://david-dm.org/vkbansal/illuminate-js
-[deps-image]: https://img.shields.io/david/vkbansal/illuminate-js.svg?style=flat-square
-[dev-deps-url]: https://david-dm.org/vkbansal/illuminate-js
-[dev-deps-image]: https://img.shields.io/david/dev/vkbansal/illuminate-js.svg?style=flat-square
