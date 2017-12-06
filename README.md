@@ -1,18 +1,18 @@
 # Illuminate
 
-[![Build Status][http://img.shields.io/travis/vkbansal/illuminate-js/master.svg?style=flat-square]][https://travis-ci.org/vkbansal/illuminate-js]
+[![Build Status](http://img.shields.io/travis/vkbansal/illuminate-js/master.svg?style=flat-square)](https://travis-ci.org/vkbansal/illuminate-js)
 
-[![NPM version][http://img.shields.io/npm/v/illuminate-js.svg?style=flat-square]][https://npmjs.org/package/illuminate-js]
-[![Dependency Status][https://img.shields.io/david/vkbansal/illuminate-js.svg?style=flat-square]][https://david-dm.org/vkbansal/illuminate-js]
-[![Dev Dependency Status][ https://img.shields.io/david/dev/vkbansal/illuminate-js.svg?style=flat-square]][https://david-dm.org/vkbansal/illuminate-js?type=dev]
+[![NPM version](http://img.shields.io/npm/v/illuminate-js.svg?style=flat-square)](https://npmjs.org/package/illuminate-js)
+[![Dependency Status](https://david-dm.org/vkbansal/illuminate-js/status.svg?style=flat-square)](https://david-dm.org/vkbansal/illuminate-js?path=packages/illuminate-js)
+[![Dev Dependency Status](https://david-dm.org/vkbansal/illuminate-js/dev-status.svg?style=flat-square&path=packages/illuminate-js)](https://david-dm.org/vkbansal/illuminate-js?type=dev&path=packages/illuminate-js)
 
-[![NPM version][http://img.shields.io/npm/v/react-illuminate.svg?style=flat-square]][https://npmjs.org/package/illuminate-js]
-[![Dependency Status][https://img.shields.io/david/vkbansal/react-illuminate.svg?style=flat-square]][https://david-dm.org/vkbansal/illuminate-js]
-[![Dev Dependency Status][ https://img.shields.io/david/dev/vkbansal/react-illuminate.svg?style=flat-square]][https://david-dm.org/vkbansal/illuminate-js?type=dev]
+[![NPM version](http://img.shields.io/npm/v/react-illuminate.svg?style=flat-square)](https://npmjs.org/package/illuminate-js)
+[![Dependency Status](https://david-dm.org/vkbansal/illuminate-js/status.svg?style=flat-square&path=packages/react-illuminate)](https://david-dm.org/vkbansal/react-illuminate?path=packages/react-illuminate)
+[![Dev Dependency Status](https://david-dm.org/vkbansal/illuminate-js/dev-status.svg?style=flat-square&path=packages/react-illuminate)](https://david-dm.org/vkbansal/react-illuminate?type=dev&path=packages/react-illuminate)
 
 Illuminate, a syntax highlighter inspired from [prism.js](http://prismjs.com), written in `ES6`
 specifically to be used with node.js, [markdown-it](https://github.com/markdown-it/markdown-it) and
-[react](http://facebook.github.io/react/) !
+[react](http://facebook.github.io/react/)
 
 ## Install
 
