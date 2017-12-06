@@ -13,6 +13,8 @@ require('prismjs/components/prism-javascript');
 require('prismjs/components/prism-php');
 require('prismjs/components/prism-php-extras');
 
+const PKG_PATH = '../packages/illuminate-js/lib/languages';
+
 const [lang] = process.argv.slice(2);
 
 function assign(val, key) {
@@ -44,7 +46,7 @@ console.log(chalk.bold('--- Starting new test ---'));
 if (!lang || lang === 'all') {
 } else {
     require(`prismjs/components/prism-${lang}`);
-    const def = require(`./lib/languages/${lang}`);
+    const def = require(`${PKG_PATH}/${lang}`);
 
     if (!Prism.languages[lang]) {
         throw new Error(`${lang} not found in "Prism.languages"`);

@@ -1,0 +1,8 @@
+{
+    "private": true,
+    "dependencies": {
+        "chalk": "^2.3.0",
+        "deep-diff": "^0.3.8",
+        "prismjs": "git+ssh://git@github.com/PrismJS/prism.git"
+    }
+}
