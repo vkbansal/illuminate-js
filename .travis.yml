@@ -1,8 +1,7 @@
 language: node_js
 node_js:
-  - 6
-  - 7
+  - 9
 install:
-  - npm run bootstrap
+  - ./scripts/bootstrap.sh
 scripts:
-  - npm run test
+  - ./scripts/test.sh
