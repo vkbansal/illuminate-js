@@ -10,10 +10,8 @@
         "moduleResolution": "node",
         "declaration": true,
         "target": "es6",
-        "typeRoots": ["node_modules/@types", "node_modules"],
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "types": ["jest"],
         "paths": {
             "illuminate-js": ["packages/illuminate-js"],
             "illuminate-js/*": ["packages/illuminate-js/*"],

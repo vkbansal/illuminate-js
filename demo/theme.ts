@@ -1,94 +1,127 @@
 import { css } from 'glamor';
 
-import 'glamor/reset';
+css.insert(`
+code, pre {
+	color: #ccc;
+	background: none;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
 
-css.global('code[class*="language-"],pre[class*="language-"]', {
-    color: '#393A34',
-    fontFamily: '"Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace',
-    direction: 'ltr',
-    textAlign: 'left',
-    whiteSpace: 'pre',
-    wordSpacing: 'normal',
-    wordBreak: 'normal',
-    fontSize: '0.95em',
-    lineHeight: '1.2em',
-    tabSize: 4,
-    hyphens: 'none'
-});
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
 
-css.global(
-    'pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection',
-    {
-        background: '#b3d4fc'
-    }
-);
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	font-size: 0.95em;
+}
 
-css.global(
-    'pre[class*="language-"]::selection, pre[class*="language-"] ::selection,code[class*="language-"]::selection, code[class*="language-"] ::selection',
-    {
-        background: '#b3d4fc'
-    }
-);
+pre {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
 
-css.global('pre[class*="language-"]', {
-    padding: '1em',
-    margin: '.5em 0',
-    overflow: 'auto',
-    border: '1px solid #dddddd',
-    backgroundColor: 'white'
-});
+code,
+pre {
+	background: #2d2d2d;
+}
 
-css.global(':not(pre) > code[class*="language-"],pre[class*="language-"]', {});
+:not(pre) > code {
+	padding: .1em;
+	border-radius: 2px;
+	white-space: normal;
+	font-size: 0.85em;
+	background: transparent;
+	color: #222;
+}
 
-css.global(':not(pre) > code[class*="language-"]', {
-    padding: '.2em',
-    paddingTop: '1px',
-    paddingBottom: '1px',
-    background: '#f8f8f8',
-    border: '1px solid #dddddd'
-});
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #999;
+}
 
-css.global('.token.comment, .token.prolog, .token.doctype, .token.cdata', {
-    color: '#999988',
-    fontStyle: 'italic'
-});
-css.global('.token.namespace', {
-    opacity: 0.7
-});
-css.global('.token.string,.token.attr-value', {
-    color: '#e3116c'
-});
-css.global('.token.punctuation,.token.operator', {
-    color: '#393A34' /* no highlight */
-});
+.token.punctuation {
+	color: #ccc;
+}
 
-css.global('.token.tag,.token.selector,.language-autohotkey .token.keyword', {
-    color: '#00009f'
-});
+.token.tag,
+.token.attr-name,
+.token.namespace,
+.token.deleted {
+	color: #e2777a;
+}
 
-css.global(
-    '.token.entity,.token.url,.token.symbol,.token.number,.token.boolean,.token.variable,.token.constant,.token.property,.token.regex,.token.inserted',
-    {
-        color: '#36acaa'
-    }
-);
+.token.function-name {
+	color: #6196cc;
+}
 
-css.global('.token.atrule,.token.keyword,.token.attr-name,.language-autohotkey .token.selector', {
-    color: '#00a4db'
-});
+.token.boolean,
+.token.number,
+.token.function {
+	color: #f08d49;
+}
 
-css.global('.token.function,.token.deleted,.language-autohotkey .token.tag', {
-    color: '#9a050f'
-});
+.token.property,
+.token.class-name,
+.token.constant,
+.token.symbol {
+	color: #f8c555;
+}
 
-css.global('.token.important,.token.function,.token.bold', {
-    fontWeight: 'bold'
-});
+.token.selector,
+.token.important,
+.token.atrule,
+.token.keyword,
+.token.builtin {
+	color: #cc99cd;
+}
 
-css.global('.token.italic', {
-    fontStyle: 'italic'
-});
+.token.string,
+.token.char,
+.token.attr-value,
+.token.regex,
+.token.variable {
+	color: #7ec699;
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+	color: #67cdcc;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+.token.inserted {
+	color: green;
+}
+`);
 
 css.global('#app', {
     minHeight: '100vh'
+});
+
+css.global('.container pre', {
+    margin: '8px -16px'
 });

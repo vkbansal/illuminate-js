@@ -1,112 +1,115 @@
 import * as React from 'react';
 import { render } from 'react-dom';
-import { css } from 'glamor';
-import * as snippets from './snippets';
+import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
+import glamorous from 'glamorous';
 
-import { Illuminate } from 'react-illuminate';
 import { addLanguage } from 'illuminate-js';
 import { bash } from 'illuminate-js/lib/languages/bash';
-import { css as cssLang } from 'illuminate-js/lib/languages/css';
+import { css } from 'illuminate-js/lib/languages/css';
 import { markup } from 'illuminate-js/lib/languages/markup';
 import { javascript } from 'illuminate-js/lib/languages/javascript';
 import { jsx } from 'illuminate-js/lib/languages/jsx';
 
-import './theme';
-
-interface AppState {
-    text: string;
-    lang: string;
-}
-
 addLanguage('bash', bash);
-addLanguage('css', cssLang);
+addLanguage('css', css);
 addLanguage('markup', markup);
 addLanguage('javascript', javascript);
+addLanguage('js', javascript);
 addLanguage('jsx', jsx);
 
-const row = css({
+import './theme';
+
+import { Main } from './Main';
+import { ReactApi } from './ReactApi';
+import { Demo } from './Demo';
+
+const Wrapper = glamorous.div({
     display: 'flex',
-    alignItems: 'stretch',
-    height: '100%'
-}).toString();
+    minHeight: '100vh',
+    alignItems: 'stretch'
+});
 
-const col = css({
-    width: '50%',
-    padding: '0 16px',
-    '&:first-child': {
-        borderRight: '1px solid #eee'
+const Sidebar = glamorous.nav('pure-menu', {
+    background: '#eee',
+    width: '250px',
+    padding: '16px 0'
+});
+
+const Content = glamorous.section({
+    background: '#fff',
+    width: 'calc(100% - 250px)',
+    boxShadow: '-2px 0px 8px -2px rgba(0, 0,0, 0.2)'
+});
+
+const Nav = glamorous.ul('pure-menu-list', {
+    margin: 0,
+    padding: 0,
+    listStyleType: 'none'
+});
+
+const NavItem = glamorous.li('pure-menu-item', {
+    height: 'auto'
+});
+
+const Link = glamorous(NavLink)('pure-menu-link', {
+    position: 'relative',
+    transition: 'background 0.2s linear',
+    '&:hover': {
+        background: 'rgba(0, 0, 0, 0.07)'
+    },
+    '&.active': {
+        color: '#e94949',
+        '&::after': {
+            opacity: 1
+        }
+    },
+    '&::after': {
+        content: '""',
+        position: 'absolute',
+        display: 'block',
+        width: 0,
+        height: 0,
+        border: '8px solid transparent',
+        borderRightColor: '#fff',
+        right: 0,
+        top: '50%',
+        transform: 'translateY(-50%)',
+        opacity: 0,
+        transition: 'opacity 0.2s linear'
     }
-}).toString();
+});
 
-const selection = css({
-    borderBottom: '1px solid #eee',
-    margin: '0 -16px',
-    padding: '16px'
-}).toString();
-
-const textBox = css({
-    width: '100%',
-    resize: 'vertical'
-}).toString();
-
-class App extends React.Component<{}, AppState> {
-    constructor(props: any) {
-        super(props);
-        this.state = {
-            text: snippets.markup.trim(),
-            lang: 'markup'
-        };
-    }
-
-    handleLangChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        let val = e.target.value;
-
-        this.setState({
-            text: (snippets as Record<string, string>)[val].trim(),
-            lang: val
-        });
-    };
-
-    handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        let text = e.target.value;
-
-        this.setState({ text });
-    };
-
+class App extends React.Component {
     render() {
-        let { text, lang } = this.state;
-
         return (
-            <div className={row}>
-                <div className={col}>
-                    <div className={selection}>
-                        <label>Select language:&nbsp;</label>
-                        <select
-                            className="form-control form-control-sm"
-                            value={lang}
-                            onChange={this.handleLangChange}>
-                            {Object.keys(snippets).map((l, i) => (
-                                <option key={i} value={l}>
-                                    {l}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-                    <div>
-                        <h2>Your code:</h2>
-                        <textarea
-                            className={textBox}
-                            rows={10}
-                            value={text}
-                            onChange={this.handleTextChange}
-                        />
-                    </div>
-                </div>
-                <div className={col}>
-                    <h2>Output:</h2>
-                    <Illuminate lang={lang}>{text}</Illuminate>
-                </div>
-            </div>
+            <Router>
+                <Wrapper>
+                    <Sidebar>
+                        <Nav>
+                            <NavItem>
+                                <Link exact to="/">
+                                    Illuminate
+                                </Link>
+                            </NavItem>
+                            <NavItem>
+                                <Link exact to="/react">
+                                    React-Illuminate
+                                </Link>
+                            </NavItem>
+                            <NavItem>
+                                <Link exact to="/interactive-demo">
+                                    Interactive Demo
+                                </Link>
+                            </NavItem>
+                        </Nav>
+                    </Sidebar>
+                    <Content>
+                        <Route path="/" exact component={Main} />
+                        <Route path="/react" exact component={ReactApi} />
+                        <Route path="/interactive-demo" exact component={Demo} />
+                    </Content>
+                </Wrapper>
+            </Router>
         );
     }
 }

@@ -1,0 +1,47 @@
+/* This file is auto generated, do not change anything here */
+import * as React from 'react';
+import { Container } from './Common';
+
+const content = `<h1>React Illuminate</h1>
+<p><a href="https://npmjs.org/package/react-illuminate"><img src="https://img.shields.io/npm/v/react-illuminate.svg?style=flat-square" alt="NPM Version"></a>
+<a href="https://david-dm.org/vkbansal/illuminate-js?path=packages/react-illuminate"><img src="https://david-dm.org/vkbansal/illuminate-js/status.svg?style=flat-square&amp;path=packages/react-illuminate" alt="Dependency Status"></a>
+<a href="https://david-dm.org/vkbansal/illuminate-js?type=peer&amp;path=packages/react-illuminate"><img src="https://david-dm.org/vkbansal/illuminate-js/peer-status.svg?style=flat-square&amp;path=packages/react-illuminate" alt="Peer Dependency Status"></a>
+<a href="https://david-dm.org/vkbansal/illuminate-js?type=dev&amp;path=packages/react-illuminate"><img src="https://david-dm.org/vkbansal/illuminate-js/dev-status.svg?style=flat-square&amp;path=packages/react-illuminate" alt="Dev Dependency Status"></a></p>
+<h2>Install</h2>
+<pre><code class="language-bash"><span class="token comment" spellcheck="true" ># to use with node/markdown-it</span>
+<span class="token function" >npm</span> <span class="token function" >install</span> --save illuminate-js
+
+<span class="token comment" spellcheck="true" ># to use with react</span>
+<span class="token function" >npm</span> <span class="token function" >install</span> --save illuminate-js react-illuminate
+</code></pre>
+<h2>Usage</h2>
+<pre><code class="language-js"><span class="token keyword keyword-import" >import</span> <span class="token punctuation brackets-braces" >{</span> addLanguage <span class="token punctuation brackets-braces" >}</span> <span class="token keyword keyword-from" >from</span> <span class="token string" >'illuminate-js'</span><span class="token punctuation" >;</span>
+<span class="token keyword keyword-import" >import</span> <span class="token punctuation brackets-braces" >{</span> javascript <span class="token punctuation brackets-braces" >}</span> <span class="token keyword keyword-from" >from</span> <span class="token string" >'illuminate-js/lib/languages/javascript'</span><span class="token punctuation" >;</span>
+<span class="token keyword keyword-import" >import</span> <span class="token punctuation brackets-braces" >{</span> Illuminate <span class="token punctuation brackets-braces" >}</span> <span class="token keyword keyword-from" >from</span> <span class="token string" >'react-Illuminate'</span><span class="token punctuation" >;</span>
+
+<span class="token function" >addLanguage</span><span class="token punctuation brackets-parentheses" >(</span><span class="token string" >'js'</span><span class="token punctuation" >,</span> javascript<span class="token punctuation brackets-parentheses" >)</span><span class="token punctuation" >;</span>
+
+<span class="token operator" >&lt;</span>Illuminate lang<span class="token operator" >=</span><span class="token string" >"js"</span><span class="token operator" >&gt;</span>
+    <span class="token punctuation brackets-braces" >{</span>\`
+      <span class="token comment" spellcheck="true" >/** Your Code Sample here **/</span>
+      <span class="token keyword keyword-var" >var</span> foo <span class="token operator" >=</span> <span class="token number" >123</span><span class="token punctuation" >;</span>
+    \`<span class="token punctuation brackets-braces" >}</span>
+<span class="token operator" >&lt;</span><span class="token operator" >/</span>Illuminate<span class="token operator" >&gt;</span><span class="token punctuation" >;</span>
+</code></pre>
+<h2>License</h2>
+<p>MIT. Copyright(c) <a href="http://vkbansal.me/">Vivek Kumar Bansal</a></p>
+`;
+
+export class ReactApi extends React.Component {
+    shouldComponentUpdate() {
+        return false;
+    }
+
+    render() {
+        return (
+            <Container>
+                <div dangerouslySetInnerHTML={{__html: content}}/>
+            </Container>
+        );
+    }
+}
