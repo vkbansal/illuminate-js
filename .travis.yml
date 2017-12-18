@@ -1,7 +1,5 @@
 language: node_js
 node_js:
   - 9
-install:
-  - ./scripts/bootstrap.sh
 scripts:
   - ./scripts/test.sh
