@@ -5,7 +5,7 @@ module.exports = {
     moduleFileExtensions: ['ts', 'tsx', 'js'],
     roots: ['<rootDir>/src'],
     transform: {
-        '^.+\\.tsx?$': '<rootDir>/node_modules/ts-jest/preprocessor.js'
+        '^.+\\.tsx?$': 'ts-jest'
     },
     snapshotSerializers: ['enzyme-to-json/serializer'],
     collectCoverageFrom: ['**/src/**/*.{ts,tsx}']
