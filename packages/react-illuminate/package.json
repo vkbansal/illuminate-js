@@ -9,7 +9,7 @@
     "lib"
   ],
   "scripts": {
-    "test": "jest --no-cahce",
+    "test": "jest --no-cache",
     "coverage": "jest --no-cache --coverage",
     "build": "npm run build:cjs && npm run build:esm",
     "build:esm": "rimraf ./esm && tsc --target es6 --module es6 --outDir ./esm",
