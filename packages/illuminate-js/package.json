@@ -36,11 +36,19 @@
     "typescript": "^2.6.1"
   },
   "jest": {
-    "testMatch": ["**/?(*.)(spec|test).ts?(x)"],
-    "moduleFileExtensions": ["ts", "tsx", "js"],
-    "roots": ["<rootDir>/src"],
+    "testMatch": [
+      "**/?(*.)(spec|test).ts?(x)"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "roots": [
+      "<rootDir>/src"
+    ],
     "transform": {
-        "^.+\\.tsx?$": "ts-jest"
+      "^.+\\.tsx?$": "ts-jest"
     },
     "collectCoverageFrom": [
       "**/*.{ts,tsx}",

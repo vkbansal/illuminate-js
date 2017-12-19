@@ -26,8 +26,8 @@
     "url": "https://github.com/vkbansal/illuminate-js/issues"
   },
   "peerDependencies": {
-    "react": "^16.0.0",
-    "illuminate-js": "^1.0.0-alpha.0"
+    "illuminate-js": "^1.0.0-alpha.0",
+    "react": "^16.0.0"
   },
   "devDependencies": {
     "@types/jest": "^21.1.8",
@@ -35,22 +35,34 @@
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.0",
     "enzyme-to-json": "^3.2.2",
-    "jest": "^21.2.1",
+    "jest": "^22.0.1",
     "jsdom": "^11.5.1",
     "react": "^16.2.0",
     "rimraf": "^2.6.2",
-    "ts-jest": "^21.2.3",
+    "ts-jest": "^22.0.0",
     "typescript": "^2.6.1"
   },
   "jest": {
-    "setupFiles": ["<rootDir>/jest.setup.js"],
-    "testMatch": ["**/?(*.)(spec|test).ts?(x)"],
-    "moduleFileExtensions": ["ts", "tsx", "js"],
-    "roots": ["<rootDir>/src"],
+    "setupFiles": [
+      "<rootDir>/jest.setup.js"
+    ],
+    "testMatch": [
+      "**/?(*.)(spec|test).ts?(x)"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "roots": [
+      "<rootDir>/src"
+    ],
     "transform": {
-        "^.+\\.tsx?$": "ts-jest"
+      "^.+\\.tsx?$": "ts-jest"
     },
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
     "collectCoverageFrom": [
       "**/*.{ts,tsx}",
       "!**/__tests__/**"
