@@ -9,7 +9,8 @@
     "lib"
   ],
   "scripts": {
-    "test": "jest",
+    "test": "jest --no-cahce",
+    "coverage": "jest --no-cache --coverage",
     "build": "npm run build:cjs && npm run build:esm",
     "build:esm": "rimraf ./esm && tsc --target es6 --module es6 --outDir ./esm",
     "build:cjs": "rimraf ./lib && tsc --target es6 --module commonjs --outDir ./lib",
@@ -40,5 +41,20 @@
     "rimraf": "^2.6.2",
     "ts-jest": "^21.2.3",
     "typescript": "^2.6.1"
+  },
+  "jest": {
+    "setupFiles": ["<rootDir>/jest.setup.js"],
+    "testMatch": ["**/?(*.)(spec|test).ts?(x)"],
+    "moduleFileExtensions": ["ts", "tsx", "js"],
+    "roots": ["<rootDir>/src"],
+    "transform": {
+        "^.+\\.tsx?$": "ts-jest"
+    },
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "collectCoverageFrom": [
+      "**/*.{ts,tsx}",
+      "!**/__tests__/**"
+    ],
+    "mapCoverage": true
   }
 }

@@ -11,7 +11,8 @@
     "css"
   ],
   "scripts": {
-    "test": "jest",
+    "test": "jest --no-cache",
+    "coverage": "jest --no-cache --coverage",
     "build": "npm run build:cjs && npm run build:esm",
     "build:esm": "rimraf ./esm && tsc --target es6 --module es6 --outDir ./esm",
     "build:cjs": "rimraf ./lib && tsc --target es6 --module commonjs --outDir ./lib",
@@ -33,5 +34,18 @@
     "rimraf": "^2.6.2",
     "ts-jest": "^21.2.3",
     "typescript": "^2.6.1"
+  },
+  "jest": {
+    "testMatch": ["**/?(*.)(spec|test).ts?(x)"],
+    "moduleFileExtensions": ["ts", "tsx", "js"],
+    "roots": ["<rootDir>/src"],
+    "transform": {
+        "^.+\\.tsx?$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.{ts,tsx}",
+      "!**/__tests__/**"
+    ],
+    "mapCoverage": true
   }
 }
