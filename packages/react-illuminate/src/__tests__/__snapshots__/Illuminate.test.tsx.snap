@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Illuminate /> test should highlight given text 1`] = `
+<pre
+  className="language-clike"
+>
+  <code>
+    <TokenElement
+      token={
+        Array [
+          Token {
+            "alias": undefined,
+            "content": "if",
+            "type": "keyword",
+          },
+          " ",
+          Token {
+            "alias": undefined,
+            "content": "(",
+            "type": "punctuation",
+          },
+          "a ",
+          Token {
+            "alias": undefined,
+            "content": ">",
+            "type": "operator",
+          },
+          " b",
+          Token {
+            "alias": undefined,
+            "content": ")",
+            "type": "punctuation",
+          },
+        ]
+      }
+    />
+  </code>
+</pre>
+`;
