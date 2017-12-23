@@ -4,9 +4,10 @@
     "packages/*"
   ],
   "scripts": {
-    "bootstrap": "./scripts/bootstrap.sh",
-    "test": "./scripts/test.sh",
-    "start": "node demo/server.js"
+    "test": "cd packages/illuminate-js && yarn test && cd ../react-illuminate && yarn test",
+    "build": "cd packages/illuminate-js && yarn run build && cd ../react-illuminate && yarn run build",
+    "start": "node docs/server.js",
+    "docs": "node docs/build-static.js"
   },
   "devDependencies": {
     "@types/react": "^16.0.27",
