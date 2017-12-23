@@ -19,6 +19,7 @@ export let javascript: string = `
 var illuminate = require("illuminate-js");
 var text = "your code here";
 illuminate.highlight(text, "langname");
+
 //es6
 import { highlight } from "illuminate";
 let text = "your code here";
@@ -28,11 +29,12 @@ illuminate.highlight(text, "langname");
 export let jsx: string = `
 import React from "react";
 import Illuminate from "react-illuminate";
-const MyApp = React.createClass({
+
+class MyApp extends React.Component {
     render() {
         <Illuminate lang="language">
             \`your code here\`
         </Illuminate>
     }
-});
+}
 `;

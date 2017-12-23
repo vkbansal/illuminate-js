@@ -28,6 +28,8 @@ const content = `<h1>React Illuminate</h1>
     \`<span class="token punctuation brackets-braces" >}</span>
 <span class="token operator" >&lt;</span><span class="token operator" >/</span>Illuminate<span class="token operator" >&gt;</span><span class="token punctuation" >;</span>
 </code></pre>
+<h2>Theming</h2>
+<p>You can use any of the pre-existings PrismJS themes from <a href="https://github.com/PrismJS/prism/tree/gh-pages/themes">here</a> and <a href="https://github.com/PrismJS/prism-themes">here</a></p>
 <h2>License</h2>
 <p>MIT. Copyright(c) <a href="http://vkbansal.me/">Vivek Kumar Bansal</a></p>
 `;

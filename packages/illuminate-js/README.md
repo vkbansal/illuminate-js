@@ -34,7 +34,11 @@ addLanguage('js', javascript);
 highlight('Your code goes here', 'js');
 ```
 
-### Usage with markdown-it
+## Theming
+
+You can use any of the pre-existings PrismJS themes from [here](https://github.com/PrismJS/prism/tree/gh-pages/themes) and [here](https://github.com/PrismJS/prism-themes)
+
+## Usage with markdown-it
 
 ```js
 import MarkdownIt from 'markdown-it';

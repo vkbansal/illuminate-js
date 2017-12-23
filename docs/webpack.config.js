@@ -7,7 +7,7 @@ const DEV = !PROD;
 
 module.exports = {
     context: path.resolve(__dirname, '../'),
-    entry: ['./demo/index.tsx'],
+    entry: ['./docs/index.tsx'],
     output: {
         filename: DEV ? 'bundle.js' : 'bundle.[hash].js',
         path: path.resolve(__dirname, '../public'),
@@ -39,7 +39,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'demo/index.html',
+            template: 'docs/index.html',
             inject: true,
             filename: 'index.html'
         })

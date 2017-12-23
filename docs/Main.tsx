@@ -28,7 +28,9 @@ as shown below. This helps in keeping the bundle size down.</p>
 
 <span class="token function" >highlight</span><span class="token punctuation brackets-parentheses" >(</span><span class="token string" >'Your code goes here'</span><span class="token punctuation" >,</span> <span class="token string" >'js'</span><span class="token punctuation brackets-parentheses" >)</span><span class="token punctuation" >;</span>
 </code></pre>
-<h3>Usage with markdown-it</h3>
+<h2>Theming</h2>
+<p>You can use any of the pre-existings PrismJS themes from <a href="https://github.com/PrismJS/prism/tree/gh-pages/themes">here</a> and <a href="https://github.com/PrismJS/prism-themes">here</a></p>
+<h2>Usage with markdown-it</h2>
 <pre><code class="language-js"><span class="token keyword keyword-import" >import</span> MarkdownIt <span class="token keyword keyword-from" >from</span> <span class="token string" >'markdown-it'</span><span class="token punctuation" >;</span>
 <span class="token keyword keyword-import" >import</span> <span class="token punctuation brackets-braces" >{</span> addLanguage<span class="token punctuation" >,</span> highlight<span class="token punctuation" >,</span> getLangauge <span class="token punctuation brackets-braces" >}</span> <span class="token keyword keyword-from" >from</span> <span class="token string" >'illuminate-js'</span><span class="token punctuation" >;</span>
 <span class="token keyword keyword-import" >import</span> <span class="token punctuation brackets-braces" >{</span> javascript <span class="token punctuation brackets-braces" >}</span> <span class="token keyword keyword-from" >from</span> <span class="token string" >'illuminate-js/lib/languages/javascript'</span><span class="token punctuation" >;</span>

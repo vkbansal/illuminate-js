@@ -1,6 +1,10 @@
 import { css } from 'glamor';
 
 css.insert(`
+* {
+	box-sizing: border-box;
+}
+
 code, pre {
 	color: #ccc;
 	background: none;

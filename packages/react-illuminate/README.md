@@ -32,6 +32,10 @@ addLanguage('js', javascript);
 </Illuminate>;
 ```
 
+## Theming
+
+You can use any of the pre-existings PrismJS themes from [here](https://github.com/PrismJS/prism/tree/gh-pages/themes) and [here](https://github.com/PrismJS/prism-themes)
+
 ## License
 
 MIT. Copyright(c) [Vivek Kumar Bansal](http://vkbansal.me/)
