@@ -1,8 +1,8 @@
 language: node_js
 node_js:
   - 9
-scripts:
-  - yarn test
+install: yarn install
+script: yarn test
 before_deploy:
   - yarn run build:docs
 env:
