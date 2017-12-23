@@ -7,14 +7,13 @@ import { addLanguage } from 'illuminate-js';
 import { bash } from 'illuminate-js/lib/languages/bash';
 import { css } from 'illuminate-js/lib/languages/css';
 import { markup } from 'illuminate-js/lib/languages/markup';
-import { javascript } from 'illuminate-js/lib/languages/javascript';
 import { jsx } from 'illuminate-js/lib/languages/jsx';
 
 addLanguage('bash', bash);
 addLanguage('css', css);
 addLanguage('markup', markup);
-addLanguage('javascript', javascript);
-addLanguage('js', javascript);
+addLanguage('javascript', jsx);
+addLanguage('js', jsx);
 addLanguage('jsx', jsx);
 
 import './theme';
