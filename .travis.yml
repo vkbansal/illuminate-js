@@ -2,4 +2,21 @@ language: node_js
 node_js:
   - 9
 scripts:
-  - ./scripts/test.sh
+  - yarn test
+before_deploy:
+  - yarn run build:docs
+env:
+  global:
+    - GITHUB_REPO: vkbansal/illuminate-js
+deploy:
+  provider: s3
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  bucket: aws-website-my-website-mr5h4
+  local-dir: public
+  upload-dir: illuminate-js
+  skip_cleanup: true
+  default_text_charset: 'utf-8'
+  on:
+    branch: master
+    repo: vkbansal/illuminate-js
