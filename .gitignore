@@ -8,3 +8,4 @@ log.*
 .vscode
 test.js
 public/
+*.http

@@ -1,6 +1,7 @@
 language: node_js
 node_js:
   - 9
+before_install: yarn run clean
 install: yarn install
 script: yarn test
 before_deploy:

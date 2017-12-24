@@ -8,7 +8,8 @@
     "build": "cd packages/illuminate-js && yarn run build && cd ../react-illuminate && yarn run build",
     "start": "node docs/server.js",
     "gendocs": "node docs/build-static.js",
-    "build:docs": "NODE_ENV=production webpack --config docs/webpack.config.js"
+    "build:docs": "NODE_ENV=production webpack --config docs/webpack.config.js",
+    "clean": "rm -rf node_modules packages/illuminate-js/node_modules packages/react-illuminate/node_modules"
   },
   "devDependencies": {
     "@types/react": "^16.0.27",
