@@ -5,6 +5,7 @@ import { bash } from './bash';
 import { clike } from './clike';
 import { css } from './css';
 import { diff } from './diff';
+import { haskell } from './haskell';
 import { http } from './http';
 import { ini } from './ini';
 import { javascript } from './javascript';
@@ -29,6 +30,7 @@ export {
     clike,
     css,
     diff,
+    haskell,
     http,
     ini,
     javascript,
