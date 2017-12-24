@@ -1,6 +1,6 @@
 {
   "name": "illuminate-js",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.1",
   "description": "Syntax Highlighting for NodeJS",
   "main": "./lib/index.js",
   "module": "./esm/index.js",
