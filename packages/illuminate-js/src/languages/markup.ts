@@ -16,7 +16,8 @@ const markup = new Map<string, TokenTypes>([
             pattern: /(<style[\s\S]*?>)[\s\S]*?(?=<\/style>)/i,
             lookbehind: true,
             inside: clone(css),
-            alias: 'language-css'
+            alias: 'language-css',
+            greedy: true
         }
     ],
     [
@@ -25,7 +26,8 @@ const markup = new Map<string, TokenTypes>([
             pattern: /(<script[\s\S]*?>)[\s\S]*?(?=<\/script>)/i,
             lookbehind: true,
             inside: clone(javascript),
-            alias: 'language-javascript'
+            alias: 'language-javascript',
+            greedy: true
         }
     ],
     [
