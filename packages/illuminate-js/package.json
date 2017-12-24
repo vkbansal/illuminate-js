@@ -13,7 +13,8 @@
   "scripts": {
     "test": "jest --no-cache",
     "coverage": "jest --no-cache --coverage",
-    "build": "yarn run build:cjs && yarn run build:esm",
+    "build": "yarn run build:idx && yarn run build:cjs && yarn run build:esm",
+    "build:idx": "node scripts/build-index.js",
     "build:esm": "rimraf ./esm && tsc --target es6 --module es6 --outDir ./esm",
     "build:cjs": "rimraf ./lib && tsc --target es6 --module commonjs --outDir ./lib",
     "prepublishOnly": "yarn test && yarn run build"

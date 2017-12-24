@@ -1,0 +1,7 @@
+{
+    "html": "markup",
+    "js": "javascript",
+    "json5": "json",
+    "md": "markdown",
+    "ts": "typescript"
+}
