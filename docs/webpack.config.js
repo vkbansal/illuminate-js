@@ -1,11 +1,12 @@
 let webpack = require('webpack');
 let path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MinifyPlugin = require('babel-minify-webpack-plugin');
 
 const PROD = process.env.NODE_ENV === 'production';
 const DEV = !PROD;
 
-module.exports = {
+const config = {
     context: path.resolve(__dirname, '../'),
     entry: ['./docs/index.tsx'],
     output: {
@@ -45,3 +46,9 @@ module.exports = {
         })
     ]
 };
+
+if (PROD) {
+    config.plugins.push(new MinifyPlugin());
+}
+
+module.exports = config;

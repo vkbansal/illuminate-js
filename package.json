@@ -15,6 +15,7 @@
     "@types/react": "^16.0.27",
     "@types/react-dom": "^16.0.3",
     "@types/react-router-dom": "^4.2.3",
+    "babel-minify-webpack-plugin": "^0.2.0",
     "glamor": "^2.20.40",
     "glamorous": "^4.11.0",
     "html-webpack-plugin": "^2.30.1",
