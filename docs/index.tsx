@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render } from 'react-dom';
-import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
+import { HashRouter as Router, Route, NavLink, Redirect } from 'react-router-dom';
 import glamorous from 'glamorous';
 
 import { addLanguage } from 'illuminate-js';
@@ -43,11 +43,16 @@ const Content = glamorous.section({
 const Nav = glamorous.ul('pure-menu-list', {
     margin: 0,
     padding: 0,
-    listStyleType: 'none'
+    listStyleType: 'none',
+    fontSize: '0.9rem'
 });
 
 const NavItem = glamorous.li('pure-menu-item', {
     height: 'auto'
+});
+
+const NavHeading = glamorous.span('pure-menu-heading', {
+    fontWeight: 'bold'
 });
 
 const Link = glamorous(NavLink)('pure-menu-link', {
@@ -84,17 +89,24 @@ class App extends React.Component {
             <Router>
                 <Wrapper>
                     <Sidebar>
+                        <NavHeading>Illuminate JS</NavHeading>
                         <Nav>
                             <NavItem>
-                                <Link exact to="/">
-                                    Illuminate
+                                <Link exact to="/illuminate-js/">
+                                    Read Me
                                 </Link>
                             </NavItem>
+                        </Nav>
+                        <NavHeading>React Illuminate</NavHeading>
+                        <Nav>
                             <NavItem>
-                                <Link exact to="/react">
-                                    React-Illuminate
+                                <Link exact to="/react-illuminate">
+                                    Read Me
                                 </Link>
                             </NavItem>
+                        </Nav>
+                        <NavHeading>Demo</NavHeading>
+                        <Nav>
                             <NavItem>
                                 <Link exact to="/interactive-demo">
                                     Interactive Demo
@@ -103,8 +115,9 @@ class App extends React.Component {
                         </Nav>
                     </Sidebar>
                     <Content>
-                        <Route path="/" exact component={Main} />
-                        <Route path="/react" exact component={ReactApi} />
+                        <Route path="/" exact render={() => <Redirect to="/illuminate-js" />} />
+                        <Route path="/illuminate-js/" exact component={Main} />
+                        <Route path="/react-illuminate" exact component={ReactApi} />
                         <Route path="/interactive-demo" exact component={Demo} />
                     </Content>
                 </Wrapper>

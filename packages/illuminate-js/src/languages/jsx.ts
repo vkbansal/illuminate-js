@@ -1,6 +1,5 @@
 import { javascript } from './javascript';
 import { markup } from './markup';
-// import { clone, setIn, insertBefore } from '../utils';
 import { clone, setIn, getIn, insertBefore } from '../utils';
 import { Definition } from '../illuminate';
 
