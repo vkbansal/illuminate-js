@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Plugins Tests \`lineNumbers\` plugins shows line numbers 1`] = `
+"<span class=\\"token punctuation brackets-square\\" >[</span>
+  <span class=\\"token punctuation brackets-braces\\" >{</span>
+    <span class=\\"token property\\" >\\"id\\"</span><span class=\\"token operator\\" >:</span> <span class=\\"token number\\" >1</span><span class=\\"token punctuation\\" >,</span>
+    <span class=\\"token property\\" >\\"first_name\\"</span><span class=\\"token operator\\" >:</span> <span class=\\"token string\\" >\\"Edan\\"</span><span class=\\"token punctuation\\" >,</span>
+    <span class=\\"token property\\" >\\"last_name\\"</span><span class=\\"token operator\\" >:</span> <span class=\\"token string\\" >\\"Lauks\\"</span><span class=\\"token punctuation\\" >,</span>
+    <span class=\\"token property\\" >\\"email\\"</span><span class=\\"token operator\\" >:</span> <span class=\\"token string\\" >\\"elauks0@zimbio.com\\"</span>
+  <span class=\\"token punctuation brackets-braces\\" >}</span><span class=\\"token punctuation\\" >,</span> <span class=\\"token punctuation brackets-braces\\" >{</span>
+    <span class=\\"token property\\" >\\"id\\"</span><span class=\\"token operator\\" >:</span> <span class=\\"token number\\" >2</span><span class=\\"token punctuation\\" >,</span>
+    <span class=\\"token property\\" >\\"first_name\\"</span><span class=\\"token operator\\" >:</span> <span class=\\"token string\\" >\\"Maggi\\"</span><span class=\\"token punctuation\\" >,</span>
+    <span class=\\"token property\\" >\\"last_name\\"</span><span class=\\"token operator\\" >:</span> <span class=\\"token string\\" >\\"Osipenko\\"</span><span class=\\"token punctuation\\" >,</span>
+    <span class=\\"token property\\" >\\"email\\"</span><span class=\\"token operator\\" >:</span> <span class=\\"token string\\" >\\"mosipenko1@harvard.edu\\"</span>
+  <span class=\\"token punctuation brackets-braces\\" >}</span>
+<span class=\\"token punctuation brackets-square\\" >]</span>
+<span class=\\"line-number-rows\\">
+<span class=\\"line-number\\"></span>
+<span class=\\"line-number\\"></span>
+<span class=\\"line-number\\"></span>
+<span class=\\"line-number\\"></span>
+<span class=\\"line-number\\"></span>
+<span class=\\"line-number\\"></span>
+<span class=\\"line-number\\"></span>
+<span class=\\"line-number\\"></span>
+<span class=\\"line-number\\"></span>
+<span class=\\"line-number\\"></span>
+<span class=\\"line-number\\"></span>
+<span class=\\"line-number\\"></span>
+<span class=\\"line-number\\"></span>
+</span>"
+`;
+
+exports[`Plugins Tests \`showLanguage\` plugins the highlighted language 1`] = `
+"<span class=\\"show-language\\">json</span><span class=\\"token punctuation brackets-square\\" >[</span>
+  <span class=\\"token punctuation brackets-braces\\" >{</span>
+    <span class=\\"token property\\" >\\"id\\"</span><span class=\\"token operator\\" >:</span> <span class=\\"token number\\" >1</span><span class=\\"token punctuation\\" >,</span>
+    <span class=\\"token property\\" >\\"first_name\\"</span><span class=\\"token operator\\" >:</span> <span class=\\"token string\\" >\\"Edan\\"</span><span class=\\"token punctuation\\" >,</span>
+    <span class=\\"token property\\" >\\"last_name\\"</span><span class=\\"token operator\\" >:</span> <span class=\\"token string\\" >\\"Lauks\\"</span><span class=\\"token punctuation\\" >,</span>
+    <span class=\\"token property\\" >\\"email\\"</span><span class=\\"token operator\\" >:</span> <span class=\\"token string\\" >\\"elauks0@zimbio.com\\"</span>
+  <span class=\\"token punctuation brackets-braces\\" >}</span><span class=\\"token punctuation\\" >,</span> <span class=\\"token punctuation brackets-braces\\" >{</span>
+    <span class=\\"token property\\" >\\"id\\"</span><span class=\\"token operator\\" >:</span> <span class=\\"token number\\" >2</span><span class=\\"token punctuation\\" >,</span>
+    <span class=\\"token property\\" >\\"first_name\\"</span><span class=\\"token operator\\" >:</span> <span class=\\"token string\\" >\\"Maggi\\"</span><span class=\\"token punctuation\\" >,</span>
+    <span class=\\"token property\\" >\\"last_name\\"</span><span class=\\"token operator\\" >:</span> <span class=\\"token string\\" >\\"Osipenko\\"</span><span class=\\"token punctuation\\" >,</span>
+    <span class=\\"token property\\" >\\"email\\"</span><span class=\\"token operator\\" >:</span> <span class=\\"token string\\" >\\"mosipenko1@harvard.edu\\"</span>
+  <span class=\\"token punctuation brackets-braces\\" >}</span>
+<span class=\\"token punctuation brackets-square\\" >]</span>"
+`;

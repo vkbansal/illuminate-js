@@ -1,4 +1,4 @@
-import { Plugin, HighlightEnv } from '../illuminate';
+import { Plugin, HighlightEnv } from '../../illuminate';
 
 export const showLanguage: Plugin = add => {
     add('after-highlight', env => {
