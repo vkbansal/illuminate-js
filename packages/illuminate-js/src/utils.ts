@@ -76,10 +76,6 @@ export function setIn(def: any, path: Array<string>, value: any): void {
     let i = 0;
 
     while (i < path.length - 1) {
-        if (typeof value === 'undefined' || value === null) {
-            throw new Error(`Cannot resolve the path [${path.join(', ')}]`);
-        }
-
         const curr = path[i];
 
         val = val instanceof Map ? val.get(curr) : val[curr];
