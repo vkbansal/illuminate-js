@@ -15,9 +15,7 @@ export function add(
 
     if (typeof callback !== 'function') {
         throw new Error(
-            `hooks.add expects a function to be passed as a callback but ${typeof callback}:${
-                callback
-            } given`
+            `hooks.add expects a function to be passed as a callback but ${typeof callback}:${callback} given`
         );
     }
 
@@ -34,4 +32,10 @@ export function run(name: string, env?: object): void {
     }
 
     callbacks.forEach(callback => callback(env));
+}
+
+export function reset() {
+    for (let key in hooks) {
+        delete hooks[key];
+    }
 }

@@ -5,6 +5,7 @@ import {
     Definition,
     Plugin,
     addPlugin,
+    resetPlugins,
     highlight,
     addLanguage,
     getLanguage
@@ -17,6 +18,7 @@ export {
     Definition,
     Plugin,
     addPlugin,
+    resetPlugins,
     highlight,
     addLanguage,
     getLanguage

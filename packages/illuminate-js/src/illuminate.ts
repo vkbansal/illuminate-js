@@ -1,5 +1,5 @@
 import { Token } from './Token';
-import { add as addHook, run as runHook } from './hooks';
+import { add as addHook, run as runHook, reset as resetHooks } from './hooks';
 import { encode } from './utils';
 
 export interface TokenObject {
@@ -122,9 +122,7 @@ export function highlight(text: string, language: string): string {
 
     if (!grammar) {
         throw new Error(
-            `Your are trying to use ${
-                language
-            } language but its definition could not be found. Please make sure to use "addLanguage" to add your definition`
+            `Your are trying to use ${language} language but its definition could not be found. Please make sure to use "addLanguage" to add your definition`
         );
     }
 
@@ -152,6 +150,10 @@ export function addPlugin(plugin: Plugin) {
     }
 
     plugin(addHook);
+}
+
+export function resetPlugins() {
+    resetHooks();
 }
 
 export function addLanguage(name: string, def: Definition) {
