@@ -19,5 +19,6 @@ deploy:
   skip_cleanup: true
   default_text_charset: 'utf-8'
   on:
+    tags: true
     branch: master
     repo: vkbansal/illuminate-js
