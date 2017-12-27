@@ -1,11 +1,11 @@
-import { css } from 'glamor';
+/**
+ * prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML
+ * Based on https://github.com/chriskempson/tomorrow-theme
+ * @author Rose Pritchard
+ */
 
-css.insert(`
-* {
-	box-sizing: border-box;
-}
-
-code, pre {
+code[class*="language-"],
+pre[class*="language-"] {
 	color: #ccc;
 	background: none;
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
@@ -24,27 +24,26 @@ code, pre {
 	-moz-hyphens: none;
 	-ms-hyphens: none;
 	hyphens: none;
-	font-size: 0.95em;
+
 }
 
-pre {
+/* Code blocks */
+pre[class*="language-"] {
 	padding: 1em;
 	margin: .5em 0;
 	overflow: auto;
 }
 
-code,
-pre {
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
 	background: #2d2d2d;
 }
 
-:not(pre) > code {
+/* Inline code */
+:not(pre) > code[class*="language-"] {
 	padding: .1em;
-	border-radius: 2px;
+	border-radius: .3em;
 	white-space: normal;
-	font-size: 0.85em;
-	background: transparent;
-	color: #222;
 }
 
 .token.comment,
@@ -120,12 +119,3 @@ pre {
 .token.inserted {
 	color: green;
 }
-`);
-
-css.global('#app', {
-    minHeight: '100vh'
-});
-
-css.global('.container pre', {
-    margin: '8px -16px'
-});

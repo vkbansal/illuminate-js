@@ -8,7 +8,7 @@
   "files": [
     "esm",
     "lib",
-    "css"
+    "themes"
   ],
   "scripts": {
     "test": "jest --no-cache",
