@@ -1,3 +1,5 @@
+<div class='doc-header'>
+
 # React Illuminate
 
 [![NPM Version](https://img.shields.io/npm/v/react-illuminate.svg?style=flat-square)](https://npmjs.org/package/react-illuminate)
@@ -5,13 +7,11 @@
 [![Peer Dependency Status](https://david-dm.org/vkbansal/illuminate-js/peer-status.svg?style=flat-square&path=packages/react-illuminate)](https://david-dm.org/vkbansal/illuminate-js?type=peer&path=packages/react-illuminate)
 [![Dev Dependency Status](https://david-dm.org/vkbansal/illuminate-js/dev-status.svg?style=flat-square&path=packages/react-illuminate)](https://david-dm.org/vkbansal/illuminate-js?type=dev&path=packages/react-illuminate)
 
+</div>
+
 ## Install
 
 ```bash
-# to use with node/markdown-it
-npm install --save illuminate-js
-
-# to use with react
 npm install --save illuminate-js react-illuminate
 ```
 
