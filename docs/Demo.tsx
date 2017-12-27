@@ -41,6 +41,11 @@ const TextBox = glamorous.textarea({
     height: 'calc(100vh - 56px)'
 });
 
+const Hint = glamorous.span({
+    color: '#ccc',
+    marginLeft: '8px'
+});
+
 export class Demo extends React.Component<{}, DemoState> {
     private container: HTMLDivElement;
 
@@ -91,6 +96,7 @@ export class Demo extends React.Component<{}, DemoState> {
                             </option>
                         ))}
                     </select>
+                    <Hint>(This demo uses react-illuminate)</Hint>
                 </Selection>
                 <Row>
                     <Column>

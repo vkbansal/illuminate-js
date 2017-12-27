@@ -9,6 +9,7 @@ addLanguage('js', javascript);
 addLanguage('bash', bash);
 
 const md = MarkdownIt({
+    html: true,
     highlight: function(str, lang) {
         if (lang && getLanguage(lang)) {
             return highlight(str, lang);

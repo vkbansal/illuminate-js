@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render } from 'react-dom';
-import { HashRouter as Router, Route, NavLink, Redirect } from 'react-router-dom';
+import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
 import glamorous from 'glamorous';
 
 import { addLanguage } from 'illuminate-js';
@@ -16,7 +16,7 @@ addLanguage('javascript', jsx);
 addLanguage('js', jsx);
 addLanguage('jsx', jsx);
 
-import './theme';
+import './theme.css';
 
 import { Main } from './Main';
 import { ReactApi } from './ReactApi';
@@ -48,11 +48,9 @@ const Nav = glamorous.ul('pure-menu-list', {
 });
 
 const NavItem = glamorous.li('pure-menu-item', {
-    height: 'auto'
-});
-
-const NavHeading = glamorous.span('pure-menu-heading', {
-    fontWeight: 'bold'
+    height: 'auto',
+    // fontWeight: 'bold',
+    textTransform: 'uppercase'
 });
 
 const Link = glamorous(NavLink)('pure-menu-link', {
@@ -89,36 +87,28 @@ class App extends React.Component {
             <Router>
                 <Wrapper>
                     <Sidebar>
-                        <NavHeading>Illuminate JS</NavHeading>
                         <Nav>
                             <NavItem>
-                                <Link exact to="/illuminate-js/">
-                                    Read Me
+                                <Link exact to="/">
+                                    Illuminate JS
                                 </Link>
                             </NavItem>
-                        </Nav>
-                        <NavHeading>React Illuminate</NavHeading>
-                        <Nav>
                             <NavItem>
-                                <Link exact to="/react-illuminate">
-                                    Read Me
+                                <Link exact to="/react">
+                                    React Illuminate
                                 </Link>
                             </NavItem>
-                        </Nav>
-                        <NavHeading>Demo</NavHeading>
-                        <Nav>
                             <NavItem>
-                                <Link exact to="/interactive-demo">
-                                    Interactive Demo
+                                <Link exact to="/demo">
+                                    Demo
                                 </Link>
                             </NavItem>
                         </Nav>
                     </Sidebar>
                     <Content>
-                        <Route path="/" exact render={() => <Redirect to="/illuminate-js" />} />
-                        <Route path="/illuminate-js/" exact component={Main} />
-                        <Route path="/react-illuminate" exact component={ReactApi} />
-                        <Route path="/interactive-demo" exact component={Demo} />
+                        <Route path="/" exact component={Main} />
+                        <Route path="/react" exact component={ReactApi} />
+                        <Route path="/demo" exact component={Demo} />
                     </Content>
                 </Wrapper>
             </Router>
