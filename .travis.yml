@@ -18,6 +18,7 @@ deploy:
   upload-dir: illuminate-js
   skip_cleanup: true
   default_text_charset: 'utf-8'
+  detect_encoding: true
   on:
     tags: true
     branch: master

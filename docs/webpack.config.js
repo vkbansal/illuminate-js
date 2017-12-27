@@ -1,7 +1,8 @@
-let webpack = require('webpack');
-let path = require('path');
+const webpack = require('webpack');
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MinifyPlugin = require('babel-minify-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 const PROD = process.env.NODE_ENV === 'production';
 const DEV = !PROD;
@@ -35,6 +36,10 @@ const config = {
                     }
                 ],
                 include: [path.resolve(__dirname, '../packages'), path.resolve(__dirname)]
+            },
+            {
+                test: /\.css$/,
+                loader: 'glamor-loader'
             }
         ]
     },
@@ -48,7 +53,13 @@ const config = {
 };
 
 if (PROD) {
-    config.plugins.push(new MinifyPlugin());
+    config.plugins.push(
+        new MinifyPlugin(),
+        new CompressionPlugin({
+            asset: '[path][query]',
+            test: /\.(js|css)$/
+        })
+    );
 }
 
 module.exports = config;
