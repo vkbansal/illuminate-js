@@ -13,8 +13,9 @@
   "scripts": {
     "test": "jest --no-cache",
     "coverage": "jest --no-cache --coverage",
-    "build": "yarn run build:idx && yarn run build:cjs && yarn run build:esm",
-    "build:idx": "node scripts/build-index.js",
+    "build": "yarn run prebuild && yarn run build:cjs && yarn run build:esm && yarn run postbuild",
+    "prebuild": "node scripts/build-index.js",
+    "postbuild": "node scripts/copy-css.js",
     "build:esm": "rimraf ./esm && tsc --target es6 --module es6 --outDir ./esm",
     "build:cjs": "rimraf ./lib && tsc --target es6 --module commonjs --outDir ./lib",
     "prepublishOnly": "yarn test && yarn run build"
@@ -31,6 +32,8 @@
   "homepage": "https://github.com/vkbansal/illuminate-js#readme",
   "devDependencies": {
     "@types/jest": "^21.1.8",
+    "fs-extra": "^5.0.0",
+    "glob": "^7.1.2",
     "jest": "^22.0.4",
     "rimraf": "^2.6.2",
     "ts-jest": "^22.0.0",
