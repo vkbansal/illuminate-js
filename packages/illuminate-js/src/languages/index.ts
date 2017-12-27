@@ -21,6 +21,7 @@ import { python } from './python';
 import { ruby } from './ruby';
 import { scss } from './scss';
 import { sql } from './sql';
+import { tsx } from './tsx';
 import { typescript } from './typescript';
 import { yaml } from './yaml';
 
@@ -46,6 +47,7 @@ export {
     ruby,
     scss,
     sql,
+    tsx,
     typescript,
     yaml,
     markup as html,
