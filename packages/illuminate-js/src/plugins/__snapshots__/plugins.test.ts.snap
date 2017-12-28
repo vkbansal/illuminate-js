@@ -48,7 +48,7 @@ exports[`Plugins Tests \`lineNumbers\` plugin shows line numbers 1`] = `
 `;
 
 exports[`Plugins Tests \`showLanguage\` plugin shows the highlighted language 1`] = `
-"<span class=\\"show-language\\">json</span><span class=\\"token punctuation brackets-square\\" >[</span>
+"<span class=\\"show-language--lang\\">json</span><span class=\\"token punctuation brackets-square\\" >[</span>
   <span class=\\"token punctuation brackets-braces\\" >{</span>
     <span class=\\"token property\\" >\\"id\\"</span><span class=\\"token operator\\" >:</span> <span class=\\"token number\\" >1</span><span class=\\"token punctuation\\" >,</span>
     <span class=\\"token property\\" >\\"first_name\\"</span><span class=\\"token operator\\" >:</span> <span class=\\"token string\\" >\\"Edan\\"</span><span class=\\"token punctuation\\" >,</span>

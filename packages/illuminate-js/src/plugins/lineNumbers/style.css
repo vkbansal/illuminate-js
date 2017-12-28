@@ -1,16 +1,18 @@
-pre[class*='language-'] {
+.line-numbers {
     position: relative;
+    padding-left: 3.8em; /* works for line-numbers below 1000 lines */
 }
 
-.line-numbers-rows {
+.line-numbers .line-numbers-rows {
     position: absolute;
     pointer-events: none;
     top: 0;
-    left: -3.8em;
-    width: 3em; /* works for line-numbers below 1000 lines */
+    left: 0;
+    width: 3em;
     letter-spacing: -1px;
     border-right: 1px solid #999;
     counter-reset: linenumber;
+    min-height: 100%;
 }
 
 .line-numbers-rows > .line-number {

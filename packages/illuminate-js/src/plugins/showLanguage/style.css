@@ -1,0 +1,25 @@
+.show-language {
+    position: relative;
+}
+
+.show-language::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: orange;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.show-language .show-language--lang {
+    position: absolute;
+    background: orange;
+    right: 0;
+    top: 0;
+    display: block;
+    padding: 4px 8px;
+    color: #fff;
+    border-bottom-left-radius: 4px;
+}

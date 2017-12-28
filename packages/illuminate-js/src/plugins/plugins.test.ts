@@ -39,7 +39,7 @@ describe('Plugins Tests', () => {
         addPlugin(showLanguage);
         const hc = highlight(code, 'json');
 
-        expect(hc.includes('<span class="show-language">json</span>')).toBe(true);
+        expect(hc.includes('<span class="show-language--lang">json</span>')).toBe(true);
         expect(hc).toMatchSnapshot();
     });
 

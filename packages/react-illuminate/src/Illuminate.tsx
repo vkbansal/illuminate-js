@@ -39,13 +39,13 @@ export class Illuminate extends React.PureComponent<IlluminateProps> {
 
         const className = cx(`language-${lang}`, {
             'line-numbers': this.props.lineNumbers,
-            'show-langauage': this.props.showLanguage
+            'show-language': this.props.showLanguage
         });
 
         return (
             <pre className={className}>
                 <code>
-                    {this.props.showLanguage && <span className="show-language">{lang}</span>}
+                    {this.props.showLanguage && <span className="show-language--lang">{lang}</span>}
                     <TokenElement customClasses={this.props.customClasses} token={token} />
                     {this.props.lineNumbers && this.renderLineNumbers(children)}
                 </code>
