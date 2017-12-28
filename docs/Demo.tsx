@@ -1,13 +1,11 @@
 import * as React from 'react';
 import glamorous from 'glamorous';
 import { Illuminate } from 'react-illuminate';
+import { RouteComponentProps, Redirect } from 'react-router-dom';
 
 import * as snippets from './snippets';
 
-export interface DemoState {
-    text: string;
-    lang: string;
-}
+type Snippets = Record<string, string>;
 
 const Row = glamorous.div({
     display: 'flex',
@@ -46,29 +44,57 @@ const Hint = glamorous.span({
     marginLeft: '8px'
 });
 
-export class Demo extends React.Component<{}, DemoState> {
+interface RouteParams {
+    lang?: string;
+}
+
+type DemoProps = RouteComponentProps<RouteParams>;
+
+export interface DemoState {
+    text: string;
+    lineNumbers: boolean;
+    showLanguage: boolean;
+}
+
+export class Demo extends React.Component<DemoProps, DemoState> {
     private container: HTMLDivElement;
 
-    constructor(props: any) {
+    constructor(props: DemoProps) {
         super(props);
+        let { match: { params: { lang } } } = props;
         this.state = {
-            text: snippets.markup.trim(),
-            lang: 'markup'
+            text: (lang && Object.prototype.hasOwnProperty.call(snippets as Snippets, lang)
+                ? (snippets as Snippets)[lang]
+                : ''
+            ).trim(),
+            lineNumbers: true,
+            showLanguage: true
         };
     }
 
     componentDidMount() {
-        const c = this.container.querySelector('textarea');
+        const c = this.container && this.container.querySelector('textarea');
         c && c.focus();
+    }
+
+    componentWillReceiveProps(nextProps: DemoProps) {
+        let { match: { params: { lang } } } = this.props;
+        let { match: { params: { lang: nextLang } } } = nextProps;
+
+        if (
+            nextLang &&
+            lang !== nextLang &&
+            Object.prototype.hasOwnProperty.call(snippets as Snippets, nextLang)
+        ) {
+            this.setState({
+                text: (snippets as Snippets)[nextLang].trim()
+            });
+        }
     }
 
     handleLangChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         let val = e.target.value;
-
-        this.setState({
-            text: (snippets as Record<string, string>)[val].trim(),
-            lang: val
-        });
+        this.props.history.push(this.props.match.path.replace(':lang?', val));
     };
 
     handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -80,21 +106,30 @@ export class Demo extends React.Component<{}, DemoState> {
     containerRef = (c: HTMLDivElement) => (this.container = c);
 
     render() {
-        let { text, lang } = this.state;
+        let { match } = this.props;
+        let { params: { lang }, path } = match;
+
+        if (!lang || !(lang in snippets)) {
+            return <Redirect to={path.replace(':lang?', 'markup')} />;
+        }
+
+        let { text, ...rest } = this.state;
 
         return (
-            <div ref={this.containerRef}>
+            <div className="demo" ref={this.containerRef}>
                 <Selection>
                     <label>Select language:&nbsp;</label>
                     <select
                         className="form-control form-control-sm"
                         value={lang}
                         onChange={this.handleLangChange}>
-                        {Object.keys(snippets).map((l, i) => (
-                            <option key={i} value={l}>
-                                {l}
-                            </option>
-                        ))}
+                        {Object.keys(snippets)
+                            .sort()
+                            .map((l, i) => (
+                                <option key={i} value={l}>
+                                    {l}
+                                </option>
+                            ))}
                     </select>
                     <Hint>(This demo uses react-illuminate)</Hint>
                 </Selection>
@@ -103,7 +138,9 @@ export class Demo extends React.Component<{}, DemoState> {
                         <TextBox rows={10} value={text} onChange={this.handleTextChange} />
                     </Column>
                     <Column>
-                        <Illuminate lang={lang}>{text}</Illuminate>
+                        <Illuminate {...rest} lang={lang}>
+                            {text}
+                        </Illuminate>
                     </Column>
                 </Row>
             </div>

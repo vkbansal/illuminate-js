@@ -144,6 +144,10 @@ details {
     margin: 0 24px 0 -16px;
 }
 
+.demo .line-numbers .line-numbers-rows {
+    padding-top: 1em;
+}
+
 li + li {
     margin-top: 12px;
 }

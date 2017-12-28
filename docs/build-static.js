@@ -2,10 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const MarkdownIt = require('markdown-it');
 const { addLanguage, highlight, getLanguage } = require('../packages/illuminate-js/lib/illuminate');
-const { javascript } = require('../packages/illuminate-js/lib/languages/javascript');
-const { bash } = require('../packages/illuminate-js/lib/languages/bash');
+const { jsx, bash } = require('../packages/illuminate-js/lib/languages');
 
-addLanguage('js', javascript);
+addLanguage('js', jsx);
 addLanguage('bash', bash);
 
 const md = MarkdownIt({

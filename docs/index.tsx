@@ -3,20 +3,18 @@ import { render } from 'react-dom';
 import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
 import glamorous from 'glamorous';
 
-import { addLanguage } from 'illuminate-js';
-import { bash } from 'illuminate-js/lib/languages/bash';
-import { css } from 'illuminate-js/lib/languages/css';
-import { markup } from 'illuminate-js/lib/languages/markup';
-import { jsx } from 'illuminate-js/lib/languages/jsx';
+import { addLanguage, Definition } from 'illuminate-js';
+import * as langs from 'illuminate-js/lib/languages';
 
-addLanguage('bash', bash);
-addLanguage('css', css);
-addLanguage('markup', markup);
-addLanguage('javascript', jsx);
-addLanguage('js', jsx);
-addLanguage('jsx', jsx);
+type LangMap = Record<string, Definition>;
+
+Object.keys(langs).forEach(lang => addLanguage(lang, (langs as LangMap)[lang] as any));
+addLanguage('javascript', langs.jsx);
+addLanguage('typescript', langs.tsx);
 
 import './theme.css';
+import 'illuminate-js/lib/plugins/lineNumbers/style.css';
+import 'illuminate-js/lib/plugins/showLanguage/style.css';
 
 import { Main } from './Main';
 import { ReactApi } from './ReactApi';
@@ -99,16 +97,14 @@ class App extends React.Component {
                                 </Link>
                             </NavItem>
                             <NavItem>
-                                <Link exact to="/demo">
-                                    Demo
-                                </Link>
+                                <Link to="/demo">Demo</Link>
                             </NavItem>
                         </Nav>
                     </Sidebar>
                     <Content>
                         <Route path="/" exact component={Main} />
                         <Route path="/react" exact component={ReactApi} />
-                        <Route path="/demo" exact component={Demo} />
+                        <Route path="/demo/:lang?" component={Demo} />
                     </Content>
                 </Wrapper>
             </Router>
