@@ -1,20 +1,18 @@
 import * as React from 'react';
+import * as cx from 'classnames';
 import { tokenize, getLanguage } from 'illuminate-js';
 
-import { TokenElement, Token, SingleOrArray } from './Token';
+import { TokenElement, Token, SingleOrArray, CustomClasses } from './Token';
 
 export interface IlluminateProps {
     children: string;
     lang?: string;
     lineNumbers?: boolean;
     showLanguage?: boolean;
+    customClasses?: CustomClasses;
 }
 
-export class Illuminate extends React.Component<IlluminateProps> {
-    shouldComponentUpdate(nextProps: IlluminateProps) {
-        return this.props.children !== nextProps.children || this.props.lang !== nextProps.lang;
-    }
-
+export class Illuminate extends React.PureComponent<IlluminateProps> {
     renderLineNumbers(code: string) {
         const match = code.match(/\n(?!$)/g);
         const linesNum = match ? match.length + 1 : 1;
@@ -24,7 +22,7 @@ export class Illuminate extends React.Component<IlluminateProps> {
             lines.push(<span key={`line-${i}`} className="line-number" />);
         }
 
-        return <span className="line-number-rows">{lines}</span>;
+        return <span className="line-numbers-rows">{lines}</span>;
     }
 
     render() {
@@ -39,11 +37,16 @@ export class Illuminate extends React.Component<IlluminateProps> {
 
         token = tokenize(children, grammar);
 
+        const className = cx(`language-${lang}`, {
+            'line-numbers': this.props.lineNumbers,
+            'show-langauage': this.props.showLanguage
+        });
+
         return (
-            <pre className={`language-${lang}`}>
+            <pre className={className}>
                 <code>
                     {this.props.showLanguage && <span className="show-language">{lang}</span>}
-                    <TokenElement token={token} />
+                    <TokenElement customClasses={this.props.customClasses} token={token} />
                     {this.props.lineNumbers && this.renderLineNumbers(children)}
                 </code>
             </pre>

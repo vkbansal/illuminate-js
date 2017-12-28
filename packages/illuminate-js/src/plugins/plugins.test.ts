@@ -3,6 +3,7 @@ import { json } from '../languages/json';
 
 import { lineNumbers } from './lineNumbers';
 import { showLanguage } from './showLanguage';
+import { customClasses } from './customClasses';
 
 addLanguage('json', json);
 
@@ -25,7 +26,7 @@ describe('Plugins Tests', () => {
         resetPlugins();
     });
 
-    test('`lineNumbers` plugins shows line numbers', () => {
+    test('`lineNumbers` plugin shows line numbers', () => {
         addPlugin(lineNumbers);
         const hc = highlight(code, 'json');
         const match = hc.match(/<span class="line-number"><\/span>/g) || [];
@@ -34,11 +35,26 @@ describe('Plugins Tests', () => {
         expect(hc).toMatchSnapshot();
     });
 
-    test('`showLanguage` plugins the highlighted language', () => {
+    test('`showLanguage` plugin shows the highlighted language', () => {
         addPlugin(showLanguage);
         const hc = highlight(code, 'json');
 
         expect(hc.includes('<span class="show-language">json</span>')).toBe(true);
+        expect(hc).toMatchSnapshot();
+    });
+
+    test('`customClasses` plugin replaces classes', () => {
+        addPlugin(
+            customClasses({
+                prefix: 'prefix-',
+                map: {
+                    property: 'special-property',
+                    string: 'string_ch29s',
+                    operator: 'operator_93jsa'
+                }
+            })
+        );
+        const hc = highlight(code, 'json');
         expect(hc).toMatchSnapshot();
     });
 });

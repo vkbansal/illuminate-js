@@ -8,8 +8,14 @@ export interface Token {
     alias?: SingleOrArray<string>;
 }
 
+export interface CustomClasses {
+    prefix?: string;
+    map?: Record<string, string>;
+}
+
 export interface TokenProps {
     token: SingleOrArray<string | Token>;
+    customClasses?: CustomClasses;
 }
 
 export function TokenElement(props: TokenProps): React.ReactElement<TokenProps> {
@@ -23,12 +29,25 @@ export function TokenElement(props: TokenProps): React.ReactElement<TokenProps> 
         return <span>{token.map((t, i) => <TokenElement token={t} key={i} />)}</span>;
     }
 
-    const classes: string[] = ['token', token.type];
+    let classes: string[] = ['token', token.type];
 
     if (token.alias) {
         const aliases = Array.isArray(token.alias) ? token.alias : [token.alias];
 
         classes.push(...aliases);
+    }
+
+    if (props.customClasses) {
+        const { customClasses } = props;
+
+        classes = classes.map(c => {
+            return (
+                (customClasses.prefix || '') +
+                (customClasses.map && Object.prototype.hasOwnProperty.call(customClasses.map, c)
+                    ? customClasses.map[c]
+                    : c)
+            );
+        });
     }
 
     return (

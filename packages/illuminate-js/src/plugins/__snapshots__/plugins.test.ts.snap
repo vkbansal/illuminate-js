@@ -1,6 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Plugins Tests \`lineNumbers\` plugins shows line numbers 1`] = `
+exports[`Plugins Tests \`customClasses\` plugin replaces classes 1`] = `
+"<span class=\\"prefix-token prefix-punctuation prefix-brackets-square\\" >[</span>
+  <span class=\\"prefix-token prefix-punctuation prefix-brackets-braces\\" >{</span>
+    <span class=\\"prefix-token prefix-special-property\\" >\\"id\\"</span><span class=\\"prefix-token prefix-operator_93jsa\\" >:</span> <span class=\\"prefix-token prefix-number\\" >1</span><span class=\\"prefix-token prefix-punctuation\\" >,</span>
+    <span class=\\"prefix-token prefix-special-property\\" >\\"first_name\\"</span><span class=\\"prefix-token prefix-operator_93jsa\\" >:</span> <span class=\\"prefix-token prefix-string_ch29s\\" >\\"Edan\\"</span><span class=\\"prefix-token prefix-punctuation\\" >,</span>
+    <span class=\\"prefix-token prefix-special-property\\" >\\"last_name\\"</span><span class=\\"prefix-token prefix-operator_93jsa\\" >:</span> <span class=\\"prefix-token prefix-string_ch29s\\" >\\"Lauks\\"</span><span class=\\"prefix-token prefix-punctuation\\" >,</span>
+    <span class=\\"prefix-token prefix-special-property\\" >\\"email\\"</span><span class=\\"prefix-token prefix-operator_93jsa\\" >:</span> <span class=\\"prefix-token prefix-string_ch29s\\" >\\"elauks0@zimbio.com\\"</span>
+  <span class=\\"prefix-token prefix-punctuation prefix-brackets-braces\\" >}</span><span class=\\"prefix-token prefix-punctuation\\" >,</span> <span class=\\"prefix-token prefix-punctuation prefix-brackets-braces\\" >{</span>
+    <span class=\\"prefix-token prefix-special-property\\" >\\"id\\"</span><span class=\\"prefix-token prefix-operator_93jsa\\" >:</span> <span class=\\"prefix-token prefix-number\\" >2</span><span class=\\"prefix-token prefix-punctuation\\" >,</span>
+    <span class=\\"prefix-token prefix-special-property\\" >\\"first_name\\"</span><span class=\\"prefix-token prefix-operator_93jsa\\" >:</span> <span class=\\"prefix-token prefix-string_ch29s\\" >\\"Maggi\\"</span><span class=\\"prefix-token prefix-punctuation\\" >,</span>
+    <span class=\\"prefix-token prefix-special-property\\" >\\"last_name\\"</span><span class=\\"prefix-token prefix-operator_93jsa\\" >:</span> <span class=\\"prefix-token prefix-string_ch29s\\" >\\"Osipenko\\"</span><span class=\\"prefix-token prefix-punctuation\\" >,</span>
+    <span class=\\"prefix-token prefix-special-property\\" >\\"email\\"</span><span class=\\"prefix-token prefix-operator_93jsa\\" >:</span> <span class=\\"prefix-token prefix-string_ch29s\\" >\\"mosipenko1@harvard.edu\\"</span>
+  <span class=\\"prefix-token prefix-punctuation prefix-brackets-braces\\" >}</span>
+<span class=\\"prefix-token prefix-punctuation prefix-brackets-square\\" >]</span>"
+`;
+
+exports[`Plugins Tests \`lineNumbers\` plugin shows line numbers 1`] = `
 "<span class=\\"token punctuation brackets-square\\" >[</span>
   <span class=\\"token punctuation brackets-braces\\" >{</span>
     <span class=\\"token property\\" >\\"id\\"</span><span class=\\"token operator\\" >:</span> <span class=\\"token number\\" >1</span><span class=\\"token punctuation\\" >,</span>
@@ -31,7 +47,7 @@ exports[`Plugins Tests \`lineNumbers\` plugins shows line numbers 1`] = `
 </span>"
 `;
 
-exports[`Plugins Tests \`showLanguage\` plugins the highlighted language 1`] = `
+exports[`Plugins Tests \`showLanguage\` plugin shows the highlighted language 1`] = `
 "<span class=\\"show-language\\">json</span><span class=\\"token punctuation brackets-square\\" >[</span>
   <span class=\\"token punctuation brackets-braces\\" >{</span>
     <span class=\\"token property\\" >\\"id\\"</span><span class=\\"token operator\\" >:</span> <span class=\\"token number\\" >1</span><span class=\\"token punctuation\\" >,</span>
