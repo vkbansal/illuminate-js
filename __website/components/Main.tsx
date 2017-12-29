@@ -55,7 +55,16 @@ as shown below. This helps in keeping the bundle size down.</p>
 <span class="token punctuation brackets-braces" >}</span><span class="token punctuation brackets-parentheses" >)</span><span class="token punctuation" >;</span>
 </code></pre>
 <h2>Theming</h2>
-<p>IlluminateJS comes with two themes just to get you started. You can include <code>illuminate-js/themes/[theme].css</code> according to your build config. You can also use any of the pre-existings PrismJS themes from <a href="https://github.com/PrismJS/prism/tree/gh-pages/themes">here</a> and <a href="https://github.com/PrismJS/prism-themes">here</a></p>
+<details>
+<summary>
+    IlluminateJS comes with two themes just to get you started. You can include <code>illuminate-js/themes/[theme].css</code> according to your build config.
+</summary>
+<ul>
+<li>solarized-light</li>
+<li>tomorrow</li>
+</ul>
+</details>
+<p>You can also use any of the pre-existings PrismJS themes from <a href="https://github.com/PrismJS/prism/tree/gh-pages/themes">here</a> and <a href="https://github.com/PrismJS/prism-themes">here</a></p>
 <h2>Plugins</h2>
 <details>
 <summary>
@@ -71,7 +80,7 @@ as shown below. This helps in keeping the bundle size down.</p>
 </code></pre>
 </li>
 <li>
-<p>Include CSS file from <code>illuminate-js/lib/plugins/lineNumbers/style.css</code> or use it an reference to write your own styles.</p>
+<p>Using styles from <a href="https://github.com/vkbansal/illuminate-js/blob/master/packages/illuminate-js/src/plugins/lineNumbers/style.css">here</a> as reference, write your own styles. This file is also available from <code>illuminate-js/lib/plugins/lineNumbers/style.css</code>.</p>
 </details>
 </li>
 </ol>
@@ -89,7 +98,31 @@ as shown below. This helps in keeping the bundle size down.</p>
 </code></pre>
 </li>
 <li>
-<p>Include CSS file from <code>illuminate-js/lib/plugins/showLangauage/style.css</code> or use it an reference to write your own styles.</p>
+<p>Using styles from <a href="https://github.com/vkbansal/illuminate-js/blob/master/packages/illuminate-js/src/plugins/showLangauage/style.css">here</a> as reference, write your own styles. This file is also available from <code>illuminate-js/lib/plugins/showLangauage/style.css</code>.</p>
+</details>
+</li>
+</ol>
+<details>
+<summary>
+    <b>Custom Classes Plugin</b>: Customize the classes used by highlighter.
+</summary>
+<ol>
+<li>
+<p>Add and use the plugin as follows:</p>
+<pre><code class="language-js"><span class="token keyword keyword-import" >import</span> <span class="token punctuation brackets-braces" >{</span> addPlugin <span class="token punctuation brackets-braces" >}</span> <span class="token keyword keyword-from" >from</span> <span class="token string" >'illuminate-js'</span><span class="token punctuation" >;</span>
+<span class="token keyword keyword-import" >import</span> <span class="token punctuation brackets-braces" >{</span> customClasses <span class="token punctuation brackets-braces" >}</span> <span class="token keyword keyword-from" >from</span> <span class="token string" >'illuminate-js/lib/plugins/customClasses'</span><span class="token punctuation" >;</span>
+
+<span class="token function" >addPlugin</span><span class="token punctuation brackets-parentheses" >(</span>
+    <span class="token function" >showLanguage</span><span class="token punctuation brackets-parentheses" >(</span><span class="token punctuation brackets-braces" >{</span>
+        prefix<span class="token punctuation" >:</span> <span class="token string" >'prefix-'</span><span class="token punctuation" >,</span>
+        map<span class="token punctuation" >:</span> <span class="token punctuation brackets-braces" >{</span>
+            property<span class="token punctuation" >:</span> <span class="token string" >'special-property'</span><span class="token punctuation" >,</span>
+            string<span class="token punctuation" >:</span> <span class="token string" >'string_ch29s'</span><span class="token punctuation" >,</span>
+            operator<span class="token punctuation" >:</span> <span class="token string" >'operator_93jsa'</span>
+        <span class="token punctuation brackets-braces" >}</span>
+    <span class="token punctuation brackets-braces" >}</span><span class="token punctuation brackets-parentheses" >)</span>
+<span class="token punctuation brackets-parentheses" >)</span><span class="token punctuation" >;</span>
+</code></pre>
 </details>
 </li>
 </ol>

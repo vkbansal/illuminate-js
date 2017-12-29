@@ -2,6 +2,14 @@
     box-sizing: border-box;
 }
 
+body {
+    font-size: 14px;
+}
+
+p {
+    font-size: 14px;
+}
+
 code,
 pre {
     color: #ccc;
@@ -37,7 +45,7 @@ pre {
 }
 
 :not(pre) > code {
-    padding: 0.1em;
+    padding: 0.2em 0.4em;
     border-radius: 2px;
     white-space: normal;
     font-size: 0.85em;

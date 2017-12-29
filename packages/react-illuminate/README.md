@@ -1,13 +1,9 @@
-<div class='doc-header'>
-
 # React Illuminate
 
 [![NPM Version](https://img.shields.io/npm/v/react-illuminate.svg?style=flat-square)](https://npmjs.org/package/react-illuminate)
 [![Dependency Status](https://david-dm.org/vkbansal/illuminate-js/status.svg?style=flat-square&path=packages/react-illuminate)](https://david-dm.org/vkbansal/illuminate-js?path=packages/react-illuminate)
 [![Peer Dependency Status](https://david-dm.org/vkbansal/illuminate-js/peer-status.svg?style=flat-square&path=packages/react-illuminate)](https://david-dm.org/vkbansal/illuminate-js?type=peer&path=packages/react-illuminate)
 [![Dev Dependency Status](https://david-dm.org/vkbansal/illuminate-js/dev-status.svg?style=flat-square&path=packages/react-illuminate)](https://david-dm.org/vkbansal/illuminate-js?type=dev&path=packages/react-illuminate)
-
-</div>
 
 ## Install
 
@@ -31,10 +27,6 @@ addLanguage('js', javascript);
     `}
 </Illuminate>;
 ```
-
-## Theming
-
-You can use any of the pre-existings PrismJS themes from [here](https://github.com/PrismJS/prism/tree/gh-pages/themes) and [here](https://github.com/PrismJS/prism-themes)
 
 ## License
 
