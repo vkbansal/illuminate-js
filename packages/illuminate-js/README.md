@@ -67,7 +67,17 @@ const md = MarkdownIt({
 
 ## Theming
 
-IlluminateJS comes with two themes just to get you started. You can include `illuminate-js/themes/[theme].css` according to your build config. You can also use any of the pre-existings PrismJS themes from [here](https://github.com/PrismJS/prism/tree/gh-pages/themes) and [here](https://github.com/PrismJS/prism-themes)
+<details>
+<summary>
+    IlluminateJS comes with two themes just to get you started. You can include <code>illuminate-js/themes/[theme].css</code> according to your build config.
+</summary>
+
+* solarized-light
+* tomorrow
+
+</details>
+
+You can also use any of the pre-existings PrismJS themes from [here](https://github.com/PrismJS/prism/tree/gh-pages/themes) and [here](https://github.com/PrismJS/prism-themes)
 
 ## Plugins
 
@@ -85,7 +95,7 @@ IlluminateJS comes with two themes just to get you started. You can include `ill
    addPlugin(lineNumbers);
    ```
 
-2. Include CSS file from `illuminate-js/lib/plugins/lineNumbers/style.css` or use it an reference to write your own styles.
+2. Using styles from [here](https://github.com/vkbansal/illuminate-js/blob/master/packages/illuminate-js/src/plugins/lineNumbers/style.css) as reference, write your own styles. This file is also available from `illuminate-js/lib/plugins/lineNumbers/style.css`.
    </details>
 
 <details>
@@ -102,8 +112,17 @@ IlluminateJS comes with two themes just to get you started. You can include `ill
    addPlugin(showLanguage);
    ```
 
-2. Include CSS file from `illuminate-js/lib/plugins/showLangauage/style.css` or use it an reference to write your own styles.
+2. Using styles from [here](https://github.com/vkbansal/illuminate-js/blob/master/packages/illuminate-js/src/plugins/showLangauage/style.css) as reference, write your own styles. This file is also available from `illuminate-js/lib/plugins/showLangauage/style.css`.
    </details>
+
+## API
+
+**highlight**
+**tokenize**
+**addPlugin**
+**resetPlugins**
+**addLanguage**
+**getLanguage**
 
 ## License
 

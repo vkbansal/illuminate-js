@@ -19,12 +19,12 @@ const content = `<div class='doc-header'>
 
 <span class="token function" >addLanguage</span><span class="token punctuation brackets-parentheses" >(</span><span class="token string" >'js'</span><span class="token punctuation" >,</span> javascript<span class="token punctuation brackets-parentheses" >)</span><span class="token punctuation" >;</span>
 
-<span class="token operator" >&lt;</span>Illuminate lang<span class="token operator" >=</span><span class="token string" >"js"</span><span class="token operator" >&gt;</span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>Illuminate</span> <span class="token attr-name" >lang</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>js<span class="token punctuation" >"</span></span><span class="token punctuation" >&gt;</span></span>
     <span class="token punctuation brackets-braces" >{</span>\`
       <span class="token comment" spellcheck="true" >/** Your Code Sample here **/</span>
       <span class="token keyword keyword-var" >var</span> foo <span class="token operator" >=</span> <span class="token number" >123</span><span class="token punctuation" >;</span>
     \`<span class="token punctuation brackets-braces" >}</span>
-<span class="token operator" >&lt;</span><span class="token operator" >/</span>Illuminate<span class="token operator" >&gt;</span><span class="token punctuation" >;</span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>Illuminate</span><span class="token punctuation" >&gt;</span></span><span class="token punctuation" >;</span>
 </code></pre>
 <h2>Theming</h2>
 <p>You can use any of the pre-existings PrismJS themes from <a href="https://github.com/PrismJS/prism/tree/gh-pages/themes">here</a> and <a href="https://github.com/PrismJS/prism-themes">here</a></p>
