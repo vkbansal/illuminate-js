@@ -9,7 +9,7 @@ const DEV = !PROD;
 
 const config = {
     context: path.resolve(__dirname, '../'),
-    entry: ['./docs/index.tsx'],
+    entry: ['./__website/index.tsx'],
     output: {
         filename: DEV ? 'bundle.js' : 'bundle.[hash].js',
         path: path.resolve(__dirname, '../public'),
@@ -45,7 +45,7 @@ const config = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'docs/index.html',
+            template: '__website/index.html',
             inject: true,
             filename: 'index.html'
         })

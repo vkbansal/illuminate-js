@@ -102,6 +102,30 @@ as shown below. This helps in keeping the bundle size down.</p>
 </details>
 </li>
 </ol>
+<details>
+<summary>
+    <b>Custom Classes Plugin</b>: Customize the classes used by highlighter.
+</summary>
+<ol>
+<li>
+<p>Add and use the plugin as follows:</p>
+<pre><code class="language-js"><span class="token keyword keyword-import" >import</span> <span class="token punctuation brackets-braces" >{</span> addPlugin <span class="token punctuation brackets-braces" >}</span> <span class="token keyword keyword-from" >from</span> <span class="token string" >'illuminate-js'</span><span class="token punctuation" >;</span>
+<span class="token keyword keyword-import" >import</span> <span class="token punctuation brackets-braces" >{</span> customClasses <span class="token punctuation brackets-braces" >}</span> <span class="token keyword keyword-from" >from</span> <span class="token string" >'illuminate-js/lib/plugins/customClasses'</span><span class="token punctuation" >;</span>
+
+<span class="token function" >addPlugin</span><span class="token punctuation brackets-parentheses" >(</span>
+    <span class="token function" >showLanguage</span><span class="token punctuation brackets-parentheses" >(</span><span class="token punctuation brackets-braces" >{</span>
+        prefix<span class="token punctuation" >:</span> <span class="token string" >'prefix-'</span><span class="token punctuation" >,</span>
+        map<span class="token punctuation" >:</span> <span class="token punctuation brackets-braces" >{</span>
+            property<span class="token punctuation" >:</span> <span class="token string" >'special-property'</span><span class="token punctuation" >,</span>
+            string<span class="token punctuation" >:</span> <span class="token string" >'string_ch29s'</span><span class="token punctuation" >,</span>
+            operator<span class="token punctuation" >:</span> <span class="token string" >'operator_93jsa'</span>
+        <span class="token punctuation brackets-braces" >}</span>
+    <span class="token punctuation brackets-braces" >}</span><span class="token punctuation brackets-parentheses" >)</span>
+<span class="token punctuation brackets-parentheses" >)</span><span class="token punctuation" >;</span>
+</code></pre>
+</details>
+</li>
+</ol>
 <h2>License</h2>
 <p>MIT. Copyright(c) <a href="http://vkbansal.me/">Vivek Kumar Bansal</a></p>
 `;

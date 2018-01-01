@@ -16,9 +16,9 @@ import './theme.css';
 import 'illuminate-js/lib/plugins/lineNumbers/style.css';
 import 'illuminate-js/lib/plugins/showLanguage/style.css';
 
-import { Main } from './Main';
-import { ReactApi } from './ReactApi';
-import { Demo } from './Demo';
+import { Main } from './components/Main';
+import { ReactApi } from './components/ReactApi';
+import { Demo } from './components/Demo';
 
 const Wrapper = glamorous.div({
     display: 'flex',
