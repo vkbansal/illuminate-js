@@ -126,20 +126,20 @@ export function highlight(text: string, language: string): string {
         );
     }
 
-    const env: HighlightEnv = {
+    let env: HighlightEnv = {
         grammar,
         language,
         code: text,
         highlightedCode: ''
     };
 
-    runHook('before-highlight', env);
+    env = <HighlightEnv>runHook('before-highlight', env) || env;
 
     const tokens = tokenize(env.code, env.grammar); // Specific for plugins
     const highlightedCode = Token.stringify(encode(tokens), language);
 
-    env.highlightedCode = highlightedCode;
-    runHook('after-highlight', env);
+    env = Object.assign({}, env, { highlightedCode: highlightedCode }) || env;
+    env = <HighlightEnv>runHook('after-highlight', env) || env;
 
     return env.highlightedCode; // Specific for plugins
 }

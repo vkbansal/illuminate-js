@@ -9,9 +9,9 @@ export interface CustomClassesOptions {
 export function customClasses(options?: CustomClassesOptions): Plugin {
     return add => {
         add('wrap', env => {
-            if (!options) return;
+            if (!options) return <TokenEnv>env;
 
-            (env as TokenEnv).classes = (env as TokenEnv).classes.map(c => {
+            const classes = (<TokenEnv>env).classes.map(c => {
                 return (
                     (options.prefix || '') +
                     (options.map && Object.prototype.hasOwnProperty.call(options.map, c)
@@ -19,6 +19,8 @@ export function customClasses(options?: CustomClassesOptions): Plugin {
                         : c)
                 );
             });
+
+            return <TokenEnv>Object.assign({}, env, { classes });
         });
     };
 }
