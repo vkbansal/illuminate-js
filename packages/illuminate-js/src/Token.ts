@@ -86,15 +86,15 @@ export class Token {
             env.classes.push(...aliases);
         }
 
-        run('wrap', env);
+        const newEnv = <TokenEnv>run('wrap', env) || env;
 
-        const attributes = Object.keys(env.attributes).reduce(
-            (prev, key) => `${prev}${key}="${env.attributes[key]}" `,
+        const attributes = Object.keys(newEnv.attributes).reduce(
+            (prev, key) => `${prev}${key}="${newEnv.attributes[key]}" `,
             ''
         );
 
-        return `<${env.tag} class="${env.classes.join(' ')}" ${attributes}>${env.content}</${
-            env.tag
-        }>`;
+        return `<${newEnv.tag} class="${newEnv.classes.join(' ')}" ${attributes}>${
+            newEnv.content
+        }</${newEnv.tag}>`;
     }
 }

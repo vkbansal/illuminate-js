@@ -2,8 +2,10 @@ import { Plugin, HighlightEnv } from '../../illuminate';
 
 export const showLanguage: Plugin = add => {
     add('after-highlight', env => {
-        const str = `<span class="show-language--lang">${(env as HighlightEnv).language}</span>`;
+        const str = `<span class="show-language--lang">${(<HighlightEnv>env).language}</span>`;
 
-        (env as HighlightEnv).highlightedCode = str + (env as HighlightEnv).highlightedCode;
+        return <HighlightEnv>Object.assign({}, env, {
+            highlightedCode: str + (<HighlightEnv>env).highlightedCode
+        });
     });
 };
