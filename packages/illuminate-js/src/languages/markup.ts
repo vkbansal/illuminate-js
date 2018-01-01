@@ -107,12 +107,15 @@ setIn(markup, ['tag', 'inside', 'style-attr', 'inside', 'attr-name', 'inside'], 
 
 // Plugin to make entity title show the real entity
 addHook('wrap', env => {
-    if ((env as TokenEnv).type === 'entity') {
-        (env as TokenEnv).attributes.title = ((env as TokenEnv).content as string).replace(
-            /&amp;/,
-            '&'
-        );
+    if ((<TokenEnv>env).type === 'entity') {
+        return Object.assign({}, env, {
+            attributes: Object.assign({}, (<TokenEnv>env).attributes, {
+                title: (<string>(<TokenEnv>env).content).replace(/&amp;/, '&')
+            })
+        });
     }
+
+    return env;
 });
 
 export { markup };
