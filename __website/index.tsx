@@ -16,7 +16,10 @@ import './theme.css';
 import 'illuminate-js/lib/plugins/lineNumbers/style.css';
 import 'illuminate-js/lib/plugins/showLanguage/style.css';
 
-import { Main } from './components/Main';
+import { GettingStarted } from './components/GettingStarted';
+import { Plugins } from './components/Plugins';
+import { LanguageDefinition } from './components/LanguageDefinition';
+import { ReactGettingStared } from './components/ReactGettingStared';
 import { ReactApi } from './components/ReactApi';
 import { Demo } from './components/Demo';
 
@@ -38,6 +41,10 @@ const Content = glamorous.section({
     boxShadow: '-2px 0px 8px -2px rgba(0, 0,0, 0.2)'
 });
 
+const NavHeading = glamorous.div('pure-menu-heading', {
+    fontWeight: 'bold'
+});
+
 const Nav = glamorous.ul('pure-menu-list', {
     margin: 0,
     padding: 0,
@@ -46,9 +53,7 @@ const Nav = glamorous.ul('pure-menu-list', {
 });
 
 const NavItem = glamorous.li('pure-menu-item', {
-    height: 'auto',
-    // fontWeight: 'bold',
-    textTransform: 'uppercase'
+    height: 'auto'
 });
 
 const Link = glamorous(NavLink)('pure-menu-link', {
@@ -85,25 +90,56 @@ class App extends React.Component {
             <Router>
                 <Wrapper>
                     <Sidebar>
+                        <NavHeading>Illuminate JS</NavHeading>
                         <Nav>
                             <NavItem>
                                 <Link exact to="/">
-                                    Illuminate JS
+                                    Getting Started
                                 </Link>
                             </NavItem>
                             <NavItem>
-                                <Link exact to="/react">
-                                    React Illuminate
+                                <Link exact to="/api/">
+                                    API
                                 </Link>
                             </NavItem>
+                            <NavItem>
+                                <Link exact to="/plugins/">
+                                    Plugins
+                                </Link>
+                            </NavItem>
+                            <NavItem>
+                                <Link exact to="/language-definition">
+                                    Language Definition
+                                </Link>
+                            </NavItem>
+                        </Nav>
+                        <NavHeading>React Illuminate</NavHeading>
+                        <Nav>
+                            <NavItem>
+                                <Link exact to="/react/">
+                                    Getting Started
+                                </Link>
+                            </NavItem>
+                            <NavItem>
+                                <Link exact to="/react-api/">
+                                    API
+                                </Link>
+                            </NavItem>
+                        </Nav>
+                        <NavHeading>Demo</NavHeading>
+                        <Nav>
                             <NavItem>
                                 <Link to="/demo">Demo</Link>
                             </NavItem>
                         </Nav>
                     </Sidebar>
                     <Content>
-                        <Route path="/" exact component={Main} />
-                        <Route path="/react" exact component={ReactApi} />
+                        <Route path="/" exact component={GettingStarted} />
+                        <Route path="/api" exact component={GettingStarted} />
+                        <Route path="/plugins" exact component={Plugins} />
+                        <Route path="/language-definition" exact component={LanguageDefinition} />
+                        <Route path="/react" exact component={ReactGettingStared} />
+                        <Route path="/react-api" exact component={ReactApi} />
                         <Route path="/demo/:lang?" component={Demo} />
                     </Content>
                 </Wrapper>
