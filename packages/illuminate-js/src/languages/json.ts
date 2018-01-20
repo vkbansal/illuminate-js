@@ -1,6 +1,6 @@
-import { Definition, TokenTypes } from '../illuminate';
+import { Definition, Tokens } from '../illuminate';
 
-export const json: Definition = new Map<string, TokenTypes>([
+export const json: Definition = new Map<string, Tokens>([
     ['property', /"(?:\\.|[^\\"\r\n])*"(?=\s*:)/i],
     [
         'string',

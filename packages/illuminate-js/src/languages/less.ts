@@ -1,4 +1,4 @@
-import { Definition, TokenTypes } from '../illuminate';
+import { Definition, Tokens } from '../illuminate';
 import { css } from './css';
 import { clone, insertBefore } from '../utils';
 /* FIXME :
@@ -39,7 +39,7 @@ insertBefore(less, 'punctuation', new Map([['function', less.get('function') as 
 insertBefore(
     less,
     'property',
-    new Map<string, TokenTypes>([
+    new Map<string, Tokens>([
         [
             'variable',
             [

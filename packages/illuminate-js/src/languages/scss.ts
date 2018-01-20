@@ -1,6 +1,6 @@
 import { css } from './css';
 import { clone, setIn, insertBefore, getIn } from '../utils';
-import { Definition, TokenTypes } from '../illuminate';
+import { Definition, Tokens } from '../illuminate';
 
 const atRule = () => ({
     pattern: /@[\w-]+(?:\([^()]+\)|[^(])*?(?=\s+[{;])/,
@@ -24,7 +24,7 @@ scss.set('url', /(?:[-a-z]+-)*url(?=\()/i);
 scss.set('selector', {
     // Initial look-ahead is used to prevent matching of blank selectors
     pattern: /(?=\S)[^@;{}()]?(?:[^@;{}()]|&|#\{\$[-\w]+\})+(?=\s*\{(?:\}|\s|[^}]+[:{][^}]+))/m,
-    inside: new Map<string, TokenTypes>([
+    inside: new Map<string, Tokens>([
         [
             'parent',
             {
@@ -70,7 +70,7 @@ insertBefore(
 insertBefore(
     scss,
     'function',
-    new Map<string, TokenTypes>([
+    new Map<string, Tokens>([
         [
             'placeholder',
             {

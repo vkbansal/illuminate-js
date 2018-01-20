@@ -1,6 +1,6 @@
-import { Definition, TokenTypes } from '../illuminate';
+import { Definition, Tokens } from '../illuminate';
 
-export const apacheconf: Definition = new Map<string, TokenTypes>([
+export const apacheconf: Definition = new Map<string, Tokens>([
     ['comment', /#.*/],
     [
         'directive-inline',
@@ -14,12 +14,12 @@ export const apacheconf: Definition = new Map<string, TokenTypes>([
         'directive-block',
         {
             pattern: /<\/?\b(?:AuthnProviderAlias|AuthzProviderAlias|Directory|DirectoryMatch|Else|ElseIf|Files|FilesMatch|If|IfDefine|IfModule|IfVersion|Limit|LimitExcept|Location|LocationMatch|Macro|Proxy|RequireAll|RequireAny|RequireNone|VirtualHost)\b *.*>/i,
-            inside: new Map<string, TokenTypes>([
+            inside: new Map<string, Tokens>([
                 [
                     'directive-block',
                     {
                         pattern: /^<\/?\w+/,
-                        inside: new Map<string, TokenTypes>([['punctuation', /^<\/?/]]),
+                        inside: new Map<string, Tokens>([['punctuation', /^<\/?/]]),
                         alias: 'tag'
                     }
                 ],
@@ -27,13 +27,13 @@ export const apacheconf: Definition = new Map<string, TokenTypes>([
                     'directive-block-parameter',
                     {
                         pattern: /.*[^>]/,
-                        inside: new Map<string, TokenTypes>([
+                        inside: new Map<string, Tokens>([
                             ['punctuation', /:/],
                             [
                                 'string',
                                 {
                                     pattern: /("|').*\1/,
-                                    inside: new Map<string, TokenTypes>([
+                                    inside: new Map<string, Tokens>([
                                         ['variable', /[$%]\{?(?:\w\.?[-+:]?)+\}?/]
                                     ])
                                 }
@@ -58,7 +58,7 @@ export const apacheconf: Definition = new Map<string, TokenTypes>([
         'string',
         {
             pattern: /("|').*\1/,
-            inside: new Map<string, TokenTypes>([['variable', /[$%]\{?(?:\w\.?[-+:]?)+\}?/]])
+            inside: new Map<string, Tokens>([['variable', /[$%]\{?(?:\w\.?[-+:]?)+\}?/]])
         }
     ],
     ['variable', /[$%]\{?(?:\w\.?[-+:]?)+\}?/],

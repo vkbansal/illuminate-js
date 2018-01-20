@@ -4,17 +4,15 @@ import { encode } from './utils';
 
 export interface TokenObject {
     pattern: RegExp;
-    inside?: Map<string, TokenTypes>;
+    inside?: Definition;
     lookbehind?: boolean;
     greedy?: boolean;
     alias?: string;
 }
 
-export type Tokenz = RegExp | TokenObject | Array<RegExp | TokenObject>;
+export type Tokens = RegExp | TokenObject | Array<RegExp | TokenObject>;
 
-export type TokenTypes = Tokenz | Map<string, Tokenz>;
-
-export type Definition = Map<string, TokenTypes>;
+export type Definition = Map<string, Tokens | Map<string, Tokens>>;
 
 export type Plugin = (a: typeof addHook) => void;
 

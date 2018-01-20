@@ -1,6 +1,6 @@
-import { Definition, TokenTypes } from '../illuminate';
+import { Definition, Tokens } from '../illuminate';
 
-export const ini: Definition = new Map<string, TokenTypes>([
+export const ini: Definition = new Map<string, Tokens>([
     ['comment', /^[ \t]*;.*$/m],
     ['selector', /^[ \t]*\[.*?\]/m],
     ['constant', /^[ \t]*[^\s=]+?(?=[ \t]*=)/m],
@@ -8,7 +8,7 @@ export const ini: Definition = new Map<string, TokenTypes>([
         'attr-value',
         {
             pattern: /=.*/,
-            inside: new Map<string, TokenTypes>([['punctuation', /^[=]/]])
+            inside: new Map<string, Tokens>([['punctuation', /^[=]/]])
         }
     ]
 ]);

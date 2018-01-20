@@ -1,13 +1,13 @@
 import { insertBefore, clone, setIn } from '../utils';
 import { markup } from './markup';
-import { TokenTypes } from '../illuminate';
+import { Tokens, TokenObject } from '../illuminate';
 
 let markdown = clone(markup);
 
 insertBefore(
     markdown,
     'prolog',
-    new Map<string, TokenTypes>([
+    new Map<string, Tokens>([
         [
             'blockquote',
             {
@@ -87,7 +87,7 @@ insertBefore(
                 // [id]: http://example.com (Optional title)
                 // [id]: <http://example.com> "Optional title"
                 pattern: /!?\[[^\]]+\]:[\t ]+(?:\S+|<(?:\\.|[^>\\])+>)(?:[\t ]+(?:"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|\((?:\\.|[^)\\])*\)))?/,
-                inside: new Map<string, TokenTypes>([
+                inside: new Map<string, Tokens>([
                     [
                         'variable',
                         {
@@ -131,7 +131,7 @@ insertBefore(
                 // [example](http://example.com "Optional title")
                 // [example] [id]
                 pattern: /!?\[[^\]]+\](?:\([^\s)]+(?:[\t ]+"(?:\\.|[^"\\])*")?\)| ?\[[^\]\n]*\])/,
-                inside: new Map<string, TokenTypes>([
+                inside: new Map<string, Tokens>([
                     [
                         'variable',
                         {
@@ -156,4 +156,4 @@ setIn(markdown, ['italic', 'inside', 'url'], clone(markdown.get('url')));
 setIn(markdown, ['bold', 'inside', 'italic'], clone(markdown.get('italic')));
 setIn(markdown, ['italic', 'inside', 'bold'], clone(markdown.get('bold')));
 
-export { markdown };
+export { markdown, TokenObject };
