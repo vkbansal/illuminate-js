@@ -1,6 +1,6 @@
-import { Definition, TokenTypes } from '../illuminate';
+import { Definition, Tokens } from '../illuminate';
 
-export const matlab: Definition = new Map<string, TokenTypes>([
+export const matlab: Definition = new Map<string, Tokens>([
     // We put string before comment, because of printf() patterns that contain "%"
     [
         'string',

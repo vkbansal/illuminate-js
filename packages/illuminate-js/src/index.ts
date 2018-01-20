@@ -1,6 +1,5 @@
 import {
     TokenObject,
-    TokenTypes,
     tokenize,
     Definition,
     Plugin,
@@ -13,7 +12,6 @@ import {
 
 export {
     TokenObject,
-    TokenTypes,
     tokenize,
     Definition,
     Plugin,

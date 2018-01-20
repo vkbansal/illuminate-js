@@ -1,6 +1,6 @@
 import { clike } from './clike';
 // import { markup } from './markup';
-import { Definition, TokenTypes } from '../illuminate';
+import { Definition, Tokens } from '../illuminate';
 import { clone, insertBefore } from '../utils';
 
 const php: Definition = clone(clike);
@@ -38,7 +38,7 @@ insertBefore(
 insertBefore(
     php,
     'keyword',
-    new Map<string, TokenTypes>([
+    new Map<string, Tokens>([
         [
             'delimiter',
             {
@@ -76,7 +76,7 @@ insertBefore(
 insertBefore(
     php,
     'variable',
-    new Map<string, TokenTypes>([
+    new Map<string, Tokens>([
         ['this', /\$this\b/],
         [
             'global',

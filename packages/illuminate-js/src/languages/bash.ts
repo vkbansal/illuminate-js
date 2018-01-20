@@ -1,6 +1,6 @@
-import { Definition, TokenTypes, TokenObject } from '../illuminate';
+import { Definition, Tokens, TokenObject } from '../illuminate';
 
-const common: ([string, TokenTypes])[] = [
+const common: ([string, Tokens])[] = [
     [
         // Originally based on http://ss64.com/bash/
         'function',
@@ -27,14 +27,14 @@ const common: ([string, TokenTypes])[] = [
     ['punctuation', /\$?\(\(?|\)\)?|\.\.|[{}[\];]/]
 ];
 
-const insideString: Definition = new Map<string, TokenTypes>([
+const insideString: Definition = new Map<string, Tokens>([
     [
         'variable',
         [
             // Arithmetic Environment
             {
                 pattern: /\$?\(\([\s\S]+?\)\)/,
-                inside: new Map<string, TokenTypes>([
+                inside: new Map<string, Tokens>([
                     // If there is a $ sign at the beginning highlight $(( and )) as variable
                     [
                         'variable',
@@ -66,7 +66,7 @@ const insideString: Definition = new Map<string, TokenTypes>([
     ]
 ]);
 
-let bash: Definition = new Map<string, TokenTypes>([
+let bash: Definition = new Map<string, Tokens>([
     [
         'shebang',
         {

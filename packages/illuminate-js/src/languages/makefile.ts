@@ -1,6 +1,6 @@
-import { Definition, TokenTypes } from '../illuminate';
+import { Definition, Tokens } from '../illuminate';
 
-export const makefile: Definition = new Map<string, TokenTypes>([
+export const makefile: Definition = new Map<string, Tokens>([
     [
         'comment',
         {
@@ -22,7 +22,7 @@ export const makefile: Definition = new Map<string, TokenTypes>([
         'symbol',
         {
             pattern: /^[^:=\r\n]+(?=\s*:(?!=))/m,
-            inside: new Map<string, TokenTypes>([['variable', /\$+(?:[^(){}:#=\s]+|(?=[({]))/]])
+            inside: new Map<string, Tokens>([['variable', /\$+(?:[^(){}:#=\s]+|(?=[({]))/]])
         }
     ],
     ['variable', /\$+(?:[^(){}:#=\s]+|\([@*%<^+?][DF]\)|(?=[({]))/],

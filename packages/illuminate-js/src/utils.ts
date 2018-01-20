@@ -1,5 +1,5 @@
 import { Token } from './Token';
-import { Definition, TokenTypes } from './illuminate';
+import { Definition, Tokens } from './illuminate';
 export type SingleOrArray<T> = T | Array<T>;
 
 export function encode(tokens: SingleOrArray<Token | string>): SingleOrArray<Token | string> {
@@ -44,7 +44,7 @@ export function insertBefore(
     insertBeforeKey: string,
     def: Definition
 ): Definition {
-    const temp = new Map<string, TokenTypes>();
+    const temp = new Map<string, Tokens | Map<string, Tokens>>();
 
     let removeKeys = false;
     const entries = parent.entries();

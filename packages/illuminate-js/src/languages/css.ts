@@ -1,7 +1,7 @@
-import { Definition, TokenTypes, TokenObject, Tokenz } from '../illuminate';
+import { Definition, Tokens, TokenObject } from '../illuminate';
 import { clone } from '../utils';
 
-export const css: Definition = new Map<string, TokenTypes>([
+export const css: Definition = new Map<string, Tokens>([
     ['comment', /\/\*[\s\S]*?\*\//],
     [
         'atrule',
@@ -41,7 +41,7 @@ export const css: Definition = new Map<string, TokenTypes>([
 ]);
 
 const atrule = css.get('atrule') as TokenObject;
-const rest = clone(css) as Map<string, Tokenz>;
+const rest = clone(css) as Map<string, Tokens>;
 rest.set('selector', /[^{}\s][^{};]*?(?=\s*\{)/);
 (atrule.inside as Definition).set('rest', rest);
 
