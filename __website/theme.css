@@ -3,11 +3,13 @@
 }
 
 body {
-    font-size: 14px;
+    font-size: 16px;
 }
 
-p {
-    font-size: 14px;
+p,
+li {
+    font-size: 16px;
+    line-height: 1.5;
 }
 
 code,
@@ -45,14 +47,12 @@ pre {
 }
 
 :not(pre) > code {
-    padding: 0.2em 0.4em;
     border-radius: 2px;
     white-space: normal;
     font-size: 0.85em;
-    background: #eee;
-    padding: 2px 4px;
-    border: 1px solid #ddd;
-    color: #222;
+    background: transparent;
+    padding: 0;
+    color: #e94949;
 }
 
 .token.comment,
@@ -140,40 +140,64 @@ h4 {
     min-height: 100vh;
 }
 
-.container pre {
-    margin: 8px -16px;
-}
-
-details {
-    margin: 16px;
-}
-
-.container details pre {
-    margin: 0 24px 0 -16px;
-}
-
 .demo .line-numbers .line-numbers-rows {
     padding-top: 1em;
+}
+
+ol {
+    padding-left: 40px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul > li::before {
+    content: '●';
+    margin-right: 6px;
+    font-size: 0.75em;
+    vertical-align: text-bottom;
 }
 
 li + li {
     margin-top: 12px;
 }
 
-.doc-header {
+.docs h1,
+.docs h2,
+.docs h3,
+.docs h4 {
+    color: #e94949;
+}
+
+.langauge-list ul {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 350px;
 }
 
-.doc-header h1 {
-    margin-top: 0;
-}
-
-.doc-header p {
+.langauge-list li + li {
     margin: 0;
 }
 
-.doc-header p > a {
-    display: inline-block;
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin: 0 0 1em 0;
+}
+
+table th,
+table td {
+    text-align: left;
+    padding: 8px;
+}
+
+table tr {
+    border-bottom: 1px solid #aaaaaa;
+}
+
+.hooks-table table tr td:first-child {
+    white-space: nowrap;
 }

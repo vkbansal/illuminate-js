@@ -286,6 +286,99 @@ class App extends React.Component {
 ReactDOM.render(<App />, mountNode);
 `;
 
+export let matlab: string = `
+x = 0:pi/100:2*pi;
+y = sin(x);
+plot(x, y)
+xLabel('x')
+yLabel('sin(x)')
+title('Plot of Sine function')
+`;
+
+export let php: string = `
+<?php
+
+namespace App\\Http\\Controllers;
+
+use Illuminate\\Http\\Request;
+
+class UserController extends Controller
+{
+    /**
+     * Store a new user.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function store(Request $request)
+    {
+        $name = $request->input('name');
+
+        //
+    }
+}
+`;
+
+export let python: string = `
+# Python program to find the factorial of a number using recursion
+
+def recur_factorial(n):
+   """Function to return the factorial
+   of a number using recursion"""
+   if n == 1:
+       return n
+   else:
+       return n*recur_factorial(n-1)
+
+# Change this value for a different result
+num = 7
+
+# uncomment to take input from the user
+#num = int(input("Enter a number: "))
+
+# check is the number is negative
+if num < 0:
+   print("Sorry, factorial does not exist for negative numbers")
+elif num == 0:
+   print("The factorial of 0 is 1")
+else:
+   print("The factorial of",num,"is",recur_factorial(num))
+`;
+
+export let ruby: string = `
+# Output "I love Ruby"
+say = "I love Ruby"
+puts say
+
+# Output "I *LOVE* RUBY"
+say['love'] = "*love*"
+puts say.upcase
+
+# Output "I *love* Ruby"
+# five times
+5.times { puts say }
+`;
+
+export let scss: string = `
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+        -ms-border-radius: $radius;
+            border-radius: $radius;
+}
+
+.box { @include border-radius(10px); }
+`;
+
+export let sql: string = `
+SELECT
+    first_name, last_name
+FROM
+    customers
+WHERE
+    customers.active IS true;
+`;
+
 export let typescript: string = `
 import * as React from "react";
 import * as ReactDOM from 'react-dom';

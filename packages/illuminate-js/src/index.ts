@@ -12,9 +12,9 @@ import {
 
 export {
     TokenObject,
-    tokenize,
     Definition,
     Plugin,
+    tokenize,
     addPlugin,
     resetPlugins,
     highlight,
