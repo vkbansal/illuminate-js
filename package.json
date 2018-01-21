@@ -9,7 +9,7 @@
     "prestart": "yarn run build",
     "start": "node __website/server.js",
     "gendocs": "node __website/build-static.js",
-    "build:docs": "rm -rf public && NODE_ENV=production webpack --config docs/webpack.config.js",
+    "build:docs": "rm -rf public && NODE_ENV=production webpack --config __website/webpack.config.js",
     "clean": "rm -rf node_modules packages/illuminate-js/node_modules packages/react-illuminate/node_modules"
   },
   "devDependencies": {
