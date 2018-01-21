@@ -1,9 +1,9 @@
 import { javascript } from './javascript';
 import { markup } from './markup';
-import { Definition, TokenTypes, TokenObject } from '../illuminate';
+import { Definition, Tokens, TokenObject } from '../illuminate';
 import { insertBefore } from '../utils';
 
-const http: Definition = new Map<string, TokenTypes>([
+const http: Definition = new Map<string, Tokens>([
     [
         'request-line',
         {
@@ -64,8 +64,8 @@ for (const contentType in httpLanguages) {
             'i'
         ),
         lookbehind: true,
-        inside: new Map<string, TokenTypes>([['rest', httpLanguages[contentType] as TokenTypes]])
-    });
+        inside: new Map<string, Definition>([['rest', httpLanguages[contentType]]])
+    } as TokenObject);
 }
 
 insertBefore(http, 'header-name', options);

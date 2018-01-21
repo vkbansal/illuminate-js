@@ -1,11 +1,11 @@
 import { insertBefore, clone } from '../utils';
 import { clike } from './clike';
-import { TokenTypes, Tokenz, TokenObject } from '../illuminate';
+import { Definition, Tokens, TokenObject } from '../illuminate';
 
 let javascript = clone(clike);
 javascript.set(
     'keyword',
-    /\b(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|var|void|while|with|yield)\b/
+    /\b(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|var|void|while|with|yield|Map|Set|WeakMap|WeakSet)\b/
 );
 javascript.set(
     'number',
@@ -40,7 +40,7 @@ insertBefore(
     ])
 );
 
-const extendDef = clone(javascript);
+const extendDef: Definition = clone(javascript);
 
 insertBefore(
     javascript,
@@ -51,12 +51,12 @@ insertBefore(
             {
                 pattern: /`(?:\\[\s\S]|[^\\`])*`/,
                 greedy: true,
-                inside: new Map<string, TokenTypes>([
+                inside: new Map<string, Tokens>([
                     [
                         'interpolation',
                         {
                             pattern: /\$\{[^}]+\}/,
-                            inside: new Map<string, TokenTypes>([
+                            inside: new Map<string, Tokens | Map<string, Tokens>>([
                                 [
                                     'interpolation-punctuation',
                                     {
@@ -64,7 +64,7 @@ insertBefore(
                                         alias: 'punctuation'
                                     }
                                 ],
-                                ['rest', extendDef as Map<string, Tokenz>]
+                                ['rest', extendDef as Map<string, Tokens>]
                             ])
                         }
                     ],

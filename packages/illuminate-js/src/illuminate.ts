@@ -4,17 +4,15 @@ import { encode } from './utils';
 
 export interface TokenObject {
     pattern: RegExp;
-    inside?: Map<string, TokenTypes>;
+    inside?: Definition;
     lookbehind?: boolean;
     greedy?: boolean;
     alias?: string;
 }
 
-export type Tokenz = RegExp | TokenObject | Array<RegExp | TokenObject>;
+export type Tokens = RegExp | TokenObject | Array<RegExp | TokenObject>;
 
-export type TokenTypes = Tokenz | Map<string, Tokenz>;
-
-export type Definition = Map<string, TokenTypes>;
+export type Definition = Map<string, Tokens | Map<string, Tokens>>;
 
 export type Plugin = (a: typeof addHook) => void;
 
@@ -126,20 +124,20 @@ export function highlight(text: string, language: string): string {
         );
     }
 
-    const env: HighlightEnv = {
+    let env: HighlightEnv = {
         grammar,
         language,
         code: text,
         highlightedCode: ''
     };
 
-    runHook('before-highlight', env);
+    env = <HighlightEnv>runHook('before-highlight', env) || env;
 
     const tokens = tokenize(env.code, env.grammar); // Specific for plugins
     const highlightedCode = Token.stringify(encode(tokens), language);
 
-    env.highlightedCode = highlightedCode;
-    runHook('after-highlight', env);
+    env = Object.assign({}, env, { highlightedCode: highlightedCode }) || env;
+    env = <HighlightEnv>runHook('after-highlight', env) || env;
 
     return env.highlightedCode; // Specific for plugins
 }

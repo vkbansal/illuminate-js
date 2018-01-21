@@ -1,6 +1,6 @@
-import { Definition, TokenTypes } from '../illuminate';
+import { Definition, Tokens } from '../illuminate';
 
-export const sql: Definition = new Map<string, TokenTypes>([
+export const sql: Definition = new Map<string, Tokens>([
     [
         'comment',
         {

@@ -1,6 +1,6 @@
-import { Definition, TokenTypes } from '../illuminate';
+import { Definition, Tokens } from '../illuminate';
 
-const haskell: Definition = new Map<string, TokenTypes>([
+const haskell: Definition = new Map<string, Tokens>([
     [
         'comment',
         {

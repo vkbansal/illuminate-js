@@ -1,12 +1,8 @@
-<div class='doc-header'>
-
 # Illuminate JS
 
 [![NPM Version](https://img.shields.io/npm/v/illuminate-js.svg?style=flat-square)](https://npmjs.org/package/illuminate-js)
 [![Dependency Status](https://david-dm.org/vkbansal/illuminate-js/status.svg?style=flat-square&path=packages/illuminate-js)](https://david-dm.org/vkbansal/illuminate-js?path=packages/illuminate-js)
 [![Dev Dependency Status](https://david-dm.org/vkbansal/illuminate-js/dev-status.svg?style=flat-square&path=packages/illuminate-js)](https://david-dm.org/vkbansal/illuminate-js?path=packages/illuminate-js&type=dev)
-
-</div>
 
 Illuminate is a syntax highlighter, based on the well known [prism.js](http://prismjs.com),
 rewritten from the ground up in ES6 to be used with projects like
@@ -44,66 +40,6 @@ addLanguage('js', javascript);
 
 highlight('Your code goes here', 'js');
 ```
-
-**Usage with markdown-it**
-
-```js
-import MarkdownIt from 'markdown-it';
-import { addLanguage, highlight, getLangauge } from 'illuminate-js';
-import { javascript } from 'illuminate-js/lib/languages/javascript';
-
-addLanguage('js', javascript);
-
-const md = MarkdownIt({
-    highlight: function(str, lang) {
-        if (lang && getLanguage(lang)) {
-            return highlight(str, lang);
-        }
-
-        return str;
-    }
-});
-```
-
-## Theming
-
-IlluminateJS comes with two themes just to get you started. You can include `illuminate-js/themes/[theme].css` according to your build config. You can also use any of the pre-existings PrismJS themes from [here](https://github.com/PrismJS/prism/tree/gh-pages/themes) and [here](https://github.com/PrismJS/prism-themes)
-
-## Plugins
-
-<details>
-<summary>
-    <b>Line Numbers Plugin</b>: Show line-numbers for the highlighted code.
-</summary>
-
-1. Add the plugin
-
-   ```js
-   import { addPlugin } from 'illuminate-js';
-   import { lineNumbers } from 'illuminate-js/lib/plugins/lineNumbers';
-
-   addPlugin(lineNumbers);
-   ```
-
-2. Include CSS file from `illuminate-js/lib/plugins/lineNumbers/style.css` or use it an reference to write your own styles.
-   </details>
-
-<details>
-<summary>
-    <b>Show Language Plugin</b>: Show the language of the highlighted code.
-</summary>
-
-1. Add the plugin
-
-   ```js
-   import { addPlugin } from 'illuminate-js';
-   import { showLanguage } from 'illuminate-js/lib/plugins/showLangauage';
-
-   addPlugin(showLanguage);
-   ```
-
-2. Include CSS file from `illuminate-js/lib/plugins/showLangauage/style.css` or use it an reference to write your own styles.
-   </details>
 
 ## License
 

@@ -1,5 +1,5 @@
 import { clike } from './clike';
-import { Definition, Tokenz, TokenTypes } from '../illuminate';
+import { Definition, Tokens } from '../illuminate';
 import { clone, insertBefore } from '../utils';
 
 let ruby: Definition = clone(clike);
@@ -16,7 +16,7 @@ const stringInterpolation: Definition = new Map([
         'interpolation',
         {
             pattern: /#\{[^}]+\}/,
-            inside: new Map<string, TokenTypes>([
+            inside: new Map<string, Tokens | Map<string, Tokens>>([
                 [
                     'delimiter',
                     {
@@ -24,7 +24,7 @@ const stringInterpolation: Definition = new Map([
                         alias: 'tag'
                     }
                 ],
-                ['rest', rest as Map<string, Tokenz>]
+                ['rest', rest as Map<string, Tokens>]
             ])
         }
     ]
@@ -33,7 +33,7 @@ const stringInterpolation: Definition = new Map([
 insertBefore(
     ruby,
     'keyword',
-    new Map<string, Tokenz>([
+    new Map<string, Tokens>([
         [
             'regex',
             [

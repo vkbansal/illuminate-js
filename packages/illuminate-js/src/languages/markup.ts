@@ -1,11 +1,11 @@
 import { clone, setIn } from '../utils';
-import { TokenTypes, TokenObject, Definition } from '../illuminate';
+import { Tokens, TokenObject, Definition } from '../illuminate';
 import { add as addHook, TokenEnv } from '../hooks';
 
 import { css } from './css';
 import { javascript } from './javascript';
 
-const markup = new Map<string, TokenTypes>([
+const markup = new Map<string, Tokens>([
     ['comment', /<!--[\s\S]*?-->/],
     ['prolog', /<\?[\s\S]+?\?>/],
     ['doctype', /<!DOCTYPE[\s\S]+?>/i],
@@ -34,7 +34,7 @@ const markup = new Map<string, TokenTypes>([
         'tag',
         {
             pattern: /<\/?(?!\d)[^\s>\/=$<]+(?:\s+[^\s>\/=]+(?:=(?:("|')(?:\\[\s\S]|(?!\1)[^\\])*\1|[^\s'">=]+))?)*\s*\/?>/i,
-            inside: new Map<string, TokenTypes>([
+            inside: new Map<string, Tokens>([
                 [
                     'tag',
                     {
@@ -46,7 +46,7 @@ const markup = new Map<string, TokenTypes>([
                     'style-attr',
                     {
                         pattern: /\s*style=("|')(?:\\[\s\S]|(?!\1)[^\\])*\1/i,
-                        inside: new Map<string, TokenTypes>([
+                        inside: new Map<string, Tokens>([
                             [
                                 'attr-name',
                                 {
@@ -70,7 +70,7 @@ const markup = new Map<string, TokenTypes>([
                     'attr-value',
                     {
                         pattern: /=(?:("|')(?:\\[\s\S]|(?!\1)[^\\])*\1|[^\s'">=]+)/i,
-                        inside: new Map<string, TokenTypes>([
+                        inside: new Map<string, Tokens>([
                             [
                                 'punctuation',
                                 [
@@ -106,13 +106,16 @@ inside.delete('style-attr');
 setIn(markup, ['tag', 'inside', 'style-attr', 'inside', 'attr-name', 'inside'], inside);
 
 // Plugin to make entity title show the real entity
-addHook('wrap', env => {
-    if ((env as TokenEnv).type === 'entity') {
-        (env as TokenEnv).attributes.title = ((env as TokenEnv).content as string).replace(
-            /&amp;/,
-            '&'
-        );
+addHook('wrap', (env) => {
+    if ((<TokenEnv>env).type === 'entity') {
+        return Object.assign({}, env, {
+            attributes: Object.assign({}, (<TokenEnv>env).attributes, {
+                title: (<string>(<TokenEnv>env).content).replace(/&amp;/, '&')
+            })
+        });
     }
+
+    return env;
 });
 
 export { markup };
