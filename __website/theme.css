@@ -3,11 +3,13 @@
 }
 
 body {
-    font-size: 14px;
+    font-size: 16px;
 }
 
-p {
-    font-size: 14px;
+p,
+li {
+    font-size: 16px;
+    line-height: 1.5;
 }
 
 code,
@@ -45,14 +47,12 @@ pre {
 }
 
 :not(pre) > code {
-    padding: 0.2em 0.4em;
     border-radius: 2px;
     white-space: normal;
     font-size: 0.85em;
-    background: #eee;
-    padding: 2px 4px;
-    border: 1px solid #ddd;
-    color: #222;
+    background: transparent;
+    padding: 0;
+    color: #e94949;
 }
 
 .token.comment,
@@ -140,40 +140,22 @@ h4 {
     min-height: 100vh;
 }
 
-.container pre {
-    margin: 8px -16px;
-}
-
-details {
-    margin: 16px;
-}
-
-.container details pre {
-    margin: 0 24px 0 -16px;
-}
-
 .demo .line-numbers .line-numbers-rows {
     padding-top: 1em;
+}
+
+ol,
+ul {
+    padding-left: 40px;
 }
 
 li + li {
     margin-top: 12px;
 }
 
-.doc-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.doc-header h1 {
-    margin-top: 0;
-}
-
-.doc-header p {
-    margin: 0;
-}
-
-.doc-header p > a {
-    display: inline-block;
+.docs h1,
+.docs h2,
+.docs h3,
+.docs h4 {
+    color: #e94949;
 }

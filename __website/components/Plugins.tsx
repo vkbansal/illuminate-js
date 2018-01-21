@@ -4,10 +4,7 @@ import { Container } from './Common';
 
 const content = `<h1>Plugins</h1>
 <p>Plugins can be used to extend Illuminate's functionality. The following are the official plugins:</p>
-<details>
-<summary>
-    <b>Line Numbers Plugin</b>: Show line-numbers for the highlighted code.
-</summary>
+<p><strong>Line Numbers Plugin</strong>: Show line-numbers for the highlighted code.</p>
 <ol>
 <li>
 <p>Add the plugin</p>
@@ -19,13 +16,9 @@ const content = `<h1>Plugins</h1>
 </li>
 <li>
 <p>Using styles from <a href="https://github.com/vkbansal/illuminate-js/blob/master/packages/illuminate-js/src/plugins/lineNumbers/style.css">here</a> as reference, write your own styles. This file is also available from <code>illuminate-js/lib/plugins/lineNumbers/style.css</code>.</p>
-</details>
 </li>
 </ol>
-<details>
-<summary>
-    <b>Show Language Plugin</b>: Show the language of the highlighted code.
-</summary>
+<p><strong>Show Language Plugin</strong>: Show the language of the highlighted code.</p>
 <ol>
 <li>
 <p>Add the plugin</p>
@@ -37,13 +30,9 @@ const content = `<h1>Plugins</h1>
 </li>
 <li>
 <p>Using styles from <a href="https://github.com/vkbansal/illuminate-js/blob/master/packages/illuminate-js/src/plugins/showLangauage/style.css">here</a> as reference, write your own styles. This file is also available from <code>illuminate-js/lib/plugins/showLangauage/style.css</code>.</p>
-</details>
 </li>
 </ol>
-<details>
-<summary>
-    <b>Custom Classes Plugin</b>: Customize the classes used by highlighter.
-</summary>
+<p><strong>Custom Classes Plugin</strong>: Customize the classes used by highlighter.</p>
 <ol>
 <li>
 <p>Add and use the plugin as follows:</p>
@@ -61,7 +50,6 @@ const content = `<h1>Plugins</h1>
     <span class="token punctuation brackets-braces" >}</span><span class="token punctuation brackets-parentheses" >)</span>
 <span class="token punctuation brackets-parentheses" >)</span><span class="token punctuation" >;</span>
 </code></pre>
-</details>
 </li>
 </ol>
 <h2>How to write a plugin?</h2>

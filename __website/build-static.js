@@ -7,11 +7,12 @@ const glob = require('glob');
 const camelcase = require('lodash.camelcase');
 
 const { addLanguage, highlight, getLanguage } = require('../packages/illuminate-js/lib/illuminate');
-const { jsx, bash } = require('../packages/illuminate-js/lib/languages');
+const { jsx, bash, tsx } = require('../packages/illuminate-js/lib/languages');
 
 const parser = docgen.withDefaultConfig();
 
 addLanguage('js', jsx);
+addLanguage('ts', tsx);
 addLanguage('bash', bash);
 
 const md = MarkdownIt({
@@ -29,15 +30,21 @@ const header = '/* This file is auto generated, do not change anything here */\n
 
 const docTpl = fs.readFileSync(path.resolve(__dirname, './templates/Docs.tsx.tpl'), 'utf8');
 
-function getContent(content, name) {
-    const html = md.render(content).replace(/`/g, '\\`');
-    return header + docTpl.replace('$Content', html).replace('$Name', name);
-}
-
 const pages = glob.sync(path.join(__dirname, 'pages', '*.md'));
 
 pages.forEach(page => {
-    const content = fs.readFileSync(page, 'utf8');
+    let content = fs.readFileSync(page, 'utf8');
+
+    /**
+     * Include content from given files
+     * Look for "!!!include(path/to/file.ext)!!!" and include its contents
+     */
+    content = content.replace(/!{3}include\((.*)\)!{3}/, (match, p1) => {
+        const replacement = fs.readFileSync(path.resolve(__dirname, p1), 'utf8');
+
+        return replacement;
+    });
+
     let html = md.render(content).replace(/`/g, '\\`');
 
     let fileName = path.basename(page, '.md'); // 01.getting-started
