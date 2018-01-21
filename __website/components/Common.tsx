@@ -12,27 +12,9 @@ export const Container = glamorous.div('container', {
     margin: '0 auto',
     '& pre': {
         margin: '8px 0',
-        padding: '16px 0',
+        padding: '16px',
         position: 'relative',
-        overflow: 'visible',
-        '&::before, &::after': {
-            content: '""',
-            display: 'block',
-            position: 'absolute',
-            width: `calc(50vw - ${(CONTAINER_WIDTH + SIDEBAR_WIDTH - CONTAINER_PADDING) / 2}px)`,
-            height: '100%',
-            background: '#2d2d2d',
-            top: '0'
-        },
-        '&::before': {
-            right: '100%'
-        },
-        '&::after': {
-            left: '100%'
-        }
-    },
-    '& ol pre::before, & ul pre::before': {
-        width: `calc(50vw - ${(CONTAINER_WIDTH + SIDEBAR_WIDTH - CONTAINER_PADDING) / 2}px + 80px)`
+        borderRadius: '4px'
     }
 });
 
