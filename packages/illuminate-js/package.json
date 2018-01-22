@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/vkbansal/illuminate-js#readme",
   "devDependencies": {
-    "@types/jest": "^21.1.8",
+    "@types/jest": "^22.0.1",
     "fs-extra": "^5.0.0",
     "glob": "^7.1.2",
     "jest": "^22.0.4",
