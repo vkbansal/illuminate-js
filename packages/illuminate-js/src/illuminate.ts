@@ -18,6 +18,25 @@ export type Plugin = (a: typeof addHook) => void;
 
 export const languages = new Map<string, Definition>();
 
+/**
+ * Converts the code to an `Array<string | Token>`, which can be used to write a render.
+ * For example, `react-illuminate` uses this to tokenize the code string and render it using react components.
+ *
+ * @param text    The code to be tokenized
+ * @param grammar The definition to be used for tokenizing
+ *
+ * @private
+ *
+ * @example
+ * import { tokenize } from 'illuminate-js';
+ * import { javascript } from 'illuminate-js/lib/languages';
+ *
+ * const code = `
+ * ...
+ * `;
+ *
+ * tokenize(code, javascript); // returns Array<string | Token>
+ */
 export function tokenize(text: string, grammar: Definition): Array<string | Token> {
     if (!(grammar instanceof Map)) {
         throw new Error('A grammar must be a Map');
@@ -115,6 +134,26 @@ export interface HighlightEnv {
     language: string;
 }
 
+/**
+ * Highlights the given code. Returns the highlighted code in `string` format.
+ *
+ * @param text      The code string that is to be highlighted.
+ * @param language  Name of the definition to be used. This name corresponds to
+ *                  the name given to the definition using `addLanguage`.
+ *
+ * @example
+ * import { addLanguage, highlight } from 'illuminate-js';
+ * import { javascript } from 'illuminate-js/lib/languages';
+ *
+ * addLanguage('javascript', javascript);
+ * addLanguage('js', javascript);
+ *
+ * const code = `
+ * ...
+ * `;
+ *
+ * highlight(code, 'js');
+ */
 export function highlight(text: string, language: string): string {
     const grammar = languages.get(language);
 
@@ -142,6 +181,18 @@ export function highlight(text: string, language: string): string {
     return env.highlightedCode; // Specific for plugins
 }
 
+/**
+ * Helper to add a plugin.
+ *
+ * @param plugin The plugin to be added.
+ *               See [Plugins](./#/plugins/) for more details.
+ *
+ * @example
+ * import { addPlugin } from 'illuminate-js';
+ * import { showLanguage } from 'illuminate-js/lib/plugins/showLanguage';
+ *
+ * addPlugin(showLanguage);
+ */
 export function addPlugin(plugin: Plugin) {
     if (typeof plugin !== 'function') {
         throw new Error('Given Plugin must be a function');
@@ -150,14 +201,54 @@ export function addPlugin(plugin: Plugin) {
     plugin(addHook);
 }
 
+/**
+ * Removes all the plugins.
+ *
+ * @example
+ * import { resetPlugins } from 'illuminate-js';
+ *
+ * resetPlugins();
+ */
 export function resetPlugins() {
     resetHooks();
 }
 
+/**
+ * Add a language definition to a illuminate.
+ * You can add same definition multiple times with different names
+ *
+ * @param name  The name of the language being added.
+ *              This name will be used by `highlight` function.
+ * @param def   The language `Definition` to be added.
+ *
+ * @example
+ * import { addLanguage } from 'illuminate-js';
+ * import { javascript } from 'illuminate-js/lib/languages';
+ *
+ * addLanguage('javascript', javascript);
+ * addLanguage('js', javascript);
+ */
 export function addLanguage(name: string, def: Definition) {
     languages.set(name, def);
 }
 
+/**
+ * Returns the language definition which was added using `addLanguage`.
+ * Returns the `Definition` if found, else returns `undefined`.
+ *
+ * @param name The name of the language definition
+ *
+ * @private
+ *
+ * @example
+ * import { addLanguage, getLanguage } from 'illuminate-js';
+ * import { javascript } from 'illuminate-js/lib/languages';
+ *
+ * addLanguage('javascript', javascript);
+ * addLanguage('js', javascript);
+ *
+ * getLanguage('js'); // returns javascript definition
+ */
 export function getLanguage(name: string): Definition | undefined {
     return languages.get(name);
 }
