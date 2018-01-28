@@ -84,7 +84,7 @@ ReactIlluminateAPI = Object.assign({}, ReactIlluminateAPI[0], {
 });
 
 fs.writeFileSync(
-    path.join(__dirname, 'components', `ReactIlluminateAPI.ts`),
-    `${header}export const API = ${JSON.stringify(ReactIlluminateAPI, null, 4)}`,
+    path.join(__dirname, 'components', `ReactIlluminateAPI.json`),
+    JSON.stringify(ReactIlluminateAPI, null, 4),
     'utf8'
 );

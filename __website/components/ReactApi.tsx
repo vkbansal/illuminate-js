@@ -5,7 +5,7 @@ import { ComponentDoc } from 'react-docgen-typescript/lib';
 import { Illuminate } from 'react-illuminate';
 
 import { Container } from './Common';
-import { API } from './ReactIlluminateAPI';
+import API from './ReactIlluminateAPI.json';
 
 const Heading = glamorous.div({
     fontWeight: 'bold',

@@ -7,11 +7,10 @@ const content = `<h1>React Illuminate</h1>
 <pre><code class="language-bash"><span class="token function" >npm</span> <span class="token function" >install</span> --save illuminate-js react-illuminate
 </code></pre>
 <h2>Usage</h2>
-<pre><code class="language-js"><span class="token keyword keyword-import" >import</span> <span class="token punctuation brackets-braces" >{</span> addLanguage <span class="token punctuation brackets-braces" >}</span> <span class="token keyword keyword-from" >from</span> <span class="token string" >'illuminate-js'</span><span class="token punctuation" >;</span>
-<span class="token keyword keyword-import" >import</span> <span class="token punctuation brackets-braces" >{</span> javascript <span class="token punctuation brackets-braces" >}</span> <span class="token keyword keyword-from" >from</span> <span class="token string" >'illuminate-js/lib/languages'</span><span class="token punctuation" >;</span>
+<pre><code class="language-js"><span class="token keyword keyword-import" >import</span> <span class="token punctuation brackets-braces" >{</span> javascript <span class="token punctuation brackets-braces" >}</span> <span class="token keyword keyword-from" >from</span> <span class="token string" >'illuminate-js/lib/languages'</span><span class="token punctuation" >;</span>
 <span class="token keyword keyword-import" >import</span> <span class="token punctuation brackets-braces" >{</span> Illuminate <span class="token punctuation brackets-braces" >}</span> <span class="token keyword keyword-from" >from</span> <span class="token string" >'react-Illuminate'</span><span class="token punctuation" >;</span>
 
-<span class="token function" >addLanguage</span><span class="token punctuation brackets-parentheses" >(</span><span class="token string" >'js'</span><span class="token punctuation" >,</span> javascript<span class="token punctuation brackets-parentheses" >)</span><span class="token punctuation" >;</span>
+Illuminate<span class="token punctuation" >.</span><span class="token function" >addLanguage</span><span class="token punctuation brackets-parentheses" >(</span><span class="token string" >'js'</span><span class="token punctuation" >,</span> javascript<span class="token punctuation brackets-parentheses" >)</span><span class="token punctuation" >;</span>
 
 <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>Illuminate</span> <span class="token attr-name" >lang</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>js<span class="token punctuation" >"</span></span><span class="token punctuation" >&gt;</span></span>
     <span class="token punctuation brackets-braces" >{</span>\`
