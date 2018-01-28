@@ -2,14 +2,15 @@ import * as React from 'react';
 import { render } from 'react-dom';
 import { HashRouter as Router, Route } from 'react-router-dom';
 
-import { addLanguage, Definition } from 'illuminate-js';
+import { Definition } from 'illuminate-js';
+import { Illuminate } from 'react-illuminate';
 import * as langs from 'illuminate-js/lib/languages';
 
 type LangMap = Record<string, Definition>;
 
-Object.keys(langs).forEach((lang) => addLanguage(lang, (langs as LangMap)[lang] as any));
-addLanguage('javascript', langs.jsx);
-addLanguage('typescript', langs.tsx);
+Object.keys(langs).forEach((lang) => Illuminate.addLanguage(lang, (langs as LangMap)[lang] as any));
+Illuminate.addLanguage('javascript', langs.jsx);
+Illuminate.addLanguage('typescript', langs.tsx);
 
 import './theme.css';
 import 'illuminate-js/lib/plugins/lineNumbers/style.css';
