@@ -2,9 +2,9 @@ import * as React from 'react';
 
 export type SingleOrArray<T> = T | T[];
 
-export interface Token {
+export interface IlluminateToken {
     type: string;
-    content: SingleOrArray<string | Token>;
+    content: SingleOrArray<string | IlluminateToken>;
     alias?: SingleOrArray<string>;
 }
 
@@ -14,7 +14,7 @@ export interface CustomClasses {
 }
 
 export interface TokenProps {
-    token: SingleOrArray<string | Token>;
+    token: SingleOrArray<string | IlluminateToken>;
     customClasses?: CustomClasses;
 }
 
@@ -40,7 +40,7 @@ export function TokenElement(props: TokenProps): React.ReactElement<TokenProps> 
     if (props.customClasses) {
         const { customClasses } = props;
 
-        classes = classes.map(c => {
+        classes = classes.map((c) => {
             return (
                 (customClasses.prefix || '') +
                 (customClasses.map && Object.prototype.hasOwnProperty.call(customClasses.map, c)
