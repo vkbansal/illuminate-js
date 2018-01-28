@@ -1,20 +1,9 @@
 import * as React from 'react';
 import { render } from 'react-dom';
 import { HashRouter as Router, Route } from 'react-router-dom';
-
 import { Definition } from 'illuminate-js';
 import { Illuminate } from 'react-illuminate';
 import * as langs from 'illuminate-js/lib/languages';
-
-type LangMap = Record<string, Definition>;
-
-Object.keys(langs).forEach((lang) => Illuminate.addLanguage(lang, (langs as LangMap)[lang] as any));
-Illuminate.addLanguage('javascript', langs.jsx);
-Illuminate.addLanguage('typescript', langs.tsx);
-
-import './theme.css';
-import 'illuminate-js/lib/plugins/lineNumbers/style.css';
-import 'illuminate-js/lib/plugins/showLanguage/style.css';
 
 import { Wrapper, Sidebar, NavHeading, Nav, NavItem, Link, Content } from './components/Common';
 import { GettingStarted } from './components/GettingStarted';
@@ -24,6 +13,16 @@ import { LanguageDefinition } from './components/LanguageDefinition';
 import { ReactGettingStared } from './components/ReactGettingStared';
 import { ReactApi } from './components/ReactApi';
 import { Demo } from './components/Demo';
+
+import './theme.css';
+import 'illuminate-js/lib/plugins/lineNumbers/style.css';
+import 'illuminate-js/lib/plugins/showLanguage/style.css';
+
+type LangMap = Record<string, Definition>;
+
+Object.keys(langs).forEach((lang) => Illuminate.addLanguage(lang, (langs as LangMap)[lang] as any));
+Illuminate.addLanguage('javascript', langs.jsx);
+Illuminate.addLanguage('typescript', langs.tsx);
 
 class App extends React.Component {
     render() {
