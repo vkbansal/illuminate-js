@@ -14,11 +14,10 @@ npm install --save illuminate-js react-illuminate
 ## Usage
 
 ```js
-import { addLanguage } from 'illuminate-js';
 import { javascript } from 'illuminate-js/lib/languages';
 import { Illuminate } from 'react-Illuminate';
 
-addLanguage('js', javascript);
+Illuminate.addLanguage('js', javascript);
 
 <Illuminate lang="js">
     {`
