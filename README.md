@@ -9,4 +9,4 @@ Illuminate is a syntax highlighter for NodeJS and can be used with
 ## Packages
 
 * [illuminate-js](./packages/illuminate-js/)
-* [react-illuminate](./packages/react-contextmenu)
+* [react-illuminate](./packages/react-illuminate)
