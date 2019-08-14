@@ -27,7 +27,7 @@
     "prettier": "^1.8.2",
     "react": "^16.2.0",
     "react-docgen-typescript": "^1.2.2",
-    "react-dom": "^16.2.0",
+    "react-dom": "^16.2.1",
     "react-router-dom": "^4.2.2",
     "ts-loader": "^3.3.0",
     "typescript": "^2.6.1",
